@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h> 
+#include <assert.h>
 
 double my_sqrt(double x) {
     double value = 0; 
@@ -11,7 +12,7 @@ double my_sqrt(double x) {
     return value; 
 }
 
-double my_sqrt_fixed(int x) {
+double my_sqrt_fixed(double x) {
     assert(0 <= x); 
     if(x == 0) {
         return 0 ; 
@@ -21,6 +22,5 @@ double my_sqrt_fixed(int x) {
 
 int main(void) {
     printf("[Exercise 4: To Infinity and Beyond]\n"); 
-    unsigned long long infinity =  __FLT_MAX__ * 1000; 
-    printf("Infinity sqrt: %.6f\n", my_sqrt_fixed(infinity)); 
+    printf("Infinity sqrt: %.6f\n", my_sqrt_fixed(__FLT_MAX__)); 
 }
