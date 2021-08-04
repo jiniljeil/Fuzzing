@@ -11,14 +11,17 @@
 #define DEBUG
 
 struct file_info {
-    char * path ;
+    char ** path ;
     char * dir_name ; 
+    int count ;
 };
 
 typedef struct file_info FILE_INFO; 
 // generate random string by fuzzer 
 char * fuzzer(int max_length, int char_start, int char_range); 
+// create the temporary file
+FILE_INFO* create_temp_dir();
 // input the random string in the temporary file.
-FILE_INFO* creating_input_files(char* random_string_by_fuzzer) ;
+FILE_INFO* creating_input_file(FILE_INFO* info, char* random_string_by_fuzzer) ;
 // remove the temporary directory and file 
 void remove_files(FILE_INFO * f_info);
