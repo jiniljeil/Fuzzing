@@ -6,10 +6,10 @@ char * fuzzer(int max_length, int char_start, int char_range) {
     int string_length = rand() % (max_length + 1 ); // '\0'
     char * out = (char*)malloc(sizeof(char) * string_length) ; 
 
-    for(int i = 0 ; i < string_length; i++) {
+    for(int i = 0 ; i < string_length - 1; i++) {
         out[i] = (char) (char_start + rand() % char_range); 
     }
-    
+    out[string_length - 1] = '\0';
     return out; 
 }
 
