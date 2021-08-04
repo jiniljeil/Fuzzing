@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <string.h>
-#include "lib/shellsort.h"
+#include "include/shellsort.h"
 
 void part0_basic() {
     int random_size = 1 + rand() % 10000; 

@@ -2,7 +2,7 @@
 #include <math.h>
 #include <stdlib.h> 
 #include <assert.h>
-#include "lib/quadratic.h"
+#include "include/quadratic.h"
 
 void part1_find_bug_triggering_inputs() {
     double *q_solver; 

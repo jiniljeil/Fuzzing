@@ -1,5 +1,5 @@
-#include "quadratic.h"
-#include "my_sqrt.h"
+#include "../include/quadratic.h"
+#include "../include/my_sqrt.h"
 
 double* quadratic_solver(double a, double b, double c) {
     double *sol = (double*)malloc(sizeof(double) * 2); 

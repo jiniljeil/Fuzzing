@@ -1,4 +1,4 @@
-#include "shellsort.h"
+#include "../include/shellsort.h"
 
 int* shellsort(int *elems, int size){
     int elems_size = size; 
