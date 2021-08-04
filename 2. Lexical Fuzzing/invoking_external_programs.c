@@ -9,7 +9,7 @@ void long_running_fuzzing() {
     srand(time(NULL)); 
     for(int i = 0 ; i < trials; i++) {
         char* basic_random = fuzzer(BASIC_LENGTH, BASIC_START, BASIC_RANGE); 
-        strcat(basic_random, "\n");
+
         FILE_INFO * f_info = creating_input_files(basic_random); 
         
         char* command = (char*)malloc(sizeof(char) * (strlen(f_info->path) + 1 + 3)); // path strlen + \0(1) + "bc "(3)
@@ -28,6 +28,7 @@ void long_running_fuzzing() {
         }else{
             printf("exit status %d\n", status); 
         }
+
         if(strlen(data) > BUFF_MAX * _space) { 
             data = (char*)realloc(data, (++_space) * BUFF_MAX); 
         }else{
@@ -36,6 +37,8 @@ void long_running_fuzzing() {
 
         remove_files(f_info); 
     }
+    if(strlen(data) != 0)  // '\0'
+        printf("%s\n",data);
 }
 
 int main(void) {

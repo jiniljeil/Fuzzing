@@ -3,7 +3,7 @@
 char * fuzzer(int max_length, int char_start, int char_range) {
     // 수정 필요 
     // srand(clock());
-    int string_length = rand() % (max_length + 1);
+    int string_length = rand() % (max_length + 1 ); // '\0'
     char * out = (char*)malloc(sizeof(char) * string_length) ; 
 
     for(int i = 0 ; i < string_length; i++) {
@@ -35,7 +35,9 @@ FILE_INFO* creating_input_files(char* random_string_by_fuzzer) {
     fp = fopen(path, "rb"); 
     char * content = (char *)malloc(sizeof(char) * (strlen(random_string_by_fuzzer) + 1)); 
     fscanf(fp, "%[^\n]s", content); 
+
     printf("%s\n", content);
+
     fclose(fp);
 
     info->path = (char*)malloc(sizeof(char) * (strlen(path) + 1)); 
