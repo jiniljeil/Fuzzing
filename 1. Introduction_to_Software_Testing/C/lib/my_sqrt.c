@@ -1,9 +1,4 @@
 #include "my_sqrt.h"
-#include <stdio.h>
-#include <assert.h>
-#include <math.h> 
-#include <stdlib.h>
-#define EPSILON 1e-8
 
 double my_sqrt(double x) {
     double value = 0; 

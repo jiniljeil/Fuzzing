@@ -17,4 +17,4 @@ my_sqrt_test:
 	gcc -o my_sqrt_test my_sqrt_test.c lib/my_sqrt.c
 
 clean:
-	rm -rf my_sqrt_test exercise2 exercise3	 exercise4 my_sqrt.o shellsort.o quadratic.o
+	rm -rf my_sqrt_test exercise2 exercise3	exercise4 my_sqrt.o shellsort.o quadratic.o
