@@ -1,10 +1,21 @@
 #include "include/fuzzer.h"
-#include <unistd.h>
+#include "include/file.h"
 #include <signal.h>
 #define READ 0 
 #define WRITE 1
 int pipes[2]; 
 int error_pipes[2]; 
+
+void check_error_file() {
+    FILE * error_file = fopen("error", "r");
+    if(error_file) {
+        fclose(error_file);
+        remove(error);
+    }
+    fclose(error_file);
+    return ;
+}
+
 void subprocess_run(char *program, char* file) {
     char *buf = (char*)malloc(sizeof(char) * BUFF_MAX); 
     memset(buf, 0, BUFF_MAX);
@@ -32,7 +43,6 @@ void subprocess_run(char *program, char* file) {
         // dup2(pipes[WRITE], 2); 
         dup2(error_pipes[WRITE], 2); 
 
-        
         execlp(program, program, file, 0x0);
         
     }else{ // parent
@@ -45,9 +55,12 @@ void subprocess_run(char *program, char* file) {
             printf("%s\n", buf);
         }
 
+        FILE * fp = fopen("error", "a"); 
         while(read(error_pipes[READ], error, BUFF_MAX) > 0 ) {
             printf("%s\n", error);
+            fwrite(error, 1, strlen(error) + 1, fp);
         }
+        fclose(fp);
 
         close(pipes[READ]);
         close(error_pipes[READ]);
@@ -65,36 +78,15 @@ void long_running_fuzzing() {
  
     f_info = create_temp_dir(); 
 
+    // 에러 파일 존재할 경우 삭제 
+    check_error_file(); 
+
     for(int i = 0 ; i < trials; i++) {
         char* basic_random = fuzzer(BASIC_LENGTH, BASIC_START, BASIC_RANGE); 
 
         f_info = creating_input_file(f_info, basic_random); 
         
         subprocess_run("bc", f_info->path[i]); 
-        // char* command = (char*)malloc(sizeof(char) * (strlen(f_info->path[i]) + 1 + 3)); // path strlen + \0(1) + "bc "(3)
-        // sprintf(command, "cat %s | bc 2>> error", f_info->path[i]);  // cat filename | bc 
-
-        // FILE * fp = popen(command, "r");
-        // if(fp == NULL) return ; 
-
-        // // fscanf(fp, "%s", result); 
-        // fread(result, sizeof(result), 1, fp); 
-
-        // status = pclose(fp);
-
-        // if(status == -1) {
-        //     perror("The subprocess is exited incorrectly!\n"); 
-        //     return ; 
-        // }else{
-        //     printf("exit status %d\n", status); 
-        // }
-
-        // if(strlen(data) > BUFF_MAX * _space) { 
-        //     data = (char*)realloc(data, (++_space) * BUFF_MAX); 
-        // }else{
-        //     strcat(data, result); 
-        // }
-
     }
     if(strlen(data) != 0)  // '\0'
         printf("%s\n",data);
