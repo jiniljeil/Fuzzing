@@ -7,13 +7,21 @@
 int pipes[2]; 
 int error_pipes[2]; 
 
-void check_error_file() {
+void remove_result_files() {
+    FILE * output_file = fopen("output", "r");
+    if(output_file) {
+        fclose(output_file);
+        remove("output");
+    }
+    fclose(output_file);
+    
     FILE * error_file = fopen("error", "r");
     if(error_file) {
         fclose(error_file);
         remove("error");
     }
     fclose(error_file);
+
     return ;
 }
 
@@ -49,19 +57,22 @@ void subprocess_run(char *program, char* file) {
         
     }else{ 
         /* parent */
-        int status; 
+        int status;
+        ssize_t buff_output_size, buff_error_size; 
         wait(&status); 
         printf("exit status %d\n", status);
         close(pipes[WRITE]); 
         close(error_pipes[WRITE]); 
 
-        while(read(pipes[READ], buf, BUFF_MAX - 1) > 0) {
-            printf("%s\n", buf);
+        FILE * f = fopen("output", "a"); 
+        while((buff_output_size = read(pipes[READ], buf, BUFF_MAX - 1)) > 0) {
+            fwrite(buf, 1, buff_output_size, f);
         }
+        fclose(f); 
 
         FILE * fp = fopen("error", "a"); 
-        while(read(error_pipes[READ], error, BUFF_MAX - 1) > 0 ) {
-            fwrite(error, 1, strlen(error), fp);
+        while((buff_error_size = read(error_pipes[READ], error, BUFF_MAX - 1)) > 0 ) {
+            fwrite(error, 1, buff_error_size, fp);
         }
         fclose(fp);
 
@@ -82,7 +93,7 @@ void long_running_fuzzing() {
     f_info = create_temp_dir(); 
 
     // 에러 파일 존재할 경우 삭제 
-    check_error_file(); 
+    remove_result_files(); 
 
     for(int i = 0 ; i < trials; i++) {
         char* basic_random = fuzzer(BASIC_LENGTH, BASIC_START, BASIC_RANGE); 

@@ -1,496 +1,518 @@
-tmp.kRtDgi/input0.txt 1: parse error
-tmp.kRtDgi/input1.txt 1: parse error
-tmp.kRtDgi/input1.txt 1: illegal character: &
-tmp.kRtDgi/input1.txt 1: illegal character: ?
-tmp.kRtDgi/input1.txt 1: parse error
-tmp.kRtDgi/input2.txt 1: parse error
-tmp.kRtDgi/input2.txt 1: illegal character: '
-tmp.kRtDgi/input2.txt 1: illegal character: "
-tmp.kRtDgi/input2.txt 1: illegal character: :
-tmp.kRtDgi/input2.txt 1: illegal character: ^@
-tmp.kRtDgi/input3.txt 1: illegal character: $
-tmp.kRtDgi/input3.txt 1: parse error
-tmp.kRtDgi/input3.txt 1: illegal character: $
-tmp.kRtDgi/input3.txt 1: illegal character: :
-tmp.kRtDgi/input3.txt 1: parse error
-tmp.kRtDgi/input3.txt 1: parse error
-tmp.kRtDgi/input3.txt 1: illegal character: "
-tmp.kRtDgi/input3.txt 1: illegal character: &
-tmp.kRtDgi/input3.txt 1: illegal character: ^@
-tmp.kRtDgi/input4.txt 1: illegal character: &
-tmp.kRtDgi/input4.txt 1: parse error
-tmp.kRtDgi/input4.txt 1: illegal character: ?
-tmp.kRtDgi/input4.txt 1: illegal character: '
-tmp.kRtDgi/input4.txt 1: parse error
-tmp.kRtDgi/input4.txt 1: illegal character: &
-tmp.kRtDgi/input4.txt 1: illegal character: ?
+tmp.DzC6A6/input0.txt 1: parse error
 (standard_in) 1: parse error
-tmp.kRtDgi/input5.txt 1: illegal character: :
+tmp.DzC6A6/input1.txt 1: parse error
+tmp.DzC6A6/input1.txt 1: illegal character: '
+tmp.DzC6A6/input1.txt 1: illegal character: ?
+tmp.DzC6A6/input1.txt 1: illegal character: &
+tmp.DzC6A6/input1.txt 1: illegal character: &
+tmp.DzC6A6/input1.txt 1: illegal character: :
+tmp.DzC6A6/input1.txt 1: parse error
+tmp.DzC6A6/input1.txt 1: illegal character: ^@
+tmp.DzC6A6/input3.txt 1: illegal character: ?
+tmp.DzC6A6/input3.txt 1: illegal character: ^@
 (standard_in) 1: parse error
-tmp.kRtDgi/input6.txt 1: parse error
-tmp.kRtDgi/input6.txt 1: illegal character: '
-tmp.kRtDgi/input6.txt 1: illegal character: '
-tmp.kRtDgi/input6.txt 1: illegal character: &
-tmp.kRtDgi/input6.txt 1: parse error
-tmp.kRtDgi/input6.txt 1: parse error
-tmp.kRtDgi/input6.txt 1: illegal character: $
-tmp.kRtDgi/input6.txt 1: illegal character: $
-tmp.kRtDgi/input6.txt 1: parse error
-tmp.kRtDgi/input6.txt 1: illegal character: &
-tmp.kRtDgi/input6.txt 1: illegal character: $
-tmp.kRtDgi/input6.txt 1: illegal character: :
-tmp.kRtDgi/input6.txt 1: illegal character: &
-tmp.kRtDgi/input6.txt 1: illegal character: ^@
+tmp.DzC6A6/input4.txt 1: parse error
+tmp.DzC6A6/input4.txt 1: illegal character: :
+tmp.DzC6A6/input4.txt 1: illegal character: ?
+tmp.DzC6A6/input4.txt 1: illegal character: '
+tmp.DzC6A6/input4.txt 1: parse error
+tmp.DzC6A6/input5.txt 1: parse error
+tmp.DzC6A6/input5.txt 1: illegal character: '
+tmp.DzC6A6/input5.txt 1: illegal character: ?
+tmp.DzC6A6/input5.txt 1: parse error
+tmp.DzC6A6/input5.txt 1: illegal character: :
+tmp.DzC6A6/input5.txt 1: parse error
+tmp.DzC6A6/input5.txt 1: illegal character: &
+EOF encountered in a comment.
+tmp.DzC6A6/input6.txt 1: parse error
+tmp.DzC6A6/input6.txt 1: illegal character: ?
+tmp.DzC6A6/input6.txt 1: parse error
+tmp.DzC6A6/input7.txt 1: parse error
+tmp.DzC6A6/input7.txt 1: illegal character: '
+tmp.DzC6A6/input7.txt 1: parse error
+tmp.DzC6A6/input7.txt 1: illegal character: '
+tmp.DzC6A6/input7.txt 1: parse error
+tmp.DzC6A6/input7.txt 1: illegal character: '
+tmp.DzC6A6/input7.txt 1: illegal character: "
+tmp.DzC6A6/input7.txt 1: illegal character: '
+tmp.DzC6A6/input7.txt 1: illegal character: '
+tmp.DzC6A6/input7.txt 1: illegal character: '
+tmp.DzC6A6/input7.txt 1: illegal character: &
+tmp.DzC6A6/input7.txt 1: illegal character: $
+tmp.DzC6A6/input7.txt 1: illegal character: $
+tmp.DzC6A6/input7.txt 1: illegal character: ?
+tmp.DzC6A6/input7.txt 1: illegal character: ?
+tmp.DzC6A6/input7.txt 1: illegal character: ?
+tmp.DzC6A6/input7.txt 1: illegal character: &
+tmp.DzC6A6/input7.txt 1: parse error
+tmp.DzC6A6/input7.txt 1: illegal character: &
+tmp.DzC6A6/input7.txt 1: parse error
+tmp.DzC6A6/input7.txt 1: illegal character: $
+tmp.DzC6A6/input7.txt 1: illegal character: '
+tmp.DzC6A6/input7.txt 1: illegal character: ?
+tmp.DzC6A6/input7.txt 1: parse error
+tmp.DzC6A6/input8.txt 1: parse error
+tmp.DzC6A6/input8.txt 1: illegal character: :
+tmp.DzC6A6/input8.txt 1: parse error
+tmp.DzC6A6/input8.txt 1: illegal character: :
+tmp.DzC6A6/input8.txt 1: illegal character: &
+tmp.DzC6A6/input8.txt 1: illegal character: $
+tmp.DzC6A6/input8.txt 1: illegal character: '
+tmp.DzC6A6/input8.txt 1: illegal character: '
+tmp.DzC6A6/input8.txt 1: illegal character: ^@
+tmp.DzC6A6/input9.txt 1: parse error
+tmp.DzC6A6/input9.txt 1: illegal character: $
+tmp.DzC6A6/input9.txt 1: illegal character: :
+tmp.DzC6A6/input9.txt 1: parse error
+tmp.DzC6A6/input9.txt 1: illegal character: &
+tmp.DzC6A6/input9.txt 1: illegal character: $
+tmp.DzC6A6/input9.txt 1: illegal character: '
+tmp.DzC6A6/input9.txt 1: parse error
+tmp.DzC6A6/input9.txt 1: illegal character: ^@
+tmp.DzC6A6/input10.txt 1: illegal character: $
+tmp.DzC6A6/input10.txt 1: parse error
+tmp.DzC6A6/input11.txt 1: illegal character: :
+tmp.DzC6A6/input11.txt 1: parse error
+tmp.DzC6A6/input11.txt 1: parse error
+tmp.DzC6A6/input11.txt 1: illegal character: $
+tmp.DzC6A6/input11.txt 1: illegal character: ?
+tmp.DzC6A6/input11.txt 1: illegal character: '
+tmp.DzC6A6/input11.txt 1: parse error
+tmp.DzC6A6/input11.txt 1: illegal character: &
+tmp.DzC6A6/input11.txt 1: parse error
+tmp.DzC6A6/input11.txt 1: illegal character: ?
+tmp.DzC6A6/input11.txt 1: illegal character: ?
+tmp.DzC6A6/input11.txt 1: illegal character: :
+tmp.DzC6A6/input11.txt 1: illegal character: &
+tmp.DzC6A6/input11.txt 1: illegal character: ^@
+tmp.DzC6A6/input12.txt 1: parse error
+tmp.DzC6A6/input13.txt 1: illegal character: &
+tmp.DzC6A6/input13.txt 1: parse error
+tmp.DzC6A6/input13.txt 1: illegal character: &
 (standard_in) 1: parse error
-tmp.kRtDgi/input7.txt 1: illegal character: &
-tmp.kRtDgi/input7.txt 1: illegal character: '
-tmp.kRtDgi/input7.txt 1: parse error
-tmp.kRtDgi/input7.txt 1: illegal character: :
-tmp.kRtDgi/input7.txt 1: illegal character: ?
-tmp.kRtDgi/input7.txt 1: illegal character: '
-tmp.kRtDgi/input9.txt 1: parse error
-tmp.kRtDgi/input9.txt 1: illegal character: :
-tmp.kRtDgi/input9.txt 1: illegal character: $
-tmp.kRtDgi/input9.txt 1: illegal character: :
-tmp.kRtDgi/input9.txt 1: illegal character: :
-tmp.kRtDgi/input9.txt 1: illegal character: $
+tmp.DzC6A6/input14.txt 1: parse error
+tmp.DzC6A6/input14.txt 1: illegal character: '
+tmp.DzC6A6/input14.txt 1: parse error
+tmp.DzC6A6/input14.txt 1: illegal character: $
+tmp.DzC6A6/input14.txt 1: illegal character: &
+tmp.DzC6A6/input14.txt 1: illegal character: :
+tmp.DzC6A6/input14.txt 1: parse error
+tmp.DzC6A6/input14.txt 1: illegal character: $
+tmp.DzC6A6/input14.txt 1: illegal character: $
+tmp.DzC6A6/input15.txt 1: parse error
+tmp.DzC6A6/input16.txt 1: parse error
+tmp.DzC6A6/input16.txt 1: illegal character: :
+tmp.DzC6A6/input16.txt 1: illegal character: &
+tmp.DzC6A6/input16.txt 1: parse error
+tmp.DzC6A6/input16.txt 1: illegal character: ?
 (standard_in) 1: parse error
-tmp.kRtDgi/input10.txt 1: parse error
-tmp.kRtDgi/input10.txt 1: illegal character: "
-tmp.kRtDgi/input10.txt 1: parse error
-tmp.kRtDgi/input11.txt 1: parse error
-tmp.kRtDgi/input11.txt 1: illegal character: "
-tmp.kRtDgi/input11.txt 1: illegal character: ^@
-tmp.kRtDgi/input12.txt 1: parse error
-tmp.kRtDgi/input12.txt 1: illegal character: &
-tmp.kRtDgi/input12.txt 1: illegal character: $
-tmp.kRtDgi/input12.txt 1: illegal character: ?
-tmp.kRtDgi/input12.txt 1: illegal character: "
-tmp.kRtDgi/input12.txt 1: illegal character: :
-tmp.kRtDgi/input12.txt 1: illegal character: '
-tmp.kRtDgi/input12.txt 1: parse error
-tmp.kRtDgi/input12.txt 1: illegal character: '
-tmp.kRtDgi/input12.txt 1: illegal character: ^@
+tmp.DzC6A6/input17.txt 1: parse error
+tmp.DzC6A6/input17.txt 1: illegal character: '
+tmp.DzC6A6/input17.txt 1: illegal character: '
+tmp.DzC6A6/input17.txt 1: illegal character: ?
+tmp.DzC6A6/input17.txt 1: illegal character: '
+tmp.DzC6A6/input17.txt 1: illegal character: '
+tmp.DzC6A6/input17.txt 1: illegal character: ?
+tmp.DzC6A6/input17.txt 1: illegal character: ?
+tmp.DzC6A6/input17.txt 1: illegal character: $
+tmp.DzC6A6/input17.txt 1: parse error
+tmp.DzC6A6/input17.txt 1: illegal character: '
+tmp.DzC6A6/input17.txt 1: illegal character: :
+tmp.DzC6A6/input17.txt 1: illegal character: :
+tmp.DzC6A6/input17.txt 1: illegal character: :
+tmp.DzC6A6/input18.txt 1: parse error
+tmp.DzC6A6/input18.txt 1: illegal character: $
+tmp.DzC6A6/input19.txt 1: parse error
+tmp.DzC6A6/input19.txt 1: illegal character: '
+tmp.DzC6A6/input19.txt 1: parse error
 (standard_in) 1: parse error
-tmp.kRtDgi/input14.txt 1: parse error
-tmp.kRtDgi/input14.txt 1: illegal character: $
-tmp.kRtDgi/input14.txt 1: parse error
-tmp.kRtDgi/input14.txt 1: illegal character: &
-tmp.kRtDgi/input14.txt 1: illegal character: ^@
-tmp.kRtDgi/input15.txt 1: illegal character: '
-tmp.kRtDgi/input15.txt 1: illegal character: ^@
+tmp.DzC6A6/input20.txt 1: illegal character: :
+tmp.DzC6A6/input20.txt 1: parse error
+tmp.DzC6A6/input21.txt 1: parse error
+tmp.DzC6A6/input21.txt 1: parse error
+tmp.DzC6A6/input21.txt 1: illegal character: &
+tmp.DzC6A6/input21.txt 1: illegal character: :
+tmp.DzC6A6/input21.txt 1: illegal character: ^@
+tmp.DzC6A6/input22.txt 1: illegal character: &
+tmp.DzC6A6/input22.txt 1: illegal character: ^@
 (standard_in) 1: parse error
-tmp.kRtDgi/input16.txt 1: illegal character: $
-tmp.kRtDgi/input16.txt 1: parse error
-tmp.kRtDgi/input16.txt 1: illegal character: :
-tmp.kRtDgi/input16.txt 1: illegal character: ^@
-tmp.kRtDgi/input17.txt 1: illegal character: &
-tmp.kRtDgi/input17.txt 1: parse error
-tmp.kRtDgi/input18.txt 1: parse error
-tmp.kRtDgi/input18.txt 1: illegal character: ?
-tmp.kRtDgi/input18.txt 1: illegal character: $
-tmp.kRtDgi/input18.txt 1: illegal character: '
-tmp.kRtDgi/input18.txt 1: parse error
-tmp.kRtDgi/input18.txt 1: illegal character: $
-tmp.kRtDgi/input18.txt 1: illegal character: ^@
-tmp.kRtDgi/input19.txt 1: illegal character: ^@
-tmp.kRtDgi/input20.txt 1: parse error
-tmp.kRtDgi/input21.txt 1: parse error
-tmp.kRtDgi/input21.txt 1: illegal character: &
-tmp.kRtDgi/input21.txt 1: illegal character: :
-tmp.kRtDgi/input21.txt 1: illegal character: ?
-tmp.kRtDgi/input21.txt 1: illegal character: ^@
-tmp.kRtDgi/input22.txt 1: illegal character: :
-tmp.kRtDgi/input22.txt 1: parse error
-tmp.kRtDgi/input22.txt 1: illegal character: $
-tmp.kRtDgi/input22.txt 1: illegal character: "
-tmp.kRtDgi/input22.txt 1: illegal character: $
-tmp.kRtDgi/input23.txt 1: illegal character: ^@
-tmp.kRtDgi/input24.txt 1: parse error
-tmp.kRtDgi/input24.txt 1: illegal character: :
-tmp.kRtDgi/input24.txt 1: illegal character: :
-tmp.kRtDgi/input25.txt 1: parse error
-tmp.kRtDgi/input25.txt 1: illegal character: :
-tmp.kRtDgi/input25.txt 1: illegal character: &
-tmp.kRtDgi/input25.txt 1: illegal character: :
-tmp.kRtDgi/input25.txt 1: illegal character: ?
-tmp.kRtDgi/input25.txt 1: illegal character: $
-tmp.kRtDgi/input25.txt 1: illegal character: '
-tmp.kRtDgi/input25.txt 1: parse error
-tmp.kRtDgi/input25.txt 1: illegal character: :
-tmp.kRtDgi/input25.txt 1: illegal character: :
-tmp.kRtDgi/input25.txt 1: parse error
-tmp.kRtDgi/input25.txt 1: illegal character: ^@
-tmp.kRtDgi/input26.txt 1: parse error
-tmp.kRtDgi/input26.txt 1: illegal character: :
-tmp.kRtDgi/input26.txt 1: illegal character: "
-tmp.kRtDgi/input26.txt 1: illegal character: :
-tmp.kRtDgi/input26.txt 1: illegal character: &
-tmp.kRtDgi/input26.txt 1: parse error
-tmp.kRtDgi/input26.txt 1: illegal character: $
-tmp.kRtDgi/input26.txt 1: illegal character: ?
-tmp.kRtDgi/input26.txt 1: illegal character: ^@
+tmp.DzC6A6/input23.txt 1: parse error
+tmp.DzC6A6/input23.txt 1: illegal character: $
+tmp.DzC6A6/input23.txt 1: illegal character: :
+tmp.DzC6A6/input23.txt 1: illegal character: &
+tmp.DzC6A6/input23.txt 1: parse error
+tmp.DzC6A6/input23.txt 1: illegal character: :
+tmp.DzC6A6/input23.txt 1: illegal character: ?
+tmp.DzC6A6/input23.txt 1: illegal character: ?
+tmp.DzC6A6/input23.txt 1: illegal character: '
+tmp.DzC6A6/input24.txt 1: illegal character: :
+tmp.DzC6A6/input24.txt 1: parse error
+tmp.DzC6A6/input24.txt 1: illegal character: "
+tmp.DzC6A6/input24.txt 1: illegal character: &
+tmp.DzC6A6/input24.txt 1: parse error
+tmp.DzC6A6/input24.txt 1: illegal character: &
+tmp.DzC6A6/input24.txt 1: illegal character: '
+tmp.DzC6A6/input24.txt 1: parse error
+tmp.DzC6A6/input25.txt 1: parse error
+tmp.DzC6A6/input25.txt 1: illegal character: &
+tmp.DzC6A6/input25.txt 1: illegal character: &
+tmp.DzC6A6/input25.txt 1: illegal character: '
+tmp.DzC6A6/input25.txt 1: illegal character: "
+tmp.DzC6A6/input25.txt 1: parse error
+tmp.DzC6A6/input25.txt 1: illegal character: '
 (standard_in) 1: parse error
-tmp.kRtDgi/input27.txt 1: illegal character: '
+tmp.DzC6A6/input26.txt 1: parse error
+tmp.DzC6A6/input26.txt 1: illegal character: '
+tmp.DzC6A6/input26.txt 1: illegal character: &
+tmp.DzC6A6/input26.txt 1: parse error
+tmp.DzC6A6/input26.txt 1: illegal character: :
+tmp.DzC6A6/input26.txt 1: illegal character: ?
+tmp.DzC6A6/input26.txt 1: illegal character: &
+EOF encountered in a comment.
 (standard_in) 1: parse error
-tmp.kRtDgi/input28.txt 1: illegal character: &
-tmp.kRtDgi/input28.txt 1: illegal character: :
-tmp.kRtDgi/input28.txt 1: parse error
-tmp.kRtDgi/input28.txt 1: illegal character: '
-tmp.kRtDgi/input28.txt 1: illegal character: &
-tmp.kRtDgi/input28.txt 1: parse error
-tmp.kRtDgi/input28.txt 1: illegal character: ?
-tmp.kRtDgi/input28.txt 1: illegal character: $
-tmp.kRtDgi/input28.txt 1: illegal character: ^@
-tmp.kRtDgi/input29.txt 1: illegal character: ^@
+tmp.DzC6A6/input27.txt 1: parse error
+tmp.DzC6A6/input27.txt 1: illegal character: ?
+tmp.DzC6A6/input27.txt 1: illegal character: $
+tmp.DzC6A6/input27.txt 1: parse error
 (standard_in) 1: parse error
-tmp.kRtDgi/input30.txt 1: parse error
-tmp.kRtDgi/input31.txt 1: parse error
-tmp.kRtDgi/input31.txt 1: illegal character: $
-tmp.kRtDgi/input31.txt 1: illegal character: $
-tmp.kRtDgi/input31.txt 1: illegal character: ?
-tmp.kRtDgi/input31.txt 1: illegal character: &
-tmp.kRtDgi/input31.txt 1: parse error
-tmp.kRtDgi/input31.txt 1: parse error
-tmp.kRtDgi/input31.txt 1: parse error
-tmp.kRtDgi/input31.txt 1: illegal character: ^@
-tmp.kRtDgi/input32.txt 1: parse error
-tmp.kRtDgi/input32.txt 1: parse error
-tmp.kRtDgi/input32.txt 1: illegal character: '
-tmp.kRtDgi/input32.txt 1: illegal character: ^@
-tmp.kRtDgi/input34.txt 1: parse error
-tmp.kRtDgi/input35.txt 1: parse error
-tmp.kRtDgi/input36.txt 1: parse error
-tmp.kRtDgi/input36.txt 1: illegal character: $
-tmp.kRtDgi/input36.txt 1: illegal character: "
-tmp.kRtDgi/input36.txt 1: illegal character: &
-tmp.kRtDgi/input36.txt 1: illegal character: '
-tmp.kRtDgi/input36.txt 1: illegal character: :
-tmp.kRtDgi/input36.txt 1: illegal character: '
-tmp.kRtDgi/input36.txt 1: parse error
-tmp.kRtDgi/input36.txt 1: illegal character: $
-tmp.kRtDgi/input36.txt 1: illegal character: $
-tmp.kRtDgi/input36.txt 1: illegal character: ^@
-tmp.kRtDgi/input37.txt 1: parse error
-tmp.kRtDgi/input37.txt 1: illegal character: '
-tmp.kRtDgi/input37.txt 1: illegal character: $
-tmp.kRtDgi/input37.txt 1: illegal character: $
-tmp.kRtDgi/input38.txt 1: illegal character: ?
-tmp.kRtDgi/input38.txt 1: parse error
-tmp.kRtDgi/input39.txt 1: parse error
-tmp.kRtDgi/input39.txt 1: illegal character: :
-tmp.kRtDgi/input39.txt 1: parse error
-tmp.kRtDgi/input39.txt 1: illegal character: ?
-tmp.kRtDgi/input40.txt 1: illegal character: ?
-tmp.kRtDgi/input41.txt 1: parse error
-tmp.kRtDgi/input41.txt 1: illegal character: &
-tmp.kRtDgi/input41.txt 1: illegal character: :
-tmp.kRtDgi/input41.txt 1: parse error
-tmp.kRtDgi/input41.txt 1: illegal character: "
-tmp.kRtDgi/input41.txt 1: illegal character: ^@
+tmp.DzC6A6/input28.txt 1: illegal character: "
+tmp.DzC6A6/input28.txt 1: parse error
+tmp.DzC6A6/input28.txt 1: illegal character: :
+tmp.DzC6A6/input28.txt 1: parse error
+tmp.DzC6A6/input28.txt 1: illegal character: &
+tmp.DzC6A6/input28.txt 1: illegal character: :
+tmp.DzC6A6/input28.txt 1: illegal character: &
+tmp.DzC6A6/input28.txt 1: illegal character: ^@
 (standard_in) 1: parse error
-tmp.kRtDgi/input42.txt 1: illegal character: ^@
-tmp.kRtDgi/input43.txt 1: illegal character: &
-tmp.kRtDgi/input43.txt 1: parse error
-tmp.kRtDgi/input43.txt 1: illegal character: ?
-tmp.kRtDgi/input43.txt 1: illegal character: '
-tmp.kRtDgi/input43.txt 1: parse error
-tmp.kRtDgi/input44.txt 1: parse error
-tmp.kRtDgi/input44.txt 1: illegal character: '
-tmp.kRtDgi/input44.txt 1: illegal character: :
-tmp.kRtDgi/input44.txt 1: illegal character: :
-tmp.kRtDgi/input44.txt 1: illegal character: "
-tmp.kRtDgi/input44.txt 1: illegal character: ^@
-tmp.kRtDgi/input45.txt 1: illegal character: $
+tmp.DzC6A6/input29.txt 1: parse error
 (standard_in) 1: parse error
-tmp.kRtDgi/input46.txt 1: parse error
-tmp.kRtDgi/input46.txt 1: illegal character: $
-tmp.kRtDgi/input46.txt 1: parse error
-tmp.kRtDgi/input46.txt 1: illegal character: &
-tmp.kRtDgi/input46.txt 1: illegal character: $
-tmp.kRtDgi/input46.txt 1: illegal character: ?
-tmp.kRtDgi/input46.txt 1: parse error
-tmp.kRtDgi/input46.txt 1: illegal character: $
-tmp.kRtDgi/input46.txt 1: parse error
-tmp.kRtDgi/input46.txt 1: parse error
-tmp.kRtDgi/input46.txt 1: illegal character: "
-tmp.kRtDgi/input46.txt 1: parse error
-tmp.kRtDgi/input46.txt 1: illegal character: ^@
-tmp.kRtDgi/input47.txt 1: parse error
-tmp.kRtDgi/input47.txt 1: illegal character: &
-tmp.kRtDgi/input48.txt 1: illegal character: :
-tmp.kRtDgi/input48.txt 1: parse error
-tmp.kRtDgi/input48.txt 1: illegal character: ^@
+tmp.DzC6A6/input30.txt 1: parse error
+tmp.DzC6A6/input30.txt 1: illegal character: $
 (standard_in) 1: parse error
-tmp.kRtDgi/input49.txt 1: illegal character: &
-tmp.kRtDgi/input49.txt 1: parse error
-tmp.kRtDgi/input49.txt 1: illegal character: $
-tmp.kRtDgi/input49.txt 1: illegal character: :
-tmp.kRtDgi/input49.txt 1: illegal character: &
-tmp.kRtDgi/input49.txt 1: illegal character: '
-tmp.kRtDgi/input50.txt 1: illegal character: :
-tmp.kRtDgi/input50.txt 1: illegal character: &
-tmp.kRtDgi/input50.txt 1: parse error
-tmp.kRtDgi/input50.txt 1: illegal character: &
-tmp.kRtDgi/input50.txt 1: illegal character: &
-tmp.kRtDgi/input50.txt 1: illegal character: $
-tmp.kRtDgi/input50.txt 1: illegal character: '
-tmp.kRtDgi/input50.txt 1: illegal character: $
-tmp.kRtDgi/input53.txt 1: parse error
-tmp.kRtDgi/input53.txt 1: parse error
-tmp.kRtDgi/input53.txt 1: illegal character: &
-tmp.kRtDgi/input53.txt 1: illegal character: ^@
+tmp.DzC6A6/input31.txt 1: illegal character: $
+tmp.DzC6A6/input31.txt 1: parse error
+tmp.DzC6A6/input31.txt 1: illegal character: ?
+tmp.DzC6A6/input32.txt 1: parse error
+tmp.DzC6A6/input32.txt 1: illegal character: :
+tmp.DzC6A6/input32.txt 1: illegal character: '
+tmp.DzC6A6/input33.txt 1: illegal character: &
+tmp.DzC6A6/input33.txt 1: parse error
+tmp.DzC6A6/input33.txt 1: illegal character: ^@
+tmp.DzC6A6/input34.txt 1: illegal character: &
+tmp.DzC6A6/input34.txt 1: illegal character: '
+tmp.DzC6A6/input34.txt 1: illegal character: "
+tmp.DzC6A6/input34.txt 1: illegal character: '
+tmp.DzC6A6/input34.txt 1: parse error
+tmp.DzC6A6/input34.txt 1: illegal character: :
+tmp.DzC6A6/input34.txt 1: illegal character: $
+tmp.DzC6A6/input34.txt 1: illegal character: :
+tmp.DzC6A6/input34.txt 1: illegal character: ?
+tmp.DzC6A6/input34.txt 1: illegal character: ^@
+tmp.DzC6A6/input35.txt 1: parse error
+tmp.DzC6A6/input35.txt 1: illegal character: ?
+tmp.DzC6A6/input35.txt 1: illegal character: "
+tmp.DzC6A6/input35.txt 1: illegal character: ?
 (standard_in) 1: parse error
-tmp.kRtDgi/input54.txt 1: illegal character: '
+tmp.DzC6A6/input36.txt 1: parse error
+tmp.DzC6A6/input37.txt 1: parse error
+tmp.DzC6A6/input37.txt 1: parse error
+tmp.DzC6A6/input37.txt 1: parse error
+tmp.DzC6A6/input37.txt 1: illegal character: "
+tmp.DzC6A6/input37.txt 1: illegal character: ^@
+tmp.DzC6A6/input38.txt 1: parse error
+tmp.DzC6A6/input38.txt 1: illegal character: &
+tmp.DzC6A6/input38.txt 1: illegal character: '
+tmp.DzC6A6/input39.txt 1: parse error
+tmp.DzC6A6/input39.txt 1: illegal character: &
+tmp.DzC6A6/input39.txt 1: illegal character: :
+tmp.DzC6A6/input39.txt 1: illegal character: &
+tmp.DzC6A6/input40.txt 1: parse error
+tmp.DzC6A6/input40.txt 1: illegal character: ^@
+tmp.DzC6A6/input41.txt 1: parse error
+tmp.DzC6A6/input41.txt 1: illegal character: $
+tmp.DzC6A6/input41.txt 1: parse error
+tmp.DzC6A6/input41.txt 1: illegal character: '
+tmp.DzC6A6/input41.txt 1: illegal character: &
+tmp.DzC6A6/input41.txt 1: parse error
+tmp.DzC6A6/input41.txt 1: illegal character: $
+tmp.DzC6A6/input42.txt 1: illegal character: '
+tmp.DzC6A6/input42.txt 1: illegal character: ^@
 (standard_in) 1: parse error
-tmp.kRtDgi/input55.txt 1: parse error
-tmp.kRtDgi/input55.txt 1: illegal character: ^@
-tmp.kRtDgi/input56.txt 1: parse error
-tmp.kRtDgi/input56.txt 1: illegal character: ^@
-tmp.kRtDgi/input57.txt 1: parse error
-tmp.kRtDgi/input57.txt 1: illegal character: &
-tmp.kRtDgi/input57.txt 1: parse error
-tmp.kRtDgi/input57.txt 1: illegal character: '
-tmp.kRtDgi/input57.txt 1: parse error
-tmp.kRtDgi/input57.txt 1: illegal character: :
-tmp.kRtDgi/input57.txt 1: illegal character: '
-tmp.kRtDgi/input57.txt 1: illegal character: ?
-tmp.kRtDgi/input57.txt 1: parse error
-tmp.kRtDgi/input57.txt 1: illegal character: '
-tmp.kRtDgi/input57.txt 1: illegal character: $
-tmp.kRtDgi/input57.txt 1: illegal character: ^@
-tmp.kRtDgi/input58.txt 1: parse error
-tmp.kRtDgi/input58.txt 1: illegal character: :
-tmp.kRtDgi/input59.txt 1: illegal character: &
+tmp.DzC6A6/input43.txt 1: parse error
 (standard_in) 1: parse error
-tmp.kRtDgi/input60.txt 1: illegal character: ?
-tmp.kRtDgi/input60.txt 1: parse error
-tmp.kRtDgi/input60.txt 1: illegal character: &
-tmp.kRtDgi/input60.txt 1: parse error
-tmp.kRtDgi/input60.txt 1: illegal character: ^@
+tmp.DzC6A6/input44.txt 1: parse error
+tmp.DzC6A6/input44.txt 1: parse error
+tmp.DzC6A6/input46.txt 1: illegal character: &
+tmp.DzC6A6/input46.txt 1: parse error
+tmp.DzC6A6/input46.txt 1: illegal character: :
+tmp.DzC6A6/input46.txt 1: parse error
+tmp.DzC6A6/input46.txt 1: illegal character: $
+tmp.DzC6A6/input46.txt 1: illegal character: &
+tmp.DzC6A6/input46.txt 1: parse error
+tmp.DzC6A6/input46.txt 1: illegal character: &
+tmp.DzC6A6/input46.txt 1: illegal character: :
+tmp.DzC6A6/input46.txt 1: parse error
+tmp.DzC6A6/input46.txt 1: illegal character: $
+tmp.DzC6A6/input46.txt 1: parse error
+tmp.DzC6A6/input46.txt 1: illegal character: '
+tmp.DzC6A6/input46.txt 1: illegal character: &
+tmp.DzC6A6/input46.txt 1: illegal character: "
+tmp.DzC6A6/input46.txt 1: illegal character: '
+tmp.DzC6A6/input46.txt 1: illegal character: :
+tmp.DzC6A6/input46.txt 1: illegal character: $
+tmp.DzC6A6/input46.txt 1: illegal character: $
+tmp.DzC6A6/input46.txt 1: illegal character: :
+tmp.DzC6A6/input46.txt 1: parse error
+tmp.DzC6A6/input46.txt 1: illegal character: :
+tmp.DzC6A6/input46.txt 1: illegal character: &
+tmp.DzC6A6/input46.txt 1: illegal character: &
+tmp.DzC6A6/input46.txt 1: illegal character: ^@
+tmp.DzC6A6/input47.txt 1: illegal character: $
+tmp.DzC6A6/input47.txt 1: parse error
+tmp.DzC6A6/input47.txt 1: illegal character: $
+tmp.DzC6A6/input47.txt 1: parse error
+tmp.DzC6A6/input47.txt 1: illegal character: ?
+tmp.DzC6A6/input47.txt 1: illegal character: '
+tmp.DzC6A6/input47.txt 1: illegal character: :
+tmp.DzC6A6/input47.txt 1: illegal character: '
+tmp.DzC6A6/input47.txt 1: illegal character: $
+tmp.DzC6A6/input48.txt 1: parse error
+tmp.DzC6A6/input48.txt 1: illegal character: $
+tmp.DzC6A6/input48.txt 1: illegal character: "
+tmp.DzC6A6/input48.txt 1: illegal character: ^@
+tmp.DzC6A6/input49.txt 1: parse error
+tmp.DzC6A6/input50.txt 1: parse error
+tmp.DzC6A6/input50.txt 1: parse error
+tmp.DzC6A6/input50.txt 1: parse error
+tmp.DzC6A6/input50.txt 1: illegal character: $
+tmp.DzC6A6/input50.txt 1: illegal character: ?
+tmp.DzC6A6/input50.txt 1: illegal character: ?
+tmp.DzC6A6/input50.txt 1: illegal character: "
+tmp.DzC6A6/input50.txt 1: illegal character: &
+tmp.DzC6A6/input51.txt 1: parse error
+tmp.DzC6A6/input51.txt 1: illegal character: '
+tmp.DzC6A6/input51.txt 1: illegal character: &
+tmp.DzC6A6/input51.txt 1: illegal character: ?
+tmp.DzC6A6/input51.txt 1: parse error
+tmp.DzC6A6/input51.txt 1: illegal character: ?
+tmp.DzC6A6/input51.txt 1: illegal character: &
+tmp.DzC6A6/input51.txt 1: illegal character: '
+tmp.DzC6A6/input51.txt 1: illegal character: ?
+tmp.DzC6A6/input51.txt 1: illegal character: ^@
 (standard_in) 1: parse error
-tmp.kRtDgi/input62.txt 1: parse error
-tmp.kRtDgi/input62.txt 1: illegal character: &
-tmp.kRtDgi/input62.txt 1: parse error
-tmp.kRtDgi/input62.txt 1: illegal character: ?
-tmp.kRtDgi/input62.txt 1: illegal character: "
-tmp.kRtDgi/input62.txt 1: parse error
-tmp.kRtDgi/input62.txt 1: illegal character: &
-tmp.kRtDgi/input62.txt 1: illegal character: '
-tmp.kRtDgi/input62.txt 1: illegal character: :
-tmp.kRtDgi/input62.txt 1: illegal character: :
-tmp.kRtDgi/input62.txt 1: illegal character: :
-tmp.kRtDgi/input62.txt 1: illegal character: ?
-tmp.kRtDgi/input62.txt 1: parse error
-tmp.kRtDgi/input62.txt 1: illegal character: :
-tmp.kRtDgi/input62.txt 1: illegal character: $
-tmp.kRtDgi/input62.txt 1: illegal character: &
-tmp.kRtDgi/input62.txt 1: parse error
-tmp.kRtDgi/input62.txt 1: parse error
-tmp.kRtDgi/input62.txt 1: illegal character: &
-tmp.kRtDgi/input62.txt 1: parse error
-tmp.kRtDgi/input62.txt 1: illegal character: '
-tmp.kRtDgi/input62.txt 1: illegal character: :
-tmp.kRtDgi/input62.txt 1: illegal character: ^@
-tmp.kRtDgi/input63.txt 1: parse error
-tmp.kRtDgi/input64.txt 1: illegal character: "
-tmp.kRtDgi/input64.txt 1: parse error
-tmp.kRtDgi/input64.txt 1: parse error
-tmp.kRtDgi/input64.txt 1: illegal character: $
-tmp.kRtDgi/input64.txt 1: illegal character: ?
-tmp.kRtDgi/input64.txt 1: illegal character: ^@
+tmp.DzC6A6/input52.txt 1: illegal character: $
+tmp.DzC6A6/input52.txt 1: parse error
+tmp.DzC6A6/input52.txt 1: illegal character: ?
+tmp.DzC6A6/input53.txt 1: parse error
+tmp.DzC6A6/input54.txt 1: illegal character: $
+tmp.DzC6A6/input54.txt 1: illegal character: $
+tmp.DzC6A6/input54.txt 1: parse error
+tmp.DzC6A6/input54.txt 1: parse error
+tmp.DzC6A6/input54.txt 1: illegal character: ?
+tmp.DzC6A6/input54.txt 1: illegal character: ^@
+tmp.DzC6A6/input55.txt 1: illegal character: '
+tmp.DzC6A6/input55.txt 1: illegal character: &
+tmp.DzC6A6/input55.txt 1: parse error
+tmp.DzC6A6/input55.txt 1: parse error
+tmp.DzC6A6/input55.txt 1: illegal character: $
+tmp.DzC6A6/input55.txt 1: illegal character: $
+tmp.DzC6A6/input55.txt 1: illegal character: '
+tmp.DzC6A6/input55.txt 1: illegal character: '
+tmp.DzC6A6/input55.txt 1: illegal character: ^@
+tmp.DzC6A6/input56.txt 1: illegal character: &
+tmp.DzC6A6/input56.txt 1: illegal character: :
+tmp.DzC6A6/input56.txt 1: parse error
+tmp.DzC6A6/input58.txt 1: illegal character: '
+tmp.DzC6A6/input58.txt 1: parse error
+tmp.DzC6A6/input58.txt 1: illegal character: ?
+tmp.DzC6A6/input58.txt 1: illegal character: "
 (standard_in) 1: parse error
-tmp.kRtDgi/input65.txt 1: parse error
-tmp.kRtDgi/input65.txt 1: illegal character: $
-tmp.kRtDgi/input65.txt 1: illegal character: $
-tmp.kRtDgi/input66.txt 1: illegal character: :
-tmp.kRtDgi/input66.txt 1: parse error
-tmp.kRtDgi/input66.txt 1: illegal character: $
+tmp.DzC6A6/input59.txt 1: parse error
+tmp.DzC6A6/input60.txt 1: parse error
+tmp.DzC6A6/input60.txt 1: parse error
+tmp.DzC6A6/input62.txt 1: illegal character: '
+tmp.DzC6A6/input62.txt 1: illegal character: &
+tmp.DzC6A6/input62.txt 1: parse error
+tmp.DzC6A6/input63.txt 1: parse error
+tmp.DzC6A6/input63.txt 1: illegal character: '
 (standard_in) 1: parse error
-tmp.kRtDgi/input67.txt 1: parse error
-tmp.kRtDgi/input68.txt 1: parse error
-tmp.kRtDgi/input68.txt 1: illegal character: &
-tmp.kRtDgi/input68.txt 1: parse error
-tmp.kRtDgi/input68.txt 1: illegal character: $
-tmp.kRtDgi/input68.txt 1: illegal character: '
-tmp.kRtDgi/input68.txt 1: parse error
-tmp.kRtDgi/input68.txt 1: illegal character: $
-tmp.kRtDgi/input68.txt 1: parse error
-tmp.kRtDgi/input68.txt 1: illegal character: :
-tmp.kRtDgi/input68.txt 1: illegal character: :
-tmp.kRtDgi/input68.txt 1: parse error
-tmp.kRtDgi/input68.txt 1: illegal character: '
-tmp.kRtDgi/input69.txt 1: illegal character: ?
-tmp.kRtDgi/input69.txt 1: illegal character: '
-tmp.kRtDgi/input69.txt 1: parse error
-tmp.kRtDgi/input69.txt 1: illegal character: :
-tmp.kRtDgi/input69.txt 1: illegal character: :
-tmp.kRtDgi/input69.txt 1: parse error
-tmp.kRtDgi/input69.txt 1: illegal character: &
-tmp.kRtDgi/input70.txt 1: parse error
-tmp.kRtDgi/input70.txt 1: illegal character: ?
-tmp.kRtDgi/input70.txt 1: illegal character: "
-tmp.kRtDgi/input70.txt 1: illegal character: $
-tmp.kRtDgi/input71.txt 1: illegal character: :
-tmp.kRtDgi/input71.txt 1: parse error
-tmp.kRtDgi/input71.txt 1: illegal character: :
-tmp.kRtDgi/input71.txt 1: illegal character: "
-tmp.kRtDgi/input71.txt 1: illegal character: '
-tmp.kRtDgi/input71.txt 1: illegal character: :
-tmp.kRtDgi/input71.txt 1: illegal character: $
-tmp.kRtDgi/input71.txt 1: illegal character: '
-tmp.kRtDgi/input71.txt 1: parse error
-tmp.kRtDgi/input71.txt 1: illegal character: $
-tmp.kRtDgi/input71.txt 1: illegal character: ?
-tmp.kRtDgi/input71.txt 1: illegal character: $
-tmp.kRtDgi/input71.txt 1: parse error
-tmp.kRtDgi/input71.txt 1: illegal character: ?
-tmp.kRtDgi/input71.txt 1: illegal character: :
-tmp.kRtDgi/input71.txt 1: illegal character: ?
-tmp.kRtDgi/input71.txt 1: illegal character: ^@
+tmp.DzC6A6/input64.txt 1: illegal character: ?
+tmp.DzC6A6/input64.txt 1: parse error
+tmp.DzC6A6/input64.txt 1: illegal character: $
 (standard_in) 1: parse error
-tmp.kRtDgi/input73.txt 1: parse error
-tmp.kRtDgi/input73.txt 1: illegal character: '
-tmp.kRtDgi/input74.txt 1: parse error
-tmp.kRtDgi/input74.txt 1: illegal character: "
-tmp.kRtDgi/input74.txt 1: illegal character: $
-tmp.kRtDgi/input74.txt 1: illegal character: '
-tmp.kRtDgi/input74.txt 1: illegal character: ?
-tmp.kRtDgi/input75.txt 1: illegal character: :
-tmp.kRtDgi/input75.txt 1: illegal character: $
-tmp.kRtDgi/input75.txt 1: illegal character: :
-tmp.kRtDgi/input75.txt 1: parse error
+tmp.DzC6A6/input65.txt 1: parse error
+tmp.DzC6A6/input65.txt 1: illegal character: &
+tmp.DzC6A6/input65.txt 1: illegal character: '
+tmp.DzC6A6/input65.txt 1: illegal character: ^@
+tmp.DzC6A6/input66.txt 1: parse error
+tmp.DzC6A6/input66.txt 1: illegal character: :
+tmp.DzC6A6/input66.txt 1: parse error
+tmp.DzC6A6/input66.txt 1: illegal character: '
+tmp.DzC6A6/input66.txt 1: illegal character: $
+tmp.DzC6A6/input66.txt 1: illegal character: :
+tmp.DzC6A6/input66.txt 1: illegal character: '
 (standard_in) 1: parse error
-tmp.kRtDgi/input76.txt 1: illegal character: '
-tmp.kRtDgi/input76.txt 1: parse error
-tmp.kRtDgi/input76.txt 1: illegal character: ?
-tmp.kRtDgi/input76.txt 1: illegal character: ?
-tmp.kRtDgi/input76.txt 1: illegal character: ?
-tmp.kRtDgi/input76.txt 1: illegal character: $
-tmp.kRtDgi/input76.txt 1: parse error
-tmp.kRtDgi/input76.txt 1: illegal character: '
-tmp.kRtDgi/input76.txt 1: illegal character: '
-tmp.kRtDgi/input76.txt 1: illegal character: '
-tmp.kRtDgi/input76.txt 1: parse error
-tmp.kRtDgi/input76.txt 1: illegal character: '
-tmp.kRtDgi/input76.txt 1: illegal character: :
-tmp.kRtDgi/input76.txt 1: illegal character: $
-tmp.kRtDgi/input76.txt 1: illegal character: '
-tmp.kRtDgi/input76.txt 1: illegal character: ?
-tmp.kRtDgi/input76.txt 1: illegal character: ?
-tmp.kRtDgi/input76.txt 1: illegal character: '
-tmp.kRtDgi/input76.txt 1: illegal character: ?
-tmp.kRtDgi/input77.txt 1: illegal character: '
-tmp.kRtDgi/input77.txt 1: parse error
-tmp.kRtDgi/input77.txt 1: illegal character: $
-tmp.kRtDgi/input77.txt 1: parse error
-tmp.kRtDgi/input77.txt 1: illegal character: &
-tmp.kRtDgi/input78.txt 1: parse error
-tmp.kRtDgi/input78.txt 1: illegal character: ?
-tmp.kRtDgi/input78.txt 1: illegal character: ?
-tmp.kRtDgi/input78.txt 1: illegal character: '
-tmp.kRtDgi/input78.txt 1: illegal character: :
-tmp.kRtDgi/input78.txt 1: illegal character: $
+tmp.DzC6A6/input68.txt 1: parse error
+tmp.DzC6A6/input68.txt 1: illegal character: "
+tmp.DzC6A6/input68.txt 1: illegal character: &
+tmp.DzC6A6/input68.txt 1: illegal character: ^@
+tmp.DzC6A6/input69.txt 1: parse error
+tmp.DzC6A6/input69.txt 1: illegal character: &
 (standard_in) 1: parse error
+tmp.DzC6A6/input70.txt 1: parse error
+tmp.DzC6A6/input70.txt 1: illegal character: $
+tmp.DzC6A6/input70.txt 1: illegal character: '
+tmp.DzC6A6/input70.txt 1: parse error
+tmp.DzC6A6/input70.txt 1: illegal character: '
+tmp.DzC6A6/input70.txt 1: parse error
+tmp.DzC6A6/input71.txt 1: parse error
+tmp.DzC6A6/input71.txt 1: illegal character: $
+tmp.DzC6A6/input71.txt 1: illegal character: :
+tmp.DzC6A6/input71.txt 1: parse error
+tmp.DzC6A6/input72.txt 1: parse error
+tmp.DzC6A6/input72.txt 1: illegal character: ?
+tmp.DzC6A6/input72.txt 1: parse error
+tmp.DzC6A6/input72.txt 1: illegal character: '
+tmp.DzC6A6/input72.txt 1: illegal character: &
+tmp.DzC6A6/input72.txt 1: illegal character: ^@
+tmp.DzC6A6/input73.txt 1: parse error
+tmp.DzC6A6/input73.txt 1: illegal character: ?
+tmp.DzC6A6/input73.txt 1: illegal character: '
+tmp.DzC6A6/input73.txt 1: illegal character: $
+tmp.DzC6A6/input73.txt 1: illegal character: $
+tmp.DzC6A6/input73.txt 1: illegal character: :
+tmp.DzC6A6/input73.txt 1: parse error
+tmp.DzC6A6/input74.txt 1: illegal character: :
+tmp.DzC6A6/input74.txt 1: parse error
+tmp.DzC6A6/input74.txt 1: parse error
+tmp.DzC6A6/input74.txt 1: illegal character: $
+tmp.DzC6A6/input75.txt 1: parse error
+tmp.DzC6A6/input75.txt 1: illegal character: '
+tmp.DzC6A6/input75.txt 1: illegal character: :
+tmp.DzC6A6/input75.txt 1: parse error
+tmp.DzC6A6/input76.txt 1: parse error
+tmp.DzC6A6/input77.txt 1: parse error
+tmp.DzC6A6/input77.txt 1: illegal character: $
+tmp.DzC6A6/input77.txt 1: illegal character: '
+tmp.DzC6A6/input78.txt 1: parse error
 (standard_in) 1: parse error
-tmp.kRtDgi/input80.txt 1: illegal character: ?
-tmp.kRtDgi/input80.txt 1: illegal character: ?
-tmp.kRtDgi/input80.txt 1: parse error
-tmp.kRtDgi/input81.txt 1: parse error
-tmp.kRtDgi/input81.txt 1: illegal character: ^@
-tmp.kRtDgi/input82.txt 1: parse error
-tmp.kRtDgi/input82.txt 1: illegal character: $
-tmp.kRtDgi/input82.txt 1: parse error
-tmp.kRtDgi/input82.txt 1: illegal character: $
-tmp.kRtDgi/input82.txt 1: illegal character: ^@
-tmp.kRtDgi/input83.txt 1: illegal character: $
-tmp.kRtDgi/input83.txt 1: parse error
-tmp.kRtDgi/input83.txt 1: illegal character: ?
-tmp.kRtDgi/input83.txt 1: illegal character: &
-tmp.kRtDgi/input83.txt 1: illegal character: &
-tmp.kRtDgi/input83.txt 1: illegal character: ?
+tmp.DzC6A6/input79.txt 1: illegal character: $
+tmp.DzC6A6/input79.txt 1: parse error
+tmp.DzC6A6/input79.txt 1: illegal character: $
+tmp.DzC6A6/input80.txt 1: illegal character: :
+tmp.DzC6A6/input80.txt 1: illegal character: ?
+tmp.DzC6A6/input80.txt 1: parse error
+tmp.DzC6A6/input80.txt 1: illegal character: $
+tmp.DzC6A6/input80.txt 1: illegal character: "
+tmp.DzC6A6/input80.txt 1: illegal character: ^@
+tmp.DzC6A6/input81.txt 1: illegal character: $
+tmp.DzC6A6/input81.txt 1: parse error
+tmp.DzC6A6/input81.txt 1: illegal character: ?
+tmp.DzC6A6/input81.txt 1: illegal character: ?
+tmp.DzC6A6/input81.txt 1: illegal character: "
+tmp.DzC6A6/input82.txt 1: parse error
+tmp.DzC6A6/input82.txt 1: illegal character: $
+tmp.DzC6A6/input82.txt 1: illegal character: $
+tmp.DzC6A6/input82.txt 1: illegal character: $
+tmp.DzC6A6/input83.txt 1: parse error
 (standard_in) 1: parse error
-tmp.kRtDgi/input84.txt 1: illegal character: :
-tmp.kRtDgi/input84.txt 1: illegal character: '
-tmp.kRtDgi/input84.txt 1: parse error
-tmp.kRtDgi/input84.txt 1: illegal character: &
-tmp.kRtDgi/input84.txt 1: parse error
-tmp.kRtDgi/input84.txt 1: illegal character: $
-tmp.kRtDgi/input84.txt 1: illegal character: "
-tmp.kRtDgi/input84.txt 1: illegal character: $
-tmp.kRtDgi/input84.txt 1: illegal character: ?
-tmp.kRtDgi/input84.txt 1: parse error
-tmp.kRtDgi/input84.txt 1: parse error
-tmp.kRtDgi/input85.txt 1: parse error
-tmp.kRtDgi/input85.txt 1: illegal character: :
-tmp.kRtDgi/input85.txt 1: parse error
-tmp.kRtDgi/input85.txt 1: parse error
-tmp.kRtDgi/input85.txt 1: illegal character: &
-tmp.kRtDgi/input85.txt 1: parse error
-tmp.kRtDgi/input85.txt 1: illegal character: :
-tmp.kRtDgi/input85.txt 1: illegal character: ^@
-tmp.kRtDgi/input86.txt 1: parse error
-tmp.kRtDgi/input86.txt 1: illegal character: "
-tmp.kRtDgi/input86.txt 1: illegal character: &
-tmp.kRtDgi/input86.txt 1: illegal character: :
-tmp.kRtDgi/input86.txt 1: illegal character: '
-tmp.kRtDgi/input86.txt 1: illegal character: ^@
-tmp.kRtDgi/input87.txt 1: illegal character: ?
-tmp.kRtDgi/input87.txt 1: parse error
-tmp.kRtDgi/input87.txt 1: illegal character: ?
-tmp.kRtDgi/input87.txt 1: illegal character: '
-tmp.kRtDgi/input87.txt 1: illegal character: ?
-tmp.kRtDgi/input87.txt 1: illegal character: $
-tmp.kRtDgi/input87.txt 1: illegal character: '
-tmp.kRtDgi/input87.txt 1: illegal character: :
-tmp.kRtDgi/input87.txt 1: parse error
-tmp.kRtDgi/input87.txt 1: illegal character: :
-tmp.kRtDgi/input87.txt 1: illegal character: ^@
+tmp.DzC6A6/input85.txt 1: parse error
+tmp.DzC6A6/input85.txt 1: illegal character: $
+tmp.DzC6A6/input85.txt 1: illegal character: $
+tmp.DzC6A6/input85.txt 1: illegal character: '
+tmp.DzC6A6/input85.txt 1: parse error
+tmp.DzC6A6/input85.txt 1: illegal character: :
+tmp.DzC6A6/input85.txt 1: illegal character: &
+tmp.DzC6A6/input85.txt 1: illegal character: '
+tmp.DzC6A6/input85.txt 1: illegal character: '
+tmp.DzC6A6/input85.txt 1: illegal character: $
+tmp.DzC6A6/input85.txt 1: illegal character: ^@
+tmp.DzC6A6/input87.txt 1: illegal character: &
 (standard_in) 1: parse error
-tmp.kRtDgi/input88.txt 1: parse error
-tmp.kRtDgi/input88.txt 1: illegal character: ^@
-tmp.kRtDgi/input89.txt 1: illegal character: '
-tmp.kRtDgi/input89.txt 1: parse error
-tmp.kRtDgi/input89.txt 1: illegal character: '
-tmp.kRtDgi/input89.txt 1: illegal character: "
-tmp.kRtDgi/input89.txt 1: illegal character: '
-tmp.kRtDgi/input89.txt 1: illegal character: ^@
-tmp.kRtDgi/input90.txt 1: parse error
-tmp.kRtDgi/input90.txt 1: illegal character: :
-tmp.kRtDgi/input90.txt 1: illegal character: $
-tmp.kRtDgi/input90.txt 1: illegal character: ?
-tmp.kRtDgi/input90.txt 1: illegal character: $
-tmp.kRtDgi/input91.txt 1: parse error
-tmp.kRtDgi/input91.txt 1: illegal character: &
-tmp.kRtDgi/input91.txt 1: illegal character: :
-tmp.kRtDgi/input91.txt 1: parse error
-tmp.kRtDgi/input91.txt 1: illegal character: &
-tmp.kRtDgi/input92.txt 1: illegal character: '
-tmp.kRtDgi/input92.txt 1: parse error
-tmp.kRtDgi/input92.txt 1: illegal character: :
-tmp.kRtDgi/input92.txt 1: parse error
-tmp.kRtDgi/input93.txt 1: illegal character: ?
-tmp.kRtDgi/input93.txt 1: illegal character: '
-tmp.kRtDgi/input93.txt 1: illegal character: &
-tmp.kRtDgi/input93.txt 1: parse error
-tmp.kRtDgi/input93.txt 1: illegal character: &
-tmp.kRtDgi/input94.txt 1: parse error
-tmp.kRtDgi/input94.txt 1: illegal character: &
-tmp.kRtDgi/input94.txt 1: parse error
-tmp.kRtDgi/input94.txt 1: illegal character: ?
-tmp.kRtDgi/input94.txt 1: illegal character: '
-tmp.kRtDgi/input94.txt 1: illegal character: ^@
-tmp.kRtDgi/input95.txt 1: illegal character: :
-tmp.kRtDgi/input95.txt 1: parse error
-tmp.kRtDgi/input95.txt 1: illegal character: ^@
-tmp.kRtDgi/input96.txt 1: illegal character: &
-tmp.kRtDgi/input96.txt 1: parse error
-tmp.kRtDgi/input96.txt 1: illegal character: ?
-tmp.kRtDgi/input96.txt 1: illegal character: &
-tmp.kRtDgi/input97.txt 1: parse error
-tmp.kRtDgi/input97.txt 1: illegal character: :
-tmp.kRtDgi/input97.txt 1: illegal character: :
-tmp.kRtDgi/input97.txt 1: parse error
-tmp.kRtDgi/input98.txt 1: parse error
-tmp.kRtDgi/input98.txt 1: illegal character: :
-tmp.kRtDgi/input99.txt 1: illegal character: ^@
+tmp.DzC6A6/input88.txt 1: illegal character: ?
+tmp.DzC6A6/input88.txt 1: parse error
+tmp.DzC6A6/input88.txt 1: illegal character: :
+tmp.DzC6A6/input88.txt 1: illegal character: ^@
+tmp.DzC6A6/input89.txt 1: parse error
+tmp.DzC6A6/input90.txt 1: illegal character: :
+tmp.DzC6A6/input90.txt 1: parse error
+tmp.DzC6A6/input90.txt 1: illegal character: :
+tmp.DzC6A6/input90.txt 1: illegal character: :
+tmp.DzC6A6/input90.txt 1: illegal character: $
+tmp.DzC6A6/input90.txt 1: parse error
+tmp.DzC6A6/input90.txt 1: illegal character: '
+tmp.DzC6A6/input90.txt 1: illegal character: ?
+tmp.DzC6A6/input90.txt 1: illegal character: "
+(standard_in) 1: parse error
+tmp.DzC6A6/input91.txt 1: illegal character: $
+tmp.DzC6A6/input91.txt 1: illegal character: ?
+tmp.DzC6A6/input91.txt 1: illegal character: :
+EOF encountered in a comment.
+(standard_in) 1: parse error
+tmp.DzC6A6/input92.txt 1: illegal character: '
+tmp.DzC6A6/input92.txt 1: parse error
+tmp.DzC6A6/input92.txt 1: illegal character: :
+tmp.DzC6A6/input92.txt 1: illegal character: '
+tmp.DzC6A6/input92.txt 1: parse error
+tmp.DzC6A6/input92.txt 1: illegal character: ?
+tmp.DzC6A6/input92.txt 1: illegal character: $
+tmp.DzC6A6/input92.txt 1: parse error
+tmp.DzC6A6/input92.txt 1: illegal character: $
+tmp.DzC6A6/input92.txt 1: parse error
+tmp.DzC6A6/input92.txt 1: parse error
+tmp.DzC6A6/input92.txt 1: illegal character: ^@
+tmp.DzC6A6/input93.txt 1: parse error
+tmp.DzC6A6/input93.txt 1: illegal character: '
+tmp.DzC6A6/input93.txt 1: parse error
+tmp.DzC6A6/input93.txt 1: parse error
+tmp.DzC6A6/input93.txt 1: illegal character: :
+tmp.DzC6A6/input93.txt 1: illegal character: :
+tmp.DzC6A6/input93.txt 1: illegal character: &
+tmp.DzC6A6/input93.txt 1: illegal character: :
+tmp.DzC6A6/input93.txt 1: illegal character: :
+(standard_in) 1: parse error
+tmp.DzC6A6/input95.txt 1: parse error
+tmp.DzC6A6/input95.txt 1: parse error
+tmp.DzC6A6/input95.txt 1: illegal character: $
+tmp.DzC6A6/input95.txt 1: illegal character: ?
+tmp.DzC6A6/input95.txt 1: illegal character: ?
+tmp.DzC6A6/input96.txt 1: illegal character: '
+tmp.DzC6A6/input96.txt 1: parse error
+tmp.DzC6A6/input96.txt 1: illegal character: :
+tmp.DzC6A6/input96.txt 1: illegal character: :
+tmp.DzC6A6/input97.txt 1: illegal character: '
+tmp.DzC6A6/input97.txt 1: parse error
+tmp.DzC6A6/input98.txt 1: illegal character: ^@
+tmp.DzC6A6/input99.txt 1: parse error
+tmp.DzC6A6/input99.txt 1: illegal character: &
+tmp.DzC6A6/input99.txt 1: illegal character: &
+tmp.DzC6A6/input99.txt 1: illegal character: $
+tmp.DzC6A6/input99.txt 1: illegal character: "
+tmp.DzC6A6/input99.txt 1: illegal character: ?
+tmp.DzC6A6/input99.txt 1: illegal character: :
+tmp.DzC6A6/input99.txt 1: illegal character: $
+tmp.DzC6A6/input99.txt 1: illegal character: ?
+tmp.DzC6A6/input99.txt 1: illegal character: &
+tmp.DzC6A6/input99.txt 1: parse error
+tmp.DzC6A6/input99.txt 1: illegal character: '
+tmp.DzC6A6/input99.txt 1: parse error
+tmp.DzC6A6/input99.txt 1: illegal character: :
+tmp.DzC6A6/input99.txt 1: illegal character: $
+tmp.DzC6A6/input99.txt 1: illegal character: '
+tmp.DzC6A6/input99.txt 1: illegal character: $
+tmp.DzC6A6/input99.txt 1: illegal character: $
+tmp.DzC6A6/input99.txt 1: illegal character: &
+tmp.DzC6A6/input99.txt 1: parse error
+tmp.DzC6A6/input99.txt 1: illegal character: '
+tmp.DzC6A6/input99.txt 1: illegal character: ?
+tmp.DzC6A6/input99.txt 1: illegal character: :
+tmp.DzC6A6/input99.txt 1: illegal character: &
+tmp.DzC6A6/input99.txt 1: parse error
+tmp.DzC6A6/input99.txt 1: illegal character: :
+tmp.DzC6A6/input99.txt 1: illegal character: $
+tmp.DzC6A6/input99.txt 1: illegal character: '
+tmp.DzC6A6/input99.txt 1: illegal character: :
+tmp.DzC6A6/input99.txt 1: parse error
+tmp.DzC6A6/input99.txt 1: illegal character: ?
+tmp.DzC6A6/input99.txt 1: illegal character: ^@
+(standard_in) 1: parse error
