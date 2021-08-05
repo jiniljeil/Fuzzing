@@ -5,12 +5,12 @@ char * fuzzer(int max_length, int char_start, int char_range) {
     // 수정 필요 
     // srand(clock());
     int string_length = rand() % (max_length) + 1 ; // '\0'
-    char * out = (char*)malloc(sizeof(char) * string_length) ; 
+    char * out = (char*)malloc(sizeof(char) * (string_length + 1)) ; 
 
-    for(int i = 0 ; i < string_length - 1; i++) {
+    for(int i = 0 ; i < string_length; i++) {
         out[i] = (char) (char_start + rand() % char_range); 
     }
     // printf("%s", out);
-    out[string_length - 1] = '\0';
+    out[string_length] = '\0';
     return out; 
 }

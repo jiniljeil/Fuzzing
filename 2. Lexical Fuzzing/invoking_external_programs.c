@@ -6,7 +6,7 @@
 #define WRITE 1
 int pipes[2]; 
 int error_pipes[2]; 
-
+int num_of_error_returncode = 0;
 void remove_result_files() {
     FILE * output_file = fopen("output", "r");
     if(output_file) {
@@ -26,7 +26,6 @@ void remove_result_files() {
 }
 
 void subprocess_run(char *program, char* file) {
-    int file_num = 0 ;
     char *buf = (char*)malloc(sizeof(char) * BUFF_MAX); 
     memset(buf, 0, BUFF_MAX);
     char *error = (char*)malloc(sizeof(char) * BUFF_MAX) ;
@@ -60,7 +59,11 @@ void subprocess_run(char *program, char* file) {
         int status;
         ssize_t buff_output_size, buff_error_size; 
         wait(&status); 
-        printf("exit status %d\n", status);
+
+        if(status != 0) {
+            num_of_error_returncode++; 
+        }
+
         close(pipes[WRITE]); 
         close(error_pipes[WRITE]); 
 
@@ -85,9 +88,7 @@ void subprocess_run(char *program, char* file) {
 
 void long_running_fuzzing() {
     char result[BUFF_MAX]; 
-    char* data = (char*)malloc(sizeof(char) * BUFF_MAX) ; data[0] = '\0'; 
-    int _space = 1; // 1: 1024, 2: 2048, ..
-    int status, trials = 10000; 
+    int status, trials = 100; 
     FILE_INFO * f_info ; 
 
     srand(time(NULL)); 
@@ -104,10 +105,8 @@ void long_running_fuzzing() {
         
         subprocess_run("bc", f_info->path[i]); 
     }
-    if(strlen(data) != 0)  // '\0'
-        printf("%s\n",data);
-
-    // remove_files(f_info); 
+    
+    printf("Num of the error return code: %d\n", num_of_error_returncode); 
 }
 
 int main(void) {
