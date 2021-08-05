@@ -65,12 +65,14 @@ void subprocess_run(char *program, char* file) {
         close(error_pipes[WRITE]); 
 
         FILE * f = fopen("output", "a"); 
+        if (f == NULL) exit(1); 
         while((buff_output_size = read(pipes[READ], buf, BUFF_MAX - 1)) > 0) {
             fwrite(buf, 1, buff_output_size, f);
         }
         fclose(f); 
 
         FILE * fp = fopen("error", "a"); 
+        if (fp == NULL) exit(1); 
         while((buff_error_size = read(error_pipes[READ], error, BUFF_MAX - 1)) > 0 ) {
             fwrite(error, 1, buff_error_size, fp);
         }
@@ -85,7 +87,7 @@ void long_running_fuzzing() {
     char result[BUFF_MAX]; 
     char* data = (char*)malloc(sizeof(char) * BUFF_MAX) ; data[0] = '\0'; 
     int _space = 1; // 1: 1024, 2: 2048, ..
-    int status, trials = 100; 
+    int status, trials = 10000; 
     FILE_INFO * f_info ; 
 
     srand(time(NULL)); 
