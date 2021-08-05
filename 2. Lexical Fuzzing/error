@@ -1,489 +1,562 @@
-tmp.OqFk60/input0.txt 1: illegal character: &
-tmp.OqFk60/input0.txt 1: parse error
-tmp.OqFk60/input0.txt 1: illegal character: ?
-tmp.OqFk60/input0.txt 1: illegal character: "
-tmp.OqFk60/input0.txt 1: illegal character: :
-tmp.OqFk60/input0.txt 1: illegal character: ^@
-tmp.OqFk60/input1.txt 1: parse error
-tmp.OqFk60/input1.txt 1: illegal character: '
-tmp.OqFk60/input1.txt 1: illegal character: $
-tmp.OqFk60/input1.txt 1: parse error
-tmp.OqFk60/input1.txt 1: illegal character: "
-tmp.OqFk60/input1.txt 1: illegal character: ^@
-tmp.OqFk60/input2.txt 1: illegal character: $
-tmp.OqFk60/input2.txt 1: parse error
-tmp.OqFk60/input2.txt 1: illegal character: ?
-tmp.OqFk60/input2.txt 1: parse error
-tmp.OqFk60/input2.txt 1: illegal character: "
-tmp.OqFk60/input2.txt 1: illegal character: ?
-tmp.OqFk60/input2.txt 1: illegal character: $
-tmp.OqFk60/input3.txt 1: illegal character: ^@
+tmp.xH4Wnc/input0.txt 1: illegal character: ?
+tmp.xH4Wnc/input0.txt 1: illegal character: :
+tmp.xH4Wnc/input0.txt 1: illegal character: $
+tmp.xH4Wnc/input0.txt 1: parse error
+tmp.xH4Wnc/input0.txt 1: illegal character: &
+tmp.xH4Wnc/input1.txt 1: illegal character: $
+tmp.xH4Wnc/input1.txt 1: illegal character: $
+tmp.xH4Wnc/input1.txt 1: parse error
+tmp.xH4Wnc/input1.txt 1: illegal character: :
+tmp.xH4Wnc/input1.txt 1: illegal character: &
+tmp.xH4Wnc/input1.txt 1: illegal character: $
+tmp.xH4Wnc/input1.txt 1: illegal character: &
+tmp.xH4Wnc/input1.txt 1: illegal character: :
+tmp.xH4Wnc/input1.txt 1: illegal character: $
+tmp.xH4Wnc/input1.txt 1: illegal character: $
+tmp.xH4Wnc/input1.txt 1: illegal character: &
 (standard_in) 1: parse error
-tmp.OqFk60/input4.txt 1: illegal character: ?
-tmp.OqFk60/input4.txt 1: illegal character: :
-tmp.OqFk60/input4.txt 1: parse error
-tmp.OqFk60/input5.txt 1: parse error
-tmp.OqFk60/input5.txt 1: illegal character: :
-tmp.OqFk60/input5.txt 1: illegal character: '
-tmp.OqFk60/input5.txt 1: parse error
+tmp.xH4Wnc/input2.txt 1: illegal character: $
+(standard_in) 1: parse error
+tmp.xH4Wnc/input3.txt 1: illegal character: :
+tmp.xH4Wnc/input3.txt 1: illegal character: &
+tmp.xH4Wnc/input3.txt 1: parse error
+tmp.xH4Wnc/input4.txt 1: parse error
+tmp.xH4Wnc/input4.txt 1: illegal character: $
+tmp.xH4Wnc/input5.txt 1: illegal character: :
+tmp.xH4Wnc/input5.txt 1: illegal character: '
+tmp.xH4Wnc/input5.txt 1: illegal character: :
+tmp.xH4Wnc/input5.txt 1: parse error
+tmp.xH4Wnc/input5.txt 1: illegal character: '
+tmp.xH4Wnc/input5.txt 1: illegal character: ^@
+tmp.xH4Wnc/input6.txt 1: illegal character: :
+tmp.xH4Wnc/input6.txt 1: illegal character: $
+tmp.xH4Wnc/input6.txt 1: parse error
+tmp.xH4Wnc/input6.txt 1: illegal character: &
+tmp.xH4Wnc/input6.txt 1: illegal character: '
+tmp.xH4Wnc/input6.txt 1: illegal character: $
+tmp.xH4Wnc/input6.txt 1: illegal character: ?
+tmp.xH4Wnc/input6.txt 1: illegal character: $
+tmp.xH4Wnc/input6.txt 1: parse error
+tmp.xH4Wnc/input6.txt 1: illegal character: :
+tmp.xH4Wnc/input6.txt 1: illegal character: :
+tmp.xH4Wnc/input7.txt 1: parse error
+tmp.xH4Wnc/input7.txt 1: illegal character: &
+tmp.xH4Wnc/input7.txt 1: illegal character: '
+tmp.xH4Wnc/input7.txt 1: parse error
+tmp.xH4Wnc/input8.txt 1: illegal character: $
+tmp.xH4Wnc/input8.txt 1: illegal character: :
+tmp.xH4Wnc/input8.txt 1: illegal character: $
+tmp.xH4Wnc/input8.txt 1: parse error
+tmp.xH4Wnc/input8.txt 1: parse error
+tmp.xH4Wnc/input8.txt 1: parse error
+tmp.xH4Wnc/input8.txt 1: illegal character: "
+tmp.xH4Wnc/input8.txt 1: illegal character: :
+tmp.xH4Wnc/input8.txt 1: illegal character: &
+tmp.xH4Wnc/input8.txt 1: parse error
+tmp.xH4Wnc/input8.txt 1: illegal character: :
+tmp.xH4Wnc/input8.txt 1: illegal character: '
+tmp.xH4Wnc/input8.txt 1: parse error
+tmp.xH4Wnc/input8.txt 1: illegal character: ?
+tmp.xH4Wnc/input8.txt 1: illegal character: '
+tmp.xH4Wnc/input8.txt 1: illegal character: &
+(standard_in) 1: parse error
+tmp.xH4Wnc/input9.txt 1: illegal character: '
+tmp.xH4Wnc/input9.txt 1: illegal character: &
+tmp.xH4Wnc/input9.txt 1: parse error
+tmp.xH4Wnc/input9.txt 1: illegal character: &
+tmp.xH4Wnc/input9.txt 1: illegal character: '
+tmp.xH4Wnc/input9.txt 1: illegal character: :
+(standard_in) 1: parse error
+tmp.xH4Wnc/input10.txt 1: illegal character: ?
+tmp.xH4Wnc/input10.txt 1: parse error
+tmp.xH4Wnc/input11.txt 1: parse error
+tmp.xH4Wnc/input11.txt 1: illegal character: $
+tmp.xH4Wnc/input11.txt 1: illegal character: &
+tmp.xH4Wnc/input11.txt 1: parse error
+tmp.xH4Wnc/input12.txt 1: illegal character: $
+tmp.xH4Wnc/input12.txt 1: illegal character: $
+tmp.xH4Wnc/input12.txt 1: illegal character: &
+tmp.xH4Wnc/input12.txt 1: parse error
+tmp.xH4Wnc/input12.txt 1: illegal character: ?
+tmp.xH4Wnc/input12.txt 1: illegal character: :
+tmp.xH4Wnc/input13.txt 1: parse error
+tmp.xH4Wnc/input13.txt 1: illegal character: ^@
+tmp.xH4Wnc/input14.txt 1: parse error
+tmp.xH4Wnc/input14.txt 1: illegal character: :
+tmp.xH4Wnc/input15.txt 1: illegal character: &
+tmp.xH4Wnc/input15.txt 1: parse error
+tmp.xH4Wnc/input15.txt 1: parse error
+tmp.xH4Wnc/input15.txt 1: illegal character: $
+tmp.xH4Wnc/input15.txt 1: illegal character: $
+tmp.xH4Wnc/input15.txt 1: illegal character: "
+tmp.xH4Wnc/input15.txt 1: illegal character: :
+tmp.xH4Wnc/input15.txt 1: parse error
+tmp.xH4Wnc/input15.txt 1: illegal character: :
+(standard_in) 1: parse error
+tmp.xH4Wnc/input16.txt 1: parse error
+tmp.xH4Wnc/input16.txt 1: illegal character: ?
+tmp.xH4Wnc/input16.txt 1: illegal character: "
+tmp.xH4Wnc/input16.txt 1: illegal character: ?
+tmp.xH4Wnc/input16.txt 1: illegal character: ^@
+tmp.xH4Wnc/input18.txt 1: parse error
+tmp.xH4Wnc/input18.txt 1: illegal character: :
+tmp.xH4Wnc/input18.txt 1: illegal character: '
+tmp.xH4Wnc/input19.txt 1: parse error
+tmp.xH4Wnc/input19.txt 1: illegal character: :
+tmp.xH4Wnc/input19.txt 1: illegal character: :
+tmp.xH4Wnc/input19.txt 1: illegal character: ^@
+tmp.xH4Wnc/input20.txt 1: illegal character: '
+tmp.xH4Wnc/input20.txt 1: parse error
+tmp.xH4Wnc/input21.txt 1: illegal character: ?
+tmp.xH4Wnc/input21.txt 1: illegal character: &
+tmp.xH4Wnc/input21.txt 1: parse error
+tmp.xH4Wnc/input21.txt 1: illegal character: '
+tmp.xH4Wnc/input21.txt 1: illegal character: ?
+tmp.xH4Wnc/input21.txt 1: illegal character: ?
+tmp.xH4Wnc/input21.txt 1: illegal character: ?
+tmp.xH4Wnc/input21.txt 1: parse error
+tmp.xH4Wnc/input22.txt 1: illegal character: &
+tmp.xH4Wnc/input22.txt 1: parse error
+tmp.xH4Wnc/input22.txt 1: illegal character: '
+tmp.xH4Wnc/input22.txt 1: illegal character: ^@
+(standard_in) 1: parse error
+tmp.xH4Wnc/input23.txt 1: parse error
+tmp.xH4Wnc/input23.txt 1: illegal character: &
+tmp.xH4Wnc/input23.txt 1: parse error
+tmp.xH4Wnc/input23.txt 1: illegal character: '
+tmp.xH4Wnc/input23.txt 1: illegal character: '
+tmp.xH4Wnc/input23.txt 1: illegal character: ?
+tmp.xH4Wnc/input23.txt 1: illegal character: &
+tmp.xH4Wnc/input23.txt 1: illegal character: ?
+tmp.xH4Wnc/input23.txt 1: illegal character: &
+tmp.xH4Wnc/input23.txt 1: illegal character: '
+tmp.xH4Wnc/input23.txt 1: parse error
+tmp.xH4Wnc/input23.txt 1: illegal character: :
+tmp.xH4Wnc/input23.txt 1: parse error
+tmp.xH4Wnc/input23.txt 1: illegal character: &
+tmp.xH4Wnc/input23.txt 1: illegal character: :
+tmp.xH4Wnc/input23.txt 1: illegal character: "
+tmp.xH4Wnc/input23.txt 1: illegal character: ^@
+(standard_in) 1: parse error
+tmp.xH4Wnc/input24.txt 1: illegal character: $
+tmp.xH4Wnc/input24.txt 1: parse error
+tmp.xH4Wnc/input24.txt 1: illegal character: :
+tmp.xH4Wnc/input24.txt 1: illegal character: $
+tmp.xH4Wnc/input24.txt 1: illegal character: ?
+tmp.xH4Wnc/input25.txt 1: parse error
+tmp.xH4Wnc/input25.txt 1: illegal character: ^@
+tmp.xH4Wnc/input26.txt 1: parse error
+tmp.xH4Wnc/input26.txt 1: illegal character: $
+tmp.xH4Wnc/input26.txt 1: illegal character: :
+tmp.xH4Wnc/input26.txt 1: parse error
+tmp.xH4Wnc/input26.txt 1: illegal character: :
+tmp.xH4Wnc/input26.txt 1: illegal character: ?
+tmp.xH4Wnc/input26.txt 1: illegal character: '
+tmp.xH4Wnc/input26.txt 1: illegal character: '
+tmp.xH4Wnc/input26.txt 1: illegal character: $
+tmp.xH4Wnc/input26.txt 1: illegal character: '
+tmp.xH4Wnc/input26.txt 1: parse error
+tmp.xH4Wnc/input26.txt 1: illegal character: &
+tmp.xH4Wnc/input26.txt 1: parse error
+tmp.xH4Wnc/input26.txt 1: illegal character: ^@
+tmp.xH4Wnc/input27.txt 1: illegal character: '
+tmp.xH4Wnc/input27.txt 1: parse error
+tmp.xH4Wnc/input27.txt 1: illegal character: $
+tmp.xH4Wnc/input27.txt 1: parse error
+tmp.xH4Wnc/input27.txt 1: illegal character: $
+tmp.xH4Wnc/input27.txt 1: illegal character: ?
+tmp.xH4Wnc/input27.txt 1: parse error
+tmp.xH4Wnc/input27.txt 1: parse error
+tmp.xH4Wnc/input27.txt 1: illegal character: &
+tmp.xH4Wnc/input27.txt 1: illegal character: $
+tmp.xH4Wnc/input27.txt 1: illegal character: &
+tmp.xH4Wnc/input27.txt 1: illegal character: ?
+tmp.xH4Wnc/input27.txt 1: parse error
+tmp.xH4Wnc/input27.txt 1: illegal character: &
+tmp.xH4Wnc/input28.txt 1: parse error
+tmp.xH4Wnc/input28.txt 1: illegal character: '
+tmp.xH4Wnc/input29.txt 1: parse error
+tmp.xH4Wnc/input29.txt 1: illegal character: '
+tmp.xH4Wnc/input29.txt 1: illegal character: :
+tmp.xH4Wnc/input29.txt 1: illegal character: :
+tmp.xH4Wnc/input29.txt 1: parse error
+tmp.xH4Wnc/input29.txt 1: illegal character: ?
+tmp.xH4Wnc/input29.txt 1: parse error
+tmp.xH4Wnc/input29.txt 1: illegal character: ?
+tmp.xH4Wnc/input30.txt 1: parse error
+tmp.xH4Wnc/input30.txt 1: illegal character: '
+tmp.xH4Wnc/input30.txt 1: illegal character: &
+tmp.xH4Wnc/input30.txt 1: parse error
+tmp.xH4Wnc/input30.txt 1: illegal character: '
+tmp.xH4Wnc/input30.txt 1: illegal character: ^@
+tmp.xH4Wnc/input31.txt 1: parse error
+tmp.xH4Wnc/input31.txt 1: parse error
+tmp.xH4Wnc/input32.txt 1: parse error
+tmp.xH4Wnc/input32.txt 1: parse error
+tmp.xH4Wnc/input33.txt 1: parse error
+tmp.xH4Wnc/input34.txt 1: parse error
+tmp.xH4Wnc/input35.txt 1: illegal character: $
+tmp.xH4Wnc/input35.txt 1: illegal character: &
+tmp.xH4Wnc/input35.txt 1: parse error
+tmp.xH4Wnc/input35.txt 1: illegal character: ^@
+tmp.xH4Wnc/input36.txt 1: parse error
+tmp.xH4Wnc/input36.txt 1: illegal character: '
+tmp.xH4Wnc/input36.txt 1: illegal character: $
+tmp.xH4Wnc/input36.txt 1: illegal character: &
+tmp.xH4Wnc/input36.txt 1: illegal character: ?
+tmp.xH4Wnc/input36.txt 1: illegal character: $
+tmp.xH4Wnc/input36.txt 1: illegal character: ^@
+(standard_in) 1: parse error
+tmp.xH4Wnc/input37.txt 1: parse error
+tmp.xH4Wnc/input37.txt 1: illegal character: ?
+tmp.xH4Wnc/input38.txt 1: parse error
+(standard_in) 1: parse error
+tmp.xH4Wnc/input39.txt 1: illegal character: &
+tmp.xH4Wnc/input39.txt 1: parse error
+tmp.xH4Wnc/input39.txt 1: parse error
+tmp.xH4Wnc/input39.txt 1: illegal character: :
+tmp.xH4Wnc/input39.txt 1: illegal character: $
+tmp.xH4Wnc/input39.txt 1: parse error
+tmp.xH4Wnc/input39.txt 1: illegal character: '
+tmp.xH4Wnc/input39.txt 1: illegal character: &
+tmp.xH4Wnc/input39.txt 1: illegal character: :
+tmp.xH4Wnc/input39.txt 1: illegal character: &
+tmp.xH4Wnc/input39.txt 1: illegal character: :
+tmp.xH4Wnc/input39.txt 1: illegal character: ?
+tmp.xH4Wnc/input39.txt 1: illegal character: $
+tmp.xH4Wnc/input39.txt 1: illegal character: '
+tmp.xH4Wnc/input39.txt 1: parse error
+tmp.xH4Wnc/input39.txt 1: illegal character: ^@
+(standard_in) 1: parse error
+tmp.xH4Wnc/input41.txt 1: parse error
+tmp.xH4Wnc/input41.txt 1: illegal character: ?
+tmp.xH4Wnc/input41.txt 1: illegal character: ?
+tmp.xH4Wnc/input41.txt 1: illegal character: ?
+tmp.xH4Wnc/input41.txt 1: illegal character: &
+tmp.xH4Wnc/input41.txt 1: illegal character: '
+tmp.xH4Wnc/input41.txt 1: illegal character: ?
+tmp.xH4Wnc/input41.txt 1: illegal character: '
+tmp.xH4Wnc/input42.txt 1: illegal character: :
+tmp.xH4Wnc/input42.txt 1: parse error
+tmp.xH4Wnc/input42.txt 1: illegal character: ^@
+tmp.xH4Wnc/input43.txt 1: parse error
+tmp.xH4Wnc/input43.txt 1: illegal character: ?
+tmp.xH4Wnc/input43.txt 1: illegal character: ?
+tmp.xH4Wnc/input44.txt 1: parse error
+tmp.xH4Wnc/input44.txt 1: illegal character: ?
+tmp.xH4Wnc/input44.txt 1: illegal character: ?
+tmp.xH4Wnc/input44.txt 1: illegal character: :
+tmp.xH4Wnc/input44.txt 1: parse error
+tmp.xH4Wnc/input44.txt 1: illegal character: :
+tmp.xH4Wnc/input44.txt 1: illegal character: &
+tmp.xH4Wnc/input44.txt 1: illegal character: $
+tmp.xH4Wnc/input44.txt 1: illegal character: $
+tmp.xH4Wnc/input45.txt 1: parse error
+tmp.xH4Wnc/input45.txt 1: illegal character: $
+(standard_in) 1: parse error
+tmp.xH4Wnc/input46.txt 1: parse error
+tmp.xH4Wnc/input46.txt 1: illegal character: '
+(standard_in) 1: parse error
+tmp.xH4Wnc/input47.txt 1: parse error
+tmp.xH4Wnc/input47.txt 1: illegal character: '
+tmp.xH4Wnc/input47.txt 1: parse error
+tmp.xH4Wnc/input47.txt 1: parse error
+tmp.xH4Wnc/input47.txt 1: illegal character: ?
+tmp.xH4Wnc/input47.txt 1: illegal character: $
+tmp.xH4Wnc/input47.txt 1: parse error
+tmp.xH4Wnc/input47.txt 1: illegal character: '
+tmp.xH4Wnc/input47.txt 1: illegal character: "
+tmp.xH4Wnc/input47.txt 1: illegal character: ?
+tmp.xH4Wnc/input47.txt 1: illegal character: $
+tmp.xH4Wnc/input47.txt 1: illegal character: ^@
+(standard_in) 1: parse error
+tmp.xH4Wnc/input49.txt 1: parse error
+tmp.xH4Wnc/input49.txt 1: illegal character: &
+tmp.xH4Wnc/input49.txt 1: illegal character: &
+tmp.xH4Wnc/input49.txt 1: illegal character: ^@
+(standard_in) 1: parse error
+tmp.xH4Wnc/input50.txt 1: parse error
+tmp.xH4Wnc/input50.txt 1: parse error
+tmp.xH4Wnc/input50.txt 1: parse error
+tmp.xH4Wnc/input50.txt 1: illegal character: :
+tmp.xH4Wnc/input50.txt 1: illegal character: :
+tmp.xH4Wnc/input50.txt 1: parse error
+tmp.xH4Wnc/input50.txt 1: illegal character: '
+tmp.xH4Wnc/input50.txt 1: illegal character: :
+tmp.xH4Wnc/input50.txt 1: parse error
+tmp.xH4Wnc/input50.txt 1: illegal character: ?
+tmp.xH4Wnc/input50.txt 1: illegal character: ?
+tmp.xH4Wnc/input50.txt 1: parse error
+tmp.xH4Wnc/input50.txt 1: illegal character: :
+(standard_in) 1: parse error
+tmp.xH4Wnc/input51.txt 1: illegal character: $
+tmp.xH4Wnc/input51.txt 1: parse error
+tmp.xH4Wnc/input51.txt 1: parse error
+tmp.xH4Wnc/input51.txt 1: illegal character: ?
+tmp.xH4Wnc/input51.txt 1: illegal character: :
+tmp.xH4Wnc/input51.txt 1: illegal character: ?
+tmp.xH4Wnc/input51.txt 1: illegal character: :
+tmp.xH4Wnc/input51.txt 1: illegal character: :
+tmp.xH4Wnc/input51.txt 1: parse error
+tmp.xH4Wnc/input51.txt 1: illegal character: ^@
+tmp.xH4Wnc/input52.txt 1: parse error
+tmp.xH4Wnc/input52.txt 1: illegal character: $
+tmp.xH4Wnc/input52.txt 1: illegal character: ^@
+tmp.xH4Wnc/input54.txt 1: illegal character: &
+tmp.xH4Wnc/input54.txt 1: parse error
+tmp.xH4Wnc/input55.txt 1: parse error
+tmp.xH4Wnc/input55.txt 1: illegal character: ^@
+tmp.xH4Wnc/input56.txt 1: parse error
+tmp.xH4Wnc/input56.txt 1: illegal character: &
+tmp.xH4Wnc/input56.txt 1: illegal character: $
+tmp.xH4Wnc/input56.txt 1: parse error
+tmp.xH4Wnc/input56.txt 1: illegal character: '
+tmp.xH4Wnc/input56.txt 1: illegal character: ?
+tmp.xH4Wnc/input56.txt 1: parse error
+tmp.xH4Wnc/input56.txt 1: illegal character: &
+tmp.xH4Wnc/input56.txt 1: parse error
+tmp.xH4Wnc/input58.txt 1: parse error
+tmp.xH4Wnc/input58.txt 1: illegal character: '
+tmp.xH4Wnc/input58.txt 1: illegal character: '
+tmp.xH4Wnc/input58.txt 1: illegal character: ?
+tmp.xH4Wnc/input58.txt 1: illegal character: '
+tmp.xH4Wnc/input59.txt 1: parse error
+tmp.xH4Wnc/input59.txt 1: illegal character: ^@
+tmp.xH4Wnc/input60.txt 1: illegal character: '
+tmp.xH4Wnc/input60.txt 1: parse error
+tmp.xH4Wnc/input60.txt 1: parse error
+tmp.xH4Wnc/input60.txt 1: illegal character: :
+tmp.xH4Wnc/input60.txt 1: parse error
+tmp.xH4Wnc/input60.txt 1: illegal character: $
+tmp.xH4Wnc/input60.txt 1: illegal character: "
+tmp.xH4Wnc/input60.txt 1: illegal character: &
+tmp.xH4Wnc/input60.txt 1: parse error
+tmp.xH4Wnc/input60.txt 1: illegal character: &
+tmp.xH4Wnc/input60.txt 1: parse error
+tmp.xH4Wnc/input61.txt 1: illegal character: &
+tmp.xH4Wnc/input61.txt 1: illegal character: ?
+tmp.xH4Wnc/input61.txt 1: parse error
+tmp.xH4Wnc/input61.txt 1: illegal character: ?
+tmp.xH4Wnc/input62.txt 1: parse error
+tmp.xH4Wnc/input63.txt 1: parse error
+tmp.xH4Wnc/input63.txt 1: illegal character: ?
+tmp.xH4Wnc/input63.txt 1: illegal character: '
+tmp.xH4Wnc/input63.txt 1: illegal character: :
+tmp.xH4Wnc/input63.txt 1: illegal character: &
+tmp.xH4Wnc/input63.txt 1: illegal character: $
+tmp.xH4Wnc/input63.txt 1: parse error
+tmp.xH4Wnc/input63.txt 1: illegal character: $
+tmp.xH4Wnc/input63.txt 1: parse error
+tmp.xH4Wnc/input63.txt 1: illegal character: '
+tmp.xH4Wnc/input63.txt 1: illegal character: &
+tmp.xH4Wnc/input63.txt 1: illegal character: :
+tmp.xH4Wnc/input64.txt 1: parse error
+tmp.xH4Wnc/input64.txt 1: illegal character: :
+tmp.xH4Wnc/input64.txt 1: illegal character: :
+tmp.xH4Wnc/input64.txt 1: illegal character: $
+tmp.xH4Wnc/input64.txt 1: illegal character: &
+tmp.xH4Wnc/input64.txt 1: illegal character: ?
+tmp.xH4Wnc/input64.txt 1: illegal character: ?
+tmp.xH4Wnc/input65.txt 1: illegal character: "
+tmp.xH4Wnc/input65.txt 1: parse error
+tmp.xH4Wnc/input65.txt 1: illegal character: $
+tmp.xH4Wnc/input65.txt 1: parse error
+tmp.xH4Wnc/input65.txt 1: illegal character: '
+tmp.xH4Wnc/input66.txt 1: parse error
+tmp.xH4Wnc/input66.txt 1: illegal character: '
+tmp.xH4Wnc/input66.txt 1: parse error
+tmp.xH4Wnc/input66.txt 1: illegal character: ?
+tmp.xH4Wnc/input66.txt 1: illegal character: &
+tmp.xH4Wnc/input66.txt 1: illegal character: ^@
+(standard_in) 1: parse error
+tmp.xH4Wnc/input67.txt 1: illegal character: &
+tmp.xH4Wnc/input67.txt 1: illegal character: :
+tmp.xH4Wnc/input67.txt 1: parse error
+tmp.xH4Wnc/input67.txt 1: illegal character: "
+tmp.xH4Wnc/input67.txt 1: parse error
+tmp.xH4Wnc/input67.txt 1: illegal character: ^@
+tmp.xH4Wnc/input68.txt 1: parse error
+tmp.xH4Wnc/input68.txt 1: illegal character: $
+tmp.xH4Wnc/input68.txt 1: illegal character: ^@
+tmp.xH4Wnc/input69.txt 1: illegal character: $
+tmp.xH4Wnc/input69.txt 1: parse error
+tmp.xH4Wnc/input69.txt 1: parse error
+tmp.xH4Wnc/input69.txt 1: illegal character: $
+tmp.xH4Wnc/input69.txt 1: illegal character: :
+(standard_in) 1: parse error
+tmp.xH4Wnc/input71.txt 1: illegal character: :
+tmp.xH4Wnc/input71.txt 1: parse error
+tmp.xH4Wnc/input71.txt 1: illegal character: $
+tmp.xH4Wnc/input71.txt 1: illegal character: &
+tmp.xH4Wnc/input71.txt 1: illegal character: &
+tmp.xH4Wnc/input71.txt 1: illegal character: :
+tmp.xH4Wnc/input71.txt 1: parse error
+tmp.xH4Wnc/input71.txt 1: parse error
+tmp.xH4Wnc/input71.txt 1: illegal character: $
+tmp.xH4Wnc/input71.txt 1: illegal character: &
+tmp.xH4Wnc/input71.txt 1: illegal character: $
+tmp.xH4Wnc/input71.txt 1: illegal character: :
+tmp.xH4Wnc/input71.txt 1: illegal character: ?
+tmp.xH4Wnc/input71.txt 1: parse error
+tmp.xH4Wnc/input72.txt 1: parse error
+tmp.xH4Wnc/input72.txt 1: illegal character: ^@
+tmp.xH4Wnc/input73.txt 1: parse error
+tmp.xH4Wnc/input73.txt 1: illegal character: :
+tmp.xH4Wnc/input73.txt 1: illegal character: ?
+tmp.xH4Wnc/input73.txt 1: illegal character: "
+tmp.xH4Wnc/input74.txt 1: illegal character: :
+tmp.xH4Wnc/input74.txt 1: illegal character: ?
+tmp.xH4Wnc/input74.txt 1: parse error
+tmp.xH4Wnc/input74.txt 1: illegal character: ?
+tmp.xH4Wnc/input74.txt 1: illegal character: &
+tmp.xH4Wnc/input74.txt 1: illegal character: '
+tmp.xH4Wnc/input74.txt 1: parse error
+tmp.xH4Wnc/input74.txt 1: illegal character: "
+tmp.xH4Wnc/input75.txt 1: parse error
+tmp.xH4Wnc/input75.txt 1: illegal character: &
+tmp.xH4Wnc/input75.txt 1: illegal character: '
+tmp.xH4Wnc/input75.txt 1: illegal character: ^@
+tmp.xH4Wnc/input76.txt 1: parse error
+tmp.xH4Wnc/input76.txt 1: illegal character: &
+tmp.xH4Wnc/input76.txt 1: parse error
+tmp.xH4Wnc/input76.txt 1: illegal character: '
+tmp.xH4Wnc/input76.txt 1: illegal character: $
+tmp.xH4Wnc/input76.txt 1: illegal character: $
+tmp.xH4Wnc/input76.txt 1: illegal character: :
+tmp.xH4Wnc/input76.txt 1: parse error
+tmp.xH4Wnc/input76.txt 1: illegal character: &
+tmp.xH4Wnc/input76.txt 1: parse error
+tmp.xH4Wnc/input77.txt 1: illegal character: :
+tmp.xH4Wnc/input77.txt 1: parse error
+tmp.xH4Wnc/input77.txt 1: illegal character: :
+tmp.xH4Wnc/input77.txt 1: illegal character: $
+tmp.xH4Wnc/input78.txt 1: parse error
+tmp.xH4Wnc/input78.txt 1: illegal character: :
+tmp.xH4Wnc/input78.txt 1: illegal character: ^@
+tmp.xH4Wnc/input79.txt 1: illegal character: '
+tmp.xH4Wnc/input79.txt 1: parse error
+tmp.xH4Wnc/input79.txt 1: illegal character: $
+tmp.xH4Wnc/input79.txt 1: illegal character: &
+tmp.xH4Wnc/input79.txt 1: parse error
+tmp.xH4Wnc/input79.txt 1: illegal character: $
+tmp.xH4Wnc/input79.txt 1: illegal character: ^@
+tmp.xH4Wnc/input80.txt 1: illegal character: $
+tmp.xH4Wnc/input80.txt 1: illegal character: '
+tmp.xH4Wnc/input80.txt 1: parse error
+tmp.xH4Wnc/input80.txt 1: illegal character: '
+tmp.xH4Wnc/input80.txt 1: illegal character: "
+tmp.xH4Wnc/input80.txt 1: illegal character: ^@
+tmp.xH4Wnc/input81.txt 1: illegal character: &
+tmp.xH4Wnc/input81.txt 1: parse error
+tmp.xH4Wnc/input82.txt 1: parse error
+tmp.xH4Wnc/input82.txt 1: parse error
+tmp.xH4Wnc/input83.txt 1: illegal character: :
+tmp.xH4Wnc/input83.txt 1: parse error
+tmp.xH4Wnc/input83.txt 1: illegal character: $
+tmp.xH4Wnc/input83.txt 1: illegal character: :
+tmp.xH4Wnc/input83.txt 1: parse error
+tmp.xH4Wnc/input83.txt 1: illegal character: '
+tmp.xH4Wnc/input83.txt 1: illegal character: ?
+tmp.xH4Wnc/input83.txt 1: parse error
+tmp.xH4Wnc/input83.txt 1: illegal character: :
+tmp.xH4Wnc/input83.txt 1: illegal character: ?
+tmp.xH4Wnc/input83.txt 1: illegal character: '
+tmp.xH4Wnc/input84.txt 1: illegal character: ?
+tmp.xH4Wnc/input84.txt 1: parse error
+tmp.xH4Wnc/input84.txt 1: illegal character: $
+tmp.xH4Wnc/input84.txt 1: illegal character: :
+tmp.xH4Wnc/input84.txt 1: illegal character: ^@
+tmp.xH4Wnc/input85.txt 1: illegal character: ?
+tmp.xH4Wnc/input85.txt 1: parse error
+tmp.xH4Wnc/input85.txt 1: illegal character: $
+tmp.xH4Wnc/input85.txt 1: illegal character: $
+tmp.xH4Wnc/input85.txt 1: illegal character: :
+(standard_in) 1: parse error
+tmp.xH4Wnc/input86.txt 1: illegal character: &
+tmp.xH4Wnc/input86.txt 1: parse error
+tmp.xH4Wnc/input86.txt 1: illegal character: &
+tmp.xH4Wnc/input87.txt 1: illegal character: ?
+tmp.xH4Wnc/input87.txt 1: parse error
+tmp.xH4Wnc/input87.txt 1: parse error
+tmp.xH4Wnc/input87.txt 1: illegal character: &
+tmp.xH4Wnc/input87.txt 1: illegal character: :
+tmp.xH4Wnc/input87.txt 1: parse error
+tmp.xH4Wnc/input87.txt 1: illegal character: ?
+tmp.xH4Wnc/input87.txt 1: parse error
+(standard_in) 1: parse error
+tmp.xH4Wnc/input89.txt 1: illegal character: ?
+tmp.xH4Wnc/input89.txt 1: illegal character: :
+tmp.xH4Wnc/input89.txt 1: parse error
+tmp.xH4Wnc/input89.txt 1: illegal character: $
+tmp.xH4Wnc/input89.txt 1: illegal character: &
+tmp.xH4Wnc/input89.txt 1: illegal character: '
+tmp.xH4Wnc/input89.txt 1: illegal character: :
+tmp.xH4Wnc/input89.txt 1: illegal character: :
+tmp.xH4Wnc/input89.txt 1: illegal character: :
+tmp.xH4Wnc/input89.txt 1: illegal character: ^@
+tmp.xH4Wnc/input90.txt 1: parse error
+tmp.xH4Wnc/input90.txt 1: parse error
+tmp.xH4Wnc/input90.txt 1: illegal character: $
+tmp.xH4Wnc/input90.txt 1: illegal character: $
+tmp.xH4Wnc/input90.txt 1: illegal character: :
+tmp.xH4Wnc/input90.txt 1: parse error
+tmp.xH4Wnc/input90.txt 1: illegal character: '
+tmp.xH4Wnc/input90.txt 1: illegal character: &
+tmp.xH4Wnc/input90.txt 1: illegal character: :
+tmp.xH4Wnc/input90.txt 1: illegal character: :
+tmp.xH4Wnc/input90.txt 1: illegal character: :
+tmp.xH4Wnc/input90.txt 1: illegal character: ?
+tmp.xH4Wnc/input90.txt 1: illegal character: :
+tmp.xH4Wnc/input90.txt 1: illegal character: ^@
+tmp.xH4Wnc/input91.txt 1: illegal character: &
+tmp.xH4Wnc/input91.txt 1: parse error
+tmp.xH4Wnc/input91.txt 1: illegal character: "
+tmp.xH4Wnc/input91.txt 1: illegal character: ?
+tmp.xH4Wnc/input91.txt 1: parse error
+tmp.xH4Wnc/input91.txt 1: illegal character: :
+tmp.xH4Wnc/input91.txt 1: illegal character: ?
+tmp.xH4Wnc/input91.txt 1: illegal character: ?
+tmp.xH4Wnc/input91.txt 1: illegal character: $
+tmp.xH4Wnc/input91.txt 1: illegal character: $
+tmp.xH4Wnc/input91.txt 1: illegal character: ^@
+tmp.xH4Wnc/input92.txt 1: illegal character: '
+tmp.xH4Wnc/input92.txt 1: parse error
+tmp.xH4Wnc/input92.txt 1: illegal character: $
+tmp.xH4Wnc/input92.txt 1: parse error
+tmp.xH4Wnc/input92.txt 1: illegal character: '
+tmp.xH4Wnc/input92.txt 1: illegal character: ^@
+tmp.xH4Wnc/input93.txt 1: illegal character: ?
+tmp.xH4Wnc/input93.txt 1: illegal character: :
+tmp.xH4Wnc/input93.txt 1: parse error
+tmp.xH4Wnc/input94.txt 1: parse error
+tmp.xH4Wnc/input94.txt 1: illegal character: ^@
+tmp.xH4Wnc/input95.txt 1: parse error
+tmp.xH4Wnc/input95.txt 1: illegal character: &
+tmp.xH4Wnc/input95.txt 1: illegal character: &
+tmp.xH4Wnc/input95.txt 1: parse error
+tmp.xH4Wnc/input95.txt 1: illegal character: &
+tmp.xH4Wnc/input95.txt 1: illegal character: &
+tmp.xH4Wnc/input95.txt 1: illegal character: "
+tmp.xH4Wnc/input95.txt 1: parse error
+tmp.xH4Wnc/input95.txt 1: illegal character: ^@
+(standard_in) 1: parse error
+tmp.xH4Wnc/input96.txt 1: parse error
+tmp.xH4Wnc/input96.txt 1: illegal character: ?
+tmp.xH4Wnc/input96.txt 1: illegal character: ?
+tmp.xH4Wnc/input96.txt 1: illegal character: :
+tmp.xH4Wnc/input96.txt 1: parse error
+tmp.xH4Wnc/input96.txt 1: illegal character: '
+tmp.xH4Wnc/input96.txt 1: illegal character: $
+tmp.xH4Wnc/input96.txt 1: illegal character: "
+tmp.xH4Wnc/input96.txt 1: illegal character: '
+tmp.xH4Wnc/input96.txt 1: illegal character: $
+tmp.xH4Wnc/input96.txt 1: illegal character: :
+tmp.xH4Wnc/input96.txt 1: illegal character: :
+tmp.xH4Wnc/input96.txt 1: illegal character: ^@
+(standard_in) 1: parse error
 EOF encountered in a comment.
-tmp.OqFk60/input6.txt 1: illegal character: $
-tmp.OqFk60/input6.txt 1: illegal character: $
-tmp.OqFk60/input6.txt 1: illegal character: &
-tmp.OqFk60/input6.txt 1: illegal character: :
-tmp.OqFk60/input6.txt 1: parse error
-tmp.OqFk60/input6.txt 1: illegal character: ^@
+tmp.xH4Wnc/input98.txt 1: illegal character: ^@
 (standard_in) 1: parse error
-tmp.OqFk60/input9.txt 1: parse error
-tmp.OqFk60/input9.txt 1: illegal character: $
-tmp.OqFk60/input9.txt 1: illegal character: &
-tmp.OqFk60/input9.txt 1: illegal character: $
-EOF encountered in a comment.
-tmp.OqFk60/input10.txt 1: parse error
-tmp.OqFk60/input11.txt 1: parse error
-tmp.OqFk60/input11.txt 1: illegal character: &
-tmp.OqFk60/input11.txt 1: illegal character: &
-tmp.OqFk60/input11.txt 1: illegal character: :
-tmp.OqFk60/input11.txt 1: illegal character: ?
-tmp.OqFk60/input11.txt 1: parse error
-tmp.OqFk60/input11.txt 1: illegal character: '
-tmp.OqFk60/input12.txt 1: parse error
-tmp.OqFk60/input12.txt 1: illegal character: :
-tmp.OqFk60/input12.txt 1: illegal character: "
-tmp.OqFk60/input12.txt 1: illegal character: :
-tmp.OqFk60/input12.txt 1: illegal character: '
-tmp.OqFk60/input12.txt 1: illegal character: $
-tmp.OqFk60/input12.txt 1: parse error
-tmp.OqFk60/input12.txt 1: illegal character: $
-tmp.OqFk60/input12.txt 1: illegal character: ^@
-tmp.OqFk60/input13.txt 1: parse error
-tmp.OqFk60/input13.txt 1: parse error
-tmp.OqFk60/input13.txt 1: illegal character: ?
-tmp.OqFk60/input13.txt 1: illegal character: &
-tmp.OqFk60/input13.txt 1: parse error
-(standard_in) 1: parse error
-(standard_in) 1: parse error
-tmp.OqFk60/input15.txt 1: parse error
-tmp.OqFk60/input15.txt 1: illegal character: :
-tmp.OqFk60/input15.txt 1: parse error
-tmp.OqFk60/input15.txt 1: illegal character: '
-(standard_in) 1: parse error
-tmp.OqFk60/input17.txt 1: illegal character: ^@
-(standard_in) 1: parse error
-tmp.OqFk60/input18.txt 1: parse error
-tmp.OqFk60/input18.txt 1: illegal character: ?
-tmp.OqFk60/input18.txt 1: illegal character: :
-tmp.OqFk60/input18.txt 1: illegal character: "
-tmp.OqFk60/input18.txt 1: illegal character: $
-tmp.OqFk60/input18.txt 1: illegal character: ^@
-tmp.OqFk60/input19.txt 1: illegal character: :
-EOF encountered in a comment.
-tmp.OqFk60/input20.txt 1: parse error
-tmp.OqFk60/input20.txt 1: illegal character: $
-tmp.OqFk60/input20.txt 1: illegal character: :
-tmp.OqFk60/input20.txt 1: parse error
-tmp.OqFk60/input20.txt 1: illegal character: ^@
-tmp.OqFk60/input21.txt 1: illegal character: ?
-tmp.OqFk60/input21.txt 1: parse error
-tmp.OqFk60/input21.txt 1: illegal character: :
-tmp.OqFk60/input21.txt 1: illegal character: ?
-tmp.OqFk60/input21.txt 1: illegal character: :
-tmp.OqFk60/input21.txt 1: illegal character: &
-tmp.OqFk60/input22.txt 1: parse error
-tmp.OqFk60/input22.txt 1: illegal character: '
-tmp.OqFk60/input22.txt 1: illegal character: $
-tmp.OqFk60/input22.txt 1: parse error
-tmp.OqFk60/input22.txt 1: illegal character: ?
-tmp.OqFk60/input22.txt 1: illegal character: $
-tmp.OqFk60/input22.txt 1: illegal character: "
-tmp.OqFk60/input22.txt 1: parse error
-tmp.OqFk60/input22.txt 1: illegal character: &
-tmp.OqFk60/input22.txt 1: illegal character: ?
-tmp.OqFk60/input22.txt 1: illegal character: &
-tmp.OqFk60/input22.txt 1: illegal character: ?
-tmp.OqFk60/input22.txt 1: illegal character: :
-tmp.OqFk60/input22.txt 1: illegal character: ^@
-tmp.OqFk60/input23.txt 1: parse error
-tmp.OqFk60/input23.txt 1: parse error
-tmp.OqFk60/input23.txt 1: parse error
-tmp.OqFk60/input23.txt 1: illegal character: ?
-tmp.OqFk60/input23.txt 1: illegal character: ?
-tmp.OqFk60/input23.txt 1: illegal character: '
-tmp.OqFk60/input23.txt 1: illegal character: '
-tmp.OqFk60/input23.txt 1: illegal character: &
-tmp.OqFk60/input23.txt 1: illegal character: ?
-tmp.OqFk60/input24.txt 1: parse error
-tmp.OqFk60/input24.txt 1: illegal character: ?
-tmp.OqFk60/input25.txt 1: illegal character: &
-tmp.OqFk60/input25.txt 1: illegal character: ?
-tmp.OqFk60/input25.txt 1: parse error
-tmp.OqFk60/input25.txt 1: illegal character: $
-tmp.OqFk60/input26.txt 1: illegal character: $
-tmp.OqFk60/input26.txt 1: parse error
-tmp.OqFk60/input26.txt 1: illegal character: :
-tmp.OqFk60/input27.txt 1: illegal character: &
-tmp.OqFk60/input27.txt 1: illegal character: '
-tmp.OqFk60/input27.txt 1: parse error
-tmp.OqFk60/input28.txt 1: illegal character: &
-tmp.OqFk60/input28.txt 1: illegal character: &
-tmp.OqFk60/input28.txt 1: illegal character: ^@
-(standard_in) 1: parse error
-tmp.OqFk60/input29.txt 1: illegal character: :
-tmp.OqFk60/input29.txt 1: parse error
-tmp.OqFk60/input30.txt 1: parse error
-tmp.OqFk60/input30.txt 1: illegal character: :
-tmp.OqFk60/input30.txt 1: illegal character: $
-tmp.OqFk60/input30.txt 1: illegal character: :
-tmp.OqFk60/input30.txt 1: parse error
-tmp.OqFk60/input30.txt 1: illegal character: ^@
-tmp.OqFk60/input31.txt 1: parse error
-tmp.OqFk60/input31.txt 1: illegal character: &
-tmp.OqFk60/input32.txt 1: parse error
-tmp.OqFk60/input32.txt 1: parse error
-tmp.OqFk60/input32.txt 1: illegal character: :
-tmp.OqFk60/input34.txt 1: parse error
-tmp.OqFk60/input34.txt 1: illegal character: &
-tmp.OqFk60/input34.txt 1: illegal character: '
-tmp.OqFk60/input34.txt 1: parse error
-tmp.OqFk60/input34.txt 1: illegal character: :
-tmp.OqFk60/input34.txt 1: parse error
-tmp.OqFk60/input34.txt 1: illegal character: '
-tmp.OqFk60/input34.txt 1: parse error
-tmp.OqFk60/input34.txt 1: illegal character: ?
-tmp.OqFk60/input34.txt 1: illegal character: ?
-tmp.OqFk60/input34.txt 1: parse error
-tmp.OqFk60/input34.txt 1: illegal character: ^@
-tmp.OqFk60/input35.txt 1: parse error
-tmp.OqFk60/input35.txt 1: illegal character: ^@
-(standard_in) 1: parse error
-tmp.OqFk60/input36.txt 1: illegal character: '
-tmp.OqFk60/input36.txt 1: parse error
-tmp.OqFk60/input36.txt 1: illegal character: '
-tmp.OqFk60/input36.txt 1: parse error
-tmp.OqFk60/input36.txt 1: illegal character: $
-tmp.OqFk60/input36.txt 1: illegal character: :
-tmp.OqFk60/input36.txt 1: illegal character: ?
-tmp.OqFk60/input36.txt 1: illegal character: ?
-tmp.OqFk60/input36.txt 1: illegal character: ^@
-tmp.OqFk60/input37.txt 1: parse error
-tmp.OqFk60/input37.txt 1: illegal character: ?
-tmp.OqFk60/input37.txt 1: illegal character: &
-tmp.OqFk60/input38.txt 1: parse error
-tmp.OqFk60/input38.txt 1: illegal character: ^@
-tmp.OqFk60/input39.txt 1: parse error
-tmp.OqFk60/input39.txt 1: illegal character: $
-tmp.OqFk60/input39.txt 1: illegal character: '
-tmp.OqFk60/input40.txt 1: parse error
-tmp.OqFk60/input40.txt 1: illegal character: ?
-tmp.OqFk60/input40.txt 1: illegal character: :
-tmp.OqFk60/input40.txt 1: illegal character: &
-tmp.OqFk60/input40.txt 1: parse error
-tmp.OqFk60/input40.txt 1: parse error
-tmp.OqFk60/input40.txt 1: illegal character: &
-tmp.OqFk60/input40.txt 1: parse error
-tmp.OqFk60/input40.txt 1: illegal character: ?
-tmp.OqFk60/input40.txt 1: illegal character: &
-tmp.OqFk60/input40.txt 1: illegal character: ^@
-tmp.OqFk60/input41.txt 1: parse error
-tmp.OqFk60/input41.txt 1: illegal character: $
-tmp.OqFk60/input41.txt 1: illegal character: $
-tmp.OqFk60/input41.txt 1: illegal character: "
-tmp.OqFk60/input41.txt 1: illegal character: '
-tmp.OqFk60/input41.txt 1: illegal character: ^@
-tmp.OqFk60/input42.txt 1: parse error
-tmp.OqFk60/input42.txt 1: illegal character: '
-tmp.OqFk60/input43.txt 1: parse error
-tmp.OqFk60/input43.txt 1: illegal character: ?
-tmp.OqFk60/input43.txt 1: illegal character: &
-tmp.OqFk60/input43.txt 1: illegal character: ?
-tmp.OqFk60/input43.txt 1: illegal character: &
-tmp.OqFk60/input43.txt 1: parse error
-tmp.OqFk60/input43.txt 1: illegal character: &
-tmp.OqFk60/input43.txt 1: illegal character: :
-tmp.OqFk60/input43.txt 1: illegal character: $
-tmp.OqFk60/input43.txt 1: illegal character: $
-tmp.OqFk60/input43.txt 1: illegal character: "
-tmp.OqFk60/input43.txt 1: illegal character: ^@
-tmp.OqFk60/input44.txt 1: parse error
-tmp.OqFk60/input44.txt 1: illegal character: '
-tmp.OqFk60/input44.txt 1: illegal character: &
-tmp.OqFk60/input44.txt 1: illegal character: ?
-(standard_in) 1: parse error
-tmp.OqFk60/input46.txt 1: parse error
-tmp.OqFk60/input46.txt 1: illegal character: ^@
-tmp.OqFk60/input47.txt 1: parse error
-tmp.OqFk60/input47.txt 1: illegal character: $
-tmp.OqFk60/input47.txt 1: illegal character: &
-tmp.OqFk60/input48.txt 1: parse error
-tmp.OqFk60/input48.txt 1: illegal character: $
-tmp.OqFk60/input48.txt 1: illegal character: "
-tmp.OqFk60/input48.txt 1: illegal character: ^@
-(standard_in) 1: parse error
-tmp.OqFk60/input49.txt 1: parse error
-tmp.OqFk60/input49.txt 1: illegal character: $
-tmp.OqFk60/input49.txt 1: parse error
-tmp.OqFk60/input49.txt 1: illegal character: ?
-tmp.OqFk60/input49.txt 1: parse error
-tmp.OqFk60/input49.txt 1: illegal character: '
-tmp.OqFk60/input50.txt 1: illegal character: $
-tmp.OqFk60/input50.txt 1: illegal character: &
-tmp.OqFk60/input50.txt 1: parse error
-tmp.OqFk60/input50.txt 1: illegal character: $
-tmp.OqFk60/input50.txt 1: parse error
-tmp.OqFk60/input50.txt 1: parse error
-tmp.OqFk60/input50.txt 1: illegal character: '
-tmp.OqFk60/input50.txt 1: illegal character: $
-tmp.OqFk60/input50.txt 1: illegal character: '
-tmp.OqFk60/input50.txt 1: illegal character: $
-tmp.OqFk60/input50.txt 1: illegal character: :
-tmp.OqFk60/input50.txt 1: illegal character: &
-tmp.OqFk60/input50.txt 1: parse error
-tmp.OqFk60/input51.txt 1: parse error
-tmp.OqFk60/input51.txt 1: illegal character: :
-tmp.OqFk60/input51.txt 1: illegal character: $
-tmp.OqFk60/input52.txt 1: illegal character: $
-(standard_in) 1: parse error
-tmp.OqFk60/input53.txt 1: parse error
-tmp.OqFk60/input53.txt 1: parse error
-tmp.OqFk60/input53.txt 1: illegal character: ^@
-tmp.OqFk60/input54.txt 1: parse error
-tmp.OqFk60/input54.txt 1: illegal character: ?
-tmp.OqFk60/input55.txt 1: parse error
-tmp.OqFk60/input55.txt 1: parse error
-tmp.OqFk60/input55.txt 1: illegal character: '
-tmp.OqFk60/input55.txt 1: parse error
-tmp.OqFk60/input56.txt 1: illegal character: :
-tmp.OqFk60/input56.txt 1: illegal character: "
-tmp.OqFk60/input56.txt 1: parse error
-tmp.OqFk60/input56.txt 1: parse error
-tmp.OqFk60/input56.txt 1: illegal character: $
-tmp.OqFk60/input56.txt 1: parse error
-tmp.OqFk60/input56.txt 1: illegal character: :
-tmp.OqFk60/input56.txt 1: illegal character: ?
-tmp.OqFk60/input56.txt 1: parse error
-tmp.OqFk60/input56.txt 1: parse error
-tmp.OqFk60/input56.txt 1: illegal character: '
-tmp.OqFk60/input56.txt 1: parse error
-tmp.OqFk60/input56.txt 1: illegal character: ?
-tmp.OqFk60/input56.txt 1: illegal character: $
-tmp.OqFk60/input56.txt 1: illegal character: $
-tmp.OqFk60/input56.txt 1: illegal character: ?
-tmp.OqFk60/input56.txt 1: illegal character: ^@
-tmp.OqFk60/input57.txt 1: parse error
-tmp.OqFk60/input57.txt 1: illegal character: ^@
-tmp.OqFk60/input58.txt 1: illegal character: :
-tmp.OqFk60/input58.txt 1: parse error
-EOF encountered in a comment.
-tmp.OqFk60/input59.txt 1: illegal character: :
-tmp.OqFk60/input59.txt 1: illegal character: &
-tmp.OqFk60/input59.txt 1: parse error
-tmp.OqFk60/input59.txt 1: illegal character: ?
-tmp.OqFk60/input59.txt 1: illegal character: $
-tmp.OqFk60/input59.txt 1: illegal character: :
-tmp.OqFk60/input59.txt 1: illegal character: $
-tmp.OqFk60/input59.txt 1: illegal character: "
-tmp.OqFk60/input60.txt 1: parse error
-tmp.OqFk60/input60.txt 1: parse error
-tmp.OqFk60/input60.txt 1: illegal character: &
-tmp.OqFk60/input61.txt 1: parse error
-tmp.OqFk60/input61.txt 1: parse error
-tmp.OqFk60/input61.txt 1: illegal character: &
-tmp.OqFk60/input61.txt 1: parse error
-tmp.OqFk60/input61.txt 1: illegal character: '
-tmp.OqFk60/input61.txt 1: illegal character: :
-tmp.OqFk60/input61.txt 1: illegal character: &
-tmp.OqFk60/input61.txt 1: illegal character: :
-tmp.OqFk60/input61.txt 1: illegal character: :
-tmp.OqFk60/input61.txt 1: illegal character: "
-tmp.OqFk60/input61.txt 1: illegal character: :
-tmp.OqFk60/input62.txt 1: illegal character: $
-tmp.OqFk60/input62.txt 1: illegal character: &
-tmp.OqFk60/input62.txt 1: parse error
-tmp.OqFk60/input62.txt 1: parse error
-tmp.OqFk60/input62.txt 1: illegal character: ^@
-tmp.OqFk60/input63.txt 1: parse error
-tmp.OqFk60/input63.txt 1: illegal character: :
-tmp.OqFk60/input63.txt 1: illegal character: &
-tmp.OqFk60/input63.txt 1: illegal character: :
-tmp.OqFk60/input63.txt 1: illegal character: :
-tmp.OqFk60/input63.txt 1: illegal character: $
-tmp.OqFk60/input64.txt 1: parse error
-tmp.OqFk60/input65.txt 1: parse error
-tmp.OqFk60/input65.txt 1: illegal character: $
-tmp.OqFk60/input65.txt 1: parse error
-tmp.OqFk60/input65.txt 1: illegal character: :
-tmp.OqFk60/input65.txt 1: parse error
-tmp.OqFk60/input65.txt 1: illegal character: :
-tmp.OqFk60/input65.txt 1: illegal character: "
-tmp.OqFk60/input66.txt 1: parse error
-tmp.OqFk60/input67.txt 1: parse error
-tmp.OqFk60/input67.txt 1: illegal character: $
-tmp.OqFk60/input67.txt 1: illegal character: "
-tmp.OqFk60/input67.txt 1: illegal character: '
-tmp.OqFk60/input67.txt 1: parse error
-tmp.OqFk60/input67.txt 1: illegal character: $
-tmp.OqFk60/input67.txt 1: illegal character: &
-tmp.OqFk60/input67.txt 1: illegal character: ?
-tmp.OqFk60/input67.txt 1: parse error
-tmp.OqFk60/input67.txt 1: illegal character: ^@
-tmp.OqFk60/input68.txt 1: parse error
-tmp.OqFk60/input68.txt 1: illegal character: ?
-tmp.OqFk60/input69.txt 1: parse error
-tmp.OqFk60/input69.txt 1: illegal character: :
-(standard_in) 1: parse error
-tmp.OqFk60/input70.txt 1: illegal character: ?
-(standard_in) 1: parse error
-tmp.OqFk60/input71.txt 1: parse error
-tmp.OqFk60/input71.txt 1: illegal character: '
-tmp.OqFk60/input71.txt 1: parse error
-tmp.OqFk60/input71.txt 1: parse error
-tmp.OqFk60/input72.txt 1: illegal character: ?
-tmp.OqFk60/input72.txt 1: parse error
-tmp.OqFk60/input73.txt 1: parse error
-tmp.OqFk60/input73.txt 1: illegal character: &
-tmp.OqFk60/input73.txt 1: parse error
-tmp.OqFk60/input73.txt 1: illegal character: ^@
-tmp.OqFk60/input74.txt 1: illegal character: $
-tmp.OqFk60/input74.txt 1: parse error
-tmp.OqFk60/input74.txt 1: illegal character: :
-tmp.OqFk60/input74.txt 1: illegal character: :
-tmp.OqFk60/input74.txt 1: illegal character: &
-tmp.OqFk60/input74.txt 1: illegal character: :
-tmp.OqFk60/input74.txt 1: illegal character: &
-tmp.OqFk60/input74.txt 1: parse error
-tmp.OqFk60/input74.txt 1: illegal character: "
-tmp.OqFk60/input74.txt 1: illegal character: $
-tmp.OqFk60/input74.txt 1: illegal character: &
-tmp.OqFk60/input74.txt 1: illegal character: ?
-tmp.OqFk60/input74.txt 1: illegal character: ^@
-tmp.OqFk60/input75.txt 1: illegal character: &
-tmp.OqFk60/input75.txt 1: parse error
-tmp.OqFk60/input75.txt 1: illegal character: &
-tmp.OqFk60/input75.txt 1: illegal character: $
-tmp.OqFk60/input75.txt 1: illegal character: $
-tmp.OqFk60/input75.txt 1: illegal character: ?
-tmp.OqFk60/input75.txt 1: illegal character: '
-tmp.OqFk60/input76.txt 1: parse error
-tmp.OqFk60/input76.txt 1: illegal character: &
-tmp.OqFk60/input76.txt 1: illegal character: $
-tmp.OqFk60/input76.txt 1: parse error
-tmp.OqFk60/input77.txt 1: parse error
-tmp.OqFk60/input77.txt 1: illegal character: &
-tmp.OqFk60/input77.txt 1: parse error
-tmp.OqFk60/input77.txt 1: illegal character: $
-tmp.OqFk60/input77.txt 1: illegal character: ^@
-(standard_in) 1: parse error
-tmp.OqFk60/input79.txt 1: illegal character: "
-tmp.OqFk60/input79.txt 1: illegal character: '
-tmp.OqFk60/input79.txt 1: parse error
-tmp.OqFk60/input79.txt 1: illegal character: $
-tmp.OqFk60/input79.txt 1: illegal character: ^@
-tmp.OqFk60/input80.txt 1: parse error
-tmp.OqFk60/input80.txt 1: illegal character: '
-tmp.OqFk60/input80.txt 1: illegal character: ^@
-tmp.OqFk60/input81.txt 1: parse error
-tmp.OqFk60/input81.txt 1: illegal character: "
-tmp.OqFk60/input81.txt 1: illegal character: '
-tmp.OqFk60/input81.txt 1: illegal character: '
-tmp.OqFk60/input81.txt 1: illegal character: ?
-tmp.OqFk60/input81.txt 1: parse error
-tmp.OqFk60/input81.txt 1: illegal character: ^@
-tmp.OqFk60/input82.txt 1: illegal character: :
-tmp.OqFk60/input82.txt 1: parse error
-tmp.OqFk60/input83.txt 1: illegal character: &
-tmp.OqFk60/input83.txt 1: illegal character: :
-tmp.OqFk60/input83.txt 1: parse error
-tmp.OqFk60/input83.txt 1: parse error
-tmp.OqFk60/input83.txt 1: parse error
-tmp.OqFk60/input83.txt 1: parse error
-tmp.OqFk60/input83.txt 1: illegal character: '
-tmp.OqFk60/input83.txt 1: illegal character: &
-tmp.OqFk60/input83.txt 1: parse error
-tmp.OqFk60/input83.txt 1: illegal character: :
-tmp.OqFk60/input83.txt 1: illegal character: ^@
-tmp.OqFk60/input84.txt 1: parse error
-tmp.OqFk60/input84.txt 1: illegal character: &
-tmp.OqFk60/input84.txt 1: illegal character: $
-tmp.OqFk60/input84.txt 1: illegal character: :
-tmp.OqFk60/input84.txt 1: illegal character: &
-tmp.OqFk60/input84.txt 1: illegal character: '
-tmp.OqFk60/input84.txt 1: parse error
-tmp.OqFk60/input84.txt 1: illegal character: "
-tmp.OqFk60/input84.txt 1: illegal character: ^@
-tmp.OqFk60/input85.txt 1: parse error
-tmp.OqFk60/input85.txt 1: parse error
-tmp.OqFk60/input85.txt 1: illegal character: $
-tmp.OqFk60/input85.txt 1: parse error
-tmp.OqFk60/input85.txt 1: parse error
-tmp.OqFk60/input85.txt 1: illegal character: "
-tmp.OqFk60/input85.txt 1: illegal character: ?
-tmp.OqFk60/input85.txt 1: illegal character: '
-tmp.OqFk60/input85.txt 1: illegal character: ^@
-tmp.OqFk60/input86.txt 1: parse error
-tmp.OqFk60/input86.txt 1: parse error
-tmp.OqFk60/input86.txt 1: illegal character: $
-tmp.OqFk60/input86.txt 1: parse error
-tmp.OqFk60/input86.txt 1: illegal character: "
-tmp.OqFk60/input86.txt 1: illegal character: :
-tmp.OqFk60/input86.txt 1: illegal character: ^@
-tmp.OqFk60/input87.txt 1: illegal character: '
-tmp.OqFk60/input87.txt 1: parse error
-tmp.OqFk60/input88.txt 1: illegal character: "
-tmp.OqFk60/input88.txt 1: parse error
-tmp.OqFk60/input88.txt 1: illegal character: :
-tmp.OqFk60/input88.txt 1: illegal character: :
-tmp.OqFk60/input88.txt 1: illegal character: :
-tmp.OqFk60/input88.txt 1: illegal character: &
-tmp.OqFk60/input88.txt 1: parse error
-tmp.OqFk60/input88.txt 1: illegal character: ?
-tmp.OqFk60/input88.txt 1: parse error
-tmp.OqFk60/input89.txt 1: illegal character: $
-tmp.OqFk60/input89.txt 1: illegal character: ^@
-(standard_in) 1: parse error
-tmp.OqFk60/input90.txt 1: illegal character: '
-tmp.OqFk60/input90.txt 1: illegal character: ?
-tmp.OqFk60/input90.txt 1: parse error
-tmp.OqFk60/input90.txt 1: parse error
-tmp.OqFk60/input90.txt 1: parse error
-tmp.OqFk60/input91.txt 1: parse error
-tmp.OqFk60/input91.txt 1: illegal character: :
-tmp.OqFk60/input91.txt 1: parse error
-tmp.OqFk60/input91.txt 1: illegal character: '
-tmp.OqFk60/input91.txt 1: parse error
-tmp.OqFk60/input91.txt 1: illegal character: :
-tmp.OqFk60/input91.txt 1: illegal character: &
-tmp.OqFk60/input91.txt 1: illegal character: :
-tmp.OqFk60/input91.txt 1: illegal character: ?
-tmp.OqFk60/input91.txt 1: illegal character: $
-tmp.OqFk60/input91.txt 1: illegal character: $
-tmp.OqFk60/input91.txt 1: illegal character: "
-tmp.OqFk60/input91.txt 1: illegal character: ?
-tmp.OqFk60/input91.txt 1: illegal character: &
-tmp.OqFk60/input91.txt 1: parse error
-tmp.OqFk60/input91.txt 1: illegal character: ^@
-tmp.OqFk60/input92.txt 1: parse error
-tmp.OqFk60/input92.txt 1: parse error
-tmp.OqFk60/input93.txt 1: illegal character: '
-tmp.OqFk60/input93.txt 1: illegal character: :
-tmp.OqFk60/input93.txt 1: parse error
-tmp.OqFk60/input93.txt 1: illegal character: ^@
-tmp.OqFk60/input94.txt 1: parse error
-tmp.OqFk60/input94.txt 1: illegal character: '
-tmp.OqFk60/input95.txt 1: parse error
-tmp.OqFk60/input95.txt 1: parse error
-tmp.OqFk60/input95.txt 1: parse error
-tmp.OqFk60/input95.txt 1: illegal character: :
-tmp.OqFk60/input95.txt 1: illegal character: &
-tmp.OqFk60/input95.txt 1: illegal character: :
-tmp.OqFk60/input95.txt 1: illegal character: ?
-tmp.OqFk60/input95.txt 1: illegal character: &
-EOF encountered in a comment.
-tmp.OqFk60/input98.txt 1: parse error
-tmp.OqFk60/input98.txt 1: illegal character: :
-tmp.OqFk60/input98.txt 1: illegal character: ?
-tmp.OqFk60/input98.txt 1: parse error
-tmp.OqFk60/input98.txt 1: illegal character: "
-tmp.OqFk60/input98.txt 1: illegal character: ^@
-tmp.OqFk60/input99.txt 1: illegal character: ?
-tmp.OqFk60/input99.txt 1: illegal character: ?
-(standard_in) 1: parse error
+tmp.xH4Wnc/input99.txt 1: illegal character: $
+tmp.xH4Wnc/input99.txt 1: parse error
+tmp.xH4Wnc/input99.txt 1: illegal character: "
