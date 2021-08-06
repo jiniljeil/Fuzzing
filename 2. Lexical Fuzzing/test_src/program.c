@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h> 
-// #define TEST
+#define TEST
 /* 
 clang -fsanitize=address -g -o program program.c
 */
@@ -13,10 +13,13 @@ int main(int argc, char** argv) {
 
     /* Read the N-th element, with N being the first command-line argument */
     int index = atoi(argv[1]);
-    
+
 #ifdef TEST
     char *buff = malloc(100); 
     memset(buff, 42, 100);
+
+    char *bufff = malloc(100); 
+    memset(bufff, 42, 100);
 #endif 
     char val = buf[index];
 

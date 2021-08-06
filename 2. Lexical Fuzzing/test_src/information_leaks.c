@@ -26,9 +26,13 @@ char* substring(char *str, int start_idx, int end_idx) {
 char* make_secrets_string() {
     char* secrets = (char*)malloc(sizeof(char) * BUFF_SIZE); 
     int secrets_size = strlen(secrets) ; 
+    char* fuzzer_string[3]; 
 
+    for(int i = 0 ; i < 3 ; i++) { 
+        fuzzer_string[i] = fuzzer(BASIC_LENGTH, BASIC_START, BASIC_RANGE); 
+    }
     sprintf(secrets, "<space-for-reply>%s<secret-certificate>%s<secret-key>%s<other-secrets>", 
-        fuzzer(BASIC_LENGTH, BASIC_START, BASIC_RANGE), fuzzer(BASIC_LENGTH, BASIC_START, BASIC_RANGE), fuzzer(BASIC_LENGTH, BASIC_START, BASIC_RANGE));
+        fuzzer_string[0], fuzzer_string[1], fuzzer_string[2]);
 
     char uninitialized_memory_marker[9] = "deadbeef";
     int uninit_memorymaker_size = strlen(uninitialized_memory_marker) ; 
@@ -38,6 +42,9 @@ char* make_secrets_string() {
         secrets_size += uninit_memorymaker_size ;
     }
     
+    for(int i = 0 ; i < 3; i++) { 
+        free(fuzzer_string[i]);
+    }
     return secrets; 
 } 
 
