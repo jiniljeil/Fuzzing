@@ -13,7 +13,6 @@ void crash_if_too_long(char * random_string_by_fuzzer) {
 
 void buffer_overflows() {
     int trials = 100; 
-
     for(int i = 0 ; i < trials; i++) {
         char * basic_random = fuzzer(BASIC_LENGTH, BASIC_START, BASIC_RANGE); 
         crash_if_too_long(basic_random);
@@ -50,7 +49,7 @@ void missing_error_checks() {
     t.it_interval = t.it_value ;
 
     setitimer(ITIMER_REAL, &t, 0x0); 
-    
+
     for(int i = 0 ; i < trials; i++) {
         char * basic_random = fuzzer(BASIC_LENGTH, BASIC_START, BASIC_RANGE); 
         hang_if_no_space(basic_random);
@@ -71,7 +70,7 @@ void rogue_number() {
 }   
 
 int main(void) {
-    // buffer_overflows(); 
+    buffer_overflows(); 
     missing_error_checks(); 
     rogue_number(); 
 
