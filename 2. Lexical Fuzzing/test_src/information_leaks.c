@@ -42,14 +42,15 @@ char* make_secrets_string() {
 } 
 
 char* heartbeat(char* reply, int length, char* memory) {
-    char * c = substring(memory, strlen(reply), strlen(memory));
-    sprintf(memory, "%s%s", reply, c);
+    char * substr = substring(memory, strlen(reply), strlen(memory));
+    sprintf(memory, "%s%s", reply, substr);
 
     char* s = (char*)malloc(sizeof(char) * (length + 1));
     for(int i = 0 ; i < length ; i++) {
         s[i] = memory[i];
     }
     s[length] = '\0';
+    free(substr); 
     return s ;
 }
 
@@ -71,7 +72,9 @@ void information_leaks_test2() {
         char* s = heartbeat(fuzzer(BASIC_LENGTH, BASIC_START, BASIC_RANGE), 1 + rand()%500, secrets);
         assert(strstr(s, uninitialized_memory_marker) == NULL);
         assert(strstr(s, "secret") == NULL);
+        free(s);
     }
+    free(secrets);
 }
 
 int main(void) {
