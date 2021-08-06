@@ -57,7 +57,7 @@ void missing_error_checks() {
 }
 
 void collapse_if_too_large(char * random_string_by_fuzzer) {
-    if(strlen(random_string_by_fuzzer) > 1000) {
+    if(atoi(random_string_by_fuzzer) > 1000 || atoi(random_string_by_fuzzer) < 0) {
         printf("ValueError!\n");
         exit(1);
     }
