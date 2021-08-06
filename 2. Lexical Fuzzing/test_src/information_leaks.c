@@ -32,7 +32,7 @@ char* make_secrets_string() {
     char uninitialized_memory_marker[9] = "deadbeef";
     int uninit_memorymaker_size = strlen(uninitialized_memory_marker) ; 
 
-    while(strlen(secrets) + uninit_memorymaker_size + 1 < 2048) {
+    while(strlen(secrets) + uninit_memorymaker_size + 1 < BUFF_SIZE) {
         strcat(secrets, uninitialized_memory_marker); 
     }
     return secrets; 
