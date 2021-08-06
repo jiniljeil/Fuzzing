@@ -10,7 +10,7 @@ char * fuzzer(int max_length, int char_start, int char_range) {
     for(int i = 0 ; i < string_length; i++) {
         out[i] = (char) (char_start + rand() % char_range); 
     }
-    // printf("%s", out);
+
     out[string_length] = '\0';
     return out; 
 }

@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h> 
-#include "include/my_sqrt.h"
+#include "../include/my_sqrt.h"
 
 int main(void) {
     int x = 0; 
