@@ -29,14 +29,6 @@ void handler(int sig)
 void hang_if_no_space(char * random_string_by_fuzzer) {
     int i = 0 ;
 
-    struct itimerval t; 
-    
-    signal(SIGALRM, handler); 
-
-    t.it_value.tv_sec = 2; 
-
-    setitimer(ITIMER_REAL, &t, 0x0); 
-
     while(1) {
         if (i < strlen(random_string_by_fuzzer)) {
             if(random_string_by_fuzzer[i] == ' ') {
@@ -49,6 +41,15 @@ void hang_if_no_space(char * random_string_by_fuzzer) {
 
 void missing_error_checks() { 
     int trials = 100; 
+    
+    struct itimerval t; 
+    
+    signal(SIGALRM, handler); 
+
+    t.it_value.tv_sec = 2; 
+    t.it_interval = t.it_value ;
+
+    setitimer(ITIMER_REAL, &t, 0x0); 
     
     for(int i = 0 ; i < trials; i++) {
         char * basic_random = fuzzer(BASIC_LENGTH, BASIC_START, BASIC_RANGE); 
@@ -70,7 +71,7 @@ void rogue_number() {
 }   
 
 int main(void) {
-    buffer_overflows(); 
+    // buffer_overflows(); 
     missing_error_checks(); 
     rogue_number(); 
 
