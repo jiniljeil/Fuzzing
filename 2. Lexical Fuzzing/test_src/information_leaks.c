@@ -69,8 +69,8 @@ void information_leaks_test2() {
 
     for(int i = 0 ; i < 10; i++) {
         char* s = heartbeat(fuzzer(BASIC_LENGTH, BASIC_START, BASIC_RANGE), 1 + rand()%500, secrets);
-        assert(strstr(s, uninitialized_memory_marker) != NULL);
-        assert(strstr(s, "secret") != NULL);
+        assert(strstr(s, uninitialized_memory_marker) == NULL);
+        assert(strstr(s, "secret") == NULL);
     }
 }
 
