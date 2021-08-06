@@ -51,7 +51,7 @@ void subprocess_run(char *program, char* file) {
         close(pipes[READ]); 
         close(error_pipes[READ]); 
 
-        int devnull = open("/dev/null", O_RDONLY); 
+        int devnull = open("per", O_RDONLY); 
         dup2(devnull, 0); 
         dup2(pipes[WRITE], 1); 
         dup2(error_pipes[WRITE], 2); 
