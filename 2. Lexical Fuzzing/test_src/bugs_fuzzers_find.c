@@ -53,6 +53,7 @@ void missing_error_checks() {
     for(int i = 0 ; i < trials; i++) {
         char * basic_random = fuzzer(BASIC_LENGTH, BASIC_START, BASIC_RANGE); 
         hang_if_no_space(basic_random);
+        free(basic_random);
     }
 }
 
@@ -67,6 +68,7 @@ void rogue_number() {
     char *long_number = fuzzer(BASIC_LENGTH, (int)'0', 10) ;
     collapse_if_too_large(long_number);
     printf("%s\n", long_number);
+    free(long_number);
 }   
 
 int main(void) {
