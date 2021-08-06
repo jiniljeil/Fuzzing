@@ -7,7 +7,7 @@ char* substring(char *str, int start_idx, int end_idx) {
     int string_length = strlen(str);
 
     if( string_length < end_idx || string_length < start_idx ) {
-        perror("Out of bound error\n"); 
+        perror("Out of bound memory access error\n"); 
         return NULL; 
     }
 
