@@ -90,28 +90,30 @@ subprocess * run_process(char* input) {
     return subproc; 
 }
 
-RESULT * programRunner_run(char* input) { 
+subprocess * programRunner_run(char* input) { 
     if (input == NULL) input = ""; 
-    RESULT * ret = (RESULT*)malloc(sizeof(RESULT));  
-    ret->input = (char*)malloc(sizeof(char) * (strlen(input) + 1)) ;
-
-    strcpy(ret->input, input) ;
 
     subprocess * subprocess_result = run_process(input) ;
 
     if( subprocess_result->exit_code == 0 ) {
-        ret->outcome = (char*)malloc(sizeof(char) * (strlen(PASS) + 1)); 
-        strcpy(ret->outcome, PASS) ;
+
+        subprocess_result->outcome = (char*)malloc(sizeof(char) * (strlen(PASS) + 1)); 
+        strcpy(subprocess_result->outcome, PASS) ;
+
     }else if( subprocess_result->exit_code < 0 ) {
-        ret->outcome = (char*)malloc(sizeof(char) * (strlen(FAIL) + 1)); 
-        strcpy(ret->outcome, FAIL) ;
+
+        subprocess_result->outcome = (char*)malloc(sizeof(char) * (strlen(FAIL) + 1)); 
+        strcpy(subprocess_result->outcome, FAIL) ;
+
     }else {
-        ret->outcome = (char*)malloc(sizeof(char) * (strlen(UNRESOLVED) + 1)); 
-        strcpy(ret->outcome, UNRESOLVED) ;
+
+        subprocess_result->outcome = (char*)malloc(sizeof(char) * (strlen(UNRESOLVED) + 1)); 
+        strcpy(subprocess_result->outcome, UNRESOLVED) ;
+        
     }
 
     printf("RESULT: %s\n", subprocess_result->standard_out); 
     printf("ERROR: %s\n", (strlen(subprocess_result->standard_err) == 0) ? "NOTHING" : subprocess_result->standard_err);
 
-    return ret ;
+    return subprocess_result ;
 }

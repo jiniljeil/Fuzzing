@@ -1,4 +1,5 @@
 #include "../include/programRunner.h"
+#include "../include/runner.h"
 
 void print_runner_test() {
     RESULT * print_runner_result = PrintRunner_run("Some input"); 
@@ -13,10 +14,9 @@ void print_runner_test() {
 
 void program_runner_test() { 
     program_runner_initialize("cat"); 
-    RESULT * program_runner_result = programRunner_run("apple"); 
+    subprocess * program_runner_result = programRunner_run("apple"); 
     printf("%s\n", program_runner_result->outcome); 
     
-    free(program_runner_result->input); 
     free(program_runner_result->outcome);
     free(program_runner_result); 
 }

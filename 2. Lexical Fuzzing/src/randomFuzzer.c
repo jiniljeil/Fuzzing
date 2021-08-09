@@ -18,15 +18,15 @@ char* random_fuzz(RANDOM_SETTING * setting) {
     return random_string ;
 }
 
-RESULT * fuzzer_run(RANDOM_SETTING * setting, runner runner) {
+RESULT * random_fuzzer_run(RANDOM_SETTING * setting, runner runner) {
     return runner(random_fuzz(setting));
 }
 
-RESULT ** fuzzer_runs(RANDOM_SETTING * setting, print_runner runner, int trials) { 
+RESULT ** random_fuzzer_runs(RANDOM_SETTING * setting, print_runner runner, int trials) { 
     RESULT ** result_list = (RESULT**)malloc(sizeof(RESULT*) * trials); 
 
     for(int i = 0 ; i < trials; i++) {
-        result_list[i] = fuzzer_run(setting, runner); 
+        result_list[i] = random_fuzzer_run(setting, runner); 
     }
 
     return result_list;            
