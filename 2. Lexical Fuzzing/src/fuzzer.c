@@ -1,16 +1,20 @@
-#include "../include/fuzzer.h" 
+#include "../include/fuzzer.h"
 
-// Basic parameter (BASIC_LENGTH, BASIC_START, BASIC_RANGE) 
-char * fuzzer(int max_length, int char_start, int char_range) {
-    // 수정 필요 
-    // srand(clock());
-    int string_length = rand() % (max_length) + 1 ; // '\0'
-    char * out = (char*)malloc(sizeof(char) * (string_length + 1)) ; 
+char* fuzz() {
+    return ""; 
+}
 
-    for(int i = 0 ; i < string_length; i++) {
-        out[i] = (char) (char_start + rand() % char_range); 
+RESULT * fuzzer_run(runner runner) {
+    return runner(fuzz());
+}
+
+RESULT ** fuzzer_runs(print_runner runner, int trials) { 
+    RESULT ** result_list = (RESULT**)malloc(sizeof(RESULT*) * trials); 
+
+    for(int i = 0 ; i < trials; i++) {
+        result_list[i] = fuzzer_run(runner); 
     }
 
-    out[string_length] = '\0';
-    return out; 
-}
+    return result_list;            
+}   
+

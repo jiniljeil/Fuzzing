@@ -1,7 +1,7 @@
 #include <signal.h>
 #include <sys/time.h>
 #include <unistd.h>
-#include "../include/fuzzer.h"
+#include "../include/simpleFuzzer.h"
 
 void crash_if_too_long(char * random_string_by_fuzzer) {
     char buffer[] = "Thursday"; 

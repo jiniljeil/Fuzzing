@@ -1,27 +1,23 @@
-#include "../include/runner.h" 
 #include "../include/programRunner.h"
 
-
 void print_runner_test() {
-    char** print_runner_result = PrintRunner_run("Some input"); 
+    RESULT * print_runner_result = PrintRunner_run("Some input"); 
 
-    printf("%s\n", print_runner_result[0]); 
-    printf("%s\n", print_runner_result[1]); 
+    printf("%s\n", print_runner_result->input); 
+    printf("%s\n", print_runner_result->outcome); 
 
-    for(int i = 0 ; i < 2 ; i++) {
-        free(print_runner_result[i]); 
-    }
+    free(print_runner_result->input); 
+    free(print_runner_result->outcome);
     free(print_runner_result); 
 }
 
 void program_runner_test() { 
     program_runner_initialize("cat"); 
-    char ** program_runner_result = programRunner_run("hello"); 
-    printf("%s\n", program_runner_result[1]); 
+    RESULT * program_runner_result = programRunner_run("apple"); 
+    printf("%s\n", program_runner_result->outcome); 
     
-    for(int i = 0 ; i < 2 ;i++) {
-        free(program_runner_result[i]) ;
-    }
+    free(program_runner_result->input); 
+    free(program_runner_result->outcome);
     free(program_runner_result); 
 }
 

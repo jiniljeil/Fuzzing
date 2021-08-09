@@ -1,4 +1,4 @@
-#include "../include/fuzzer.h"
+#include "../include/simpleFuzzer.h"
 #include <assert.h>
 #define BUFF_SIZE 2048
 

@@ -15,7 +15,6 @@ void program_runner_initialize(char* prog) {
 subprocess * run_process(char* input) {
     subprocess * subproc = NULL;
 
-    
     if(pipe(stdin_pipes) < 0) {
         perror("pipe error!\n");
         exit(1); 
@@ -91,24 +90,24 @@ subprocess * run_process(char* input) {
     return subproc; 
 }
 
-char** programRunner_run(char* input) { 
+RESULT * programRunner_run(char* input) { 
     if (input == NULL) input = ""; 
-    char** ret = (char**)malloc(sizeof(char) * 2); 
-    ret[0] = (char*)malloc(sizeof(char) * (strlen(input) + 1)) ;
+    RESULT * ret = (RESULT*)malloc(sizeof(RESULT));  
+    ret->input = (char*)malloc(sizeof(char) * (strlen(input) + 1)) ;
 
-    strcpy(ret[0], input) ;
+    strcpy(ret->input, input) ;
 
     subprocess * subprocess_result = run_process(input) ;
 
     if( subprocess_result->exit_code == 0 ) {
-        ret[1] = (char*)malloc(sizeof(char) * (strlen(PASS) + 1)); 
-        strcpy(ret[1], PASS) ;
+        ret->outcome = (char*)malloc(sizeof(char) * (strlen(PASS) + 1)); 
+        strcpy(ret->outcome, PASS) ;
     }else if( subprocess_result->exit_code < 0 ) {
-        ret[1] = (char*)malloc(sizeof(char) * (strlen(FAIL) + 1)); 
-        strcpy(ret[1], FAIL) ;
+        ret->outcome = (char*)malloc(sizeof(char) * (strlen(FAIL) + 1)); 
+        strcpy(ret->outcome, FAIL) ;
     }else {
-        ret[1] = (char*)malloc(sizeof(char) * (strlen(UNRESOLVED) + 1)); 
-        strcpy(ret[2], UNRESOLVED) ;
+        ret->outcome = (char*)malloc(sizeof(char) * (strlen(UNRESOLVED) + 1)); 
+        strcpy(ret->outcome, UNRESOLVED) ;
     }
 
     printf("RESULT: %s\n", subprocess_result->standard_out); 

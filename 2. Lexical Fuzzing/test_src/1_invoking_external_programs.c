@@ -1,4 +1,4 @@
-#include "../include/fuzzer.h"
+#include "../include/simpleFuzzer.h"
 #include "../include/file.h"
 #include <signal.h>
 #include <fcntl.h>

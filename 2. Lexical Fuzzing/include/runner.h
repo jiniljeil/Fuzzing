@@ -5,5 +5,10 @@
 #define FAIL "FAIL"
 #define UNRESOLVED "UNRESOLVED" 
 
-char** Runner_run(char* input);
-char** PrintRunner_run(char* input); 
+typedef struct result {
+    char* input ; 
+    char* outcome; 
+} RESULT; 
+
+RESULT * Runner_run(char* input);
+RESULT * PrintRunner_run(char* input); 
