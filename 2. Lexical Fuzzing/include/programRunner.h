@@ -2,7 +2,8 @@
 #define READ 0
 #define WRITE 1
 typedef struct subprocess {
-    char* output ; 
+    char* standard_out ; 
+    char* standard_err ;
     int exit_code; 
 } subprocess ;
 

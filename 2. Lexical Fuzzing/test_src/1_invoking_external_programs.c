@@ -6,7 +6,8 @@
 #define WRITE 1
 #define TRUE 1 
 #define FALSE 0 
-int pipes[2]; 
+int stdin_pipes[2]; 
+int stdout_pipes[2]; 
 int error_pipes[2]; 
 int num_of_standard_out = 0 ; 
 int num_of_error_returncode = 0 ;
@@ -35,7 +36,11 @@ void subprocess_run(char *program, char* file) {
     char *error = (char*)malloc(sizeof(char) * BUFF_MAX) ;
     memset(error, 0, BUFF_MAX); error[BUFF_MAX -1] = '\0';
     
-    if(pipe(pipes) < 0) {
+    if( pipe(stdin_pipes) < 0 ) {
+        perror("pipe error!\n");
+        return ;
+    }
+    if(pipe(stdout_pipes) < 0) {
         perror("pipe error!\n");
         return ;
     }
@@ -48,19 +53,23 @@ void subprocess_run(char *program, char* file) {
         perror("fork error!\n");
     }else if(pid == 0){ 
         /* child */ 
-        close(pipes[READ]); 
-        close(error_pipes[READ]); 
+        dup2(stdin_pipes[READ], 0) ;
+        close(stdin_pipes[READ]); 
+        close(stdin_pipes[WRITE]);
 
-        int devnull = open("per", O_RDONLY); 
-        dup2(devnull, 0); 
-        dup2(pipes[WRITE], 1); 
+        close(stdout_pipes[READ]); 
+        close(error_pipes[READ]); 
+    
+        dup2(stdout_pipes[WRITE], 1); 
         dup2(error_pipes[WRITE], 2); 
 
-        close(devnull); 
         execlp(program, program, file, 0x0);
-        
     }else{ 
         /* parent */
+        close(stdin_pipes[WRITE]);
+        close(stdout_pipes[WRITE]); 
+        close(error_pipes[WRITE]); 
+
         int status, stand_out_flag = FALSE, stand_err_flag = FALSE;
         ssize_t buff_output_size, buff_error_size; 
         wait(&status); 
@@ -69,17 +78,14 @@ void subprocess_run(char *program, char* file) {
             num_of_error_returncode++; 
         }
 
-        close(pipes[WRITE]); 
-        close(error_pipes[WRITE]); 
-
         FILE * f = fopen("output", "a"); 
         if (f == NULL) exit(1); 
-        while((buff_output_size = read(pipes[READ], buf, BUFF_MAX - 1)) > 0) {
+        while((buff_output_size = read(stdout_pipes[READ], buf, BUFF_MAX - 1)) > 0) {
             if(!stand_out_flag) stand_out_flag = TRUE; 
             fwrite(buf, 1, buff_output_size, f);
         }
         if( stand_out_flag ) num_of_standard_out++; 
-
+        
         fclose(f); 
 
         FILE * fp = fopen("error", "a"); 
@@ -90,7 +96,7 @@ void subprocess_run(char *program, char* file) {
 
         fclose(fp);
 
-        close(pipes[READ]);
+        close(stdout_pipes[READ]);
         close(error_pipes[READ]);
     }
 }
