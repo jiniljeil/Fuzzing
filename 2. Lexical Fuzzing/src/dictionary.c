@@ -36,7 +36,6 @@ void dict_item_add(DICT * dict_name, char* key, char* value) {
     }else{
         dict_name->item = (DICT_ITEM **)realloc(dict_name->item, sizeof(DICT_ITEM*) * (dict_name->size + 1));
     }
-    
 
     dict_name->item[dict_name->size] = (DICT_ITEM*)malloc(sizeof(DICT_ITEM));
     dict_name->item[dict_name->size]->key = (char*)malloc(sizeof(char) * (strlen(key) + 1)); 
@@ -44,9 +43,6 @@ void dict_item_add(DICT * dict_name, char* key, char* value) {
 
     strcpy(dict_name->item[dict_name->size]->key, key);
     strcpy(dict_name->item[dict_name->size]->value, value); 
-
-    dict_name->item[dict_name->size]->key[strlen(key)] = '\0'; 
-    dict_name->item[dict_name->size]->value[strlen(value)] = '\0';
 
     dict_name->size++;
 }   
