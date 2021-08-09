@@ -33,8 +33,10 @@ int dict_key_contains(DICT * dict_name, char* key) {
 void dict_item_add(DICT * dict_name, char* key, char* value) {
     if (dict_name->item == NULL) { 
         dict_name->item = (DICT_ITEM**)malloc(sizeof(DICT_ITEM*));
+    }else{
+        dict_name->item = (DICT_ITEM **)realloc(dict_name->item, sizeof(DICT_ITEM*) * (dict_name->size + 1));
     }
-    dict_name->item = (DICT_ITEM **)realloc(dict_name->item, sizeof(DICT_ITEM*) * (dict_name->size + 1));
+    
 
     dict_name->item[dict_name->size] = (DICT_ITEM*)malloc(sizeof(DICT_ITEM));
     dict_name->item[dict_name->size]->key = (char*)malloc(sizeof(char) * (strlen(key) + 1)); 
