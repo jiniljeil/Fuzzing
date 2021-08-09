@@ -3,10 +3,10 @@
 /* code means key of dictioary named airports_codes */
 int code_repOK(char* code) {
     int code_length = strlen(code); 
-    assert(code_length == 3) ;
+    assert(code_length == 3 && "Airport code must have three characters") ;
     for(int i = 0 ; i < code_length; i++) {
-        assert(isalpha(code[i]) > 0); 
-        assert(isupper(code[i]) > 0); 
+        assert(isalpha(code[i]) > 0 && "Non-letter in airport code"); 
+        assert(isupper(code[i]) > 0 && "Lowercase letter in airport code"); 
     }
     return 1; 
 }
