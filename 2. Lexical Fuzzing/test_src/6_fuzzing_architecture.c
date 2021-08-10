@@ -1,5 +1,4 @@
 #include "../include/programRunner.h"
-#include "../include/runner.h"
 
 void print_runner_test() {
     RESULT * print_runner_result = PrintRunner_run("Some input"); 

@@ -12,6 +12,10 @@ void program_runner_initialize(char* prog) {
     strcpy(program, prog);
 }
 
+char* getProgramName() {
+    return program; 
+}
+
 subprocess * run_process(char* input) {
     subprocess * subproc = NULL;
 
@@ -59,13 +63,13 @@ subprocess * run_process(char* input) {
         close(stdout_pipes[WRITE]); 
         close(stderr_pipes[WRITE]); 
 
-        wait(&(subproc->exit_code)); 
-
         ssize_t s ; 
         int n = 1; 
         subproc = (subprocess*)malloc(sizeof(subprocess)); 
         subproc->standard_out = (char*)malloc(sizeof(char) * BUFF_SIZE);
         subproc->standard_err = (char*)malloc(sizeof(char) * BUFF_SIZE);
+
+        wait(&(subproc->exit_code)); 
 
         while( (s = read(stdout_pipes[READ], subproc->standard_out, BUFF_SIZE - 1)) > 0) {
             if (s == BUFF_SIZE) {
@@ -109,11 +113,15 @@ subprocess * programRunner_run(char* input) {
 
         subprocess_result->outcome = (char*)malloc(sizeof(char) * (strlen(UNRESOLVED) + 1)); 
         strcpy(subprocess_result->outcome, UNRESOLVED) ;
-        
+
     }
 
-    printf("RESULT: %s\n", subprocess_result->standard_out); 
-    printf("ERROR: %s\n", (strlen(subprocess_result->standard_err) == 0) ? "NOTHING" : subprocess_result->standard_err);
-
     return subprocess_result ;
+}
+
+void subproc_result_free(subprocess * subproc) {
+    free(subproc->standard_out) ;
+    free(subproc->standard_err) ; 
+    free(subproc->outcome);
+    free(subproc);
 }

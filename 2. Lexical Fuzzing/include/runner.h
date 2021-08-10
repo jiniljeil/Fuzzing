@@ -1,5 +1,3 @@
-// #ifndef RUNNER
-// #define RUNNER 
 #include <stdlib.h> 
 #include <string.h> 
 #define PASS "PASS"
@@ -13,5 +11,3 @@ typedef struct result {
 
 RESULT * Runner_run(char* input);
 RESULT * PrintRunner_run(char* input); 
-
-// #endif
