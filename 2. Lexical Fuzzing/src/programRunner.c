@@ -47,7 +47,6 @@ subprocess * run_process(char* input) {
         write(stdin_pipes[WRITE], input, strlen(input)); 
         dup2(stdin_pipes[READ], 0);
 
-        close(stdin_pipes[READ]); 
         close(stdin_pipes[WRITE]); 
         
         dup2(stdout_pipes[WRITE], 1);

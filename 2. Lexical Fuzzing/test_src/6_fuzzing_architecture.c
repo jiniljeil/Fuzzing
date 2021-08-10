@@ -14,7 +14,7 @@ void print_runner_test() {
 void program_runner_test() { 
     program_runner_initialize("cat"); 
     subprocess * program_runner_result = programRunner_run("apple"); 
-    printf("%s\n", program_runner_result->outcome); 
+    printf("INPUT: %s\nOUTCOME: %s\n", program_runner_result->standard_out, program_runner_result->outcome); 
     
     free(program_runner_result->outcome);
     free(program_runner_result); 
