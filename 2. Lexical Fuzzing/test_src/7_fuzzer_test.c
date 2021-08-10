@@ -91,6 +91,7 @@ void random_fuzzer_test4() {
 }
 
 int main(void) {
+    srand(time(0));
     random_fuzzer_test1(); 
     random_fuzzer_test2();
     random_fuzzer_test3(); 
