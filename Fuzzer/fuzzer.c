@@ -152,11 +152,11 @@ run(char * input, int length, files_info_t * files_info)
         char std_out[BUFF_SIZE] ; 
         char std_err[BUFF_SIZE] ;
 
-        // make_filename(&files_info_t) ;
+        char * output_file = make_output_filename(files_info) ;
+        int output_fd = open(output_file, O_WRONLY | O_CREAT, 0600) ; 
 
         while( (stdout_size = read(stdout_pipes[READ], std_out, BUFF_SIZE)) > 0) {
-            std_out[stdout_size] = '\0';
-            printf("TEST:%s\n", std_out); 
+            write(output_fd, std_out, stdout_size); 
         }
         
         while( (stderr_size = read(stderr_pipes[READ],  std_err, BUFF_SIZE)) > 0) {
@@ -173,7 +173,7 @@ void
 fuzzer_main ()
 {
     files_info_t files_info ;
-    // create_temp_dir(&files_info) ;
+    create_temp_dir(&files_info) ;
     srand(time(0));
     
     for (int i = 0; i < config.trial; i++) {

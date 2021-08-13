@@ -6,4 +6,4 @@ typedef struct files_info_t {
 } files_info_t ;
 
 int create_temp_dir(files_info_t * files_info) ; 
-int make_filename() ;
+char * make_output_filename(files_info_t * files_info); 

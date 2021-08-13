@@ -3,6 +3,7 @@
 #include <stdio.h> 
 #include <string.h>
 #include <unistd.h>
+#include <fcntl.h>
 
 int 
 create_temp_dir(files_info_t * files_info) 
@@ -24,18 +25,34 @@ create_temp_dir(files_info_t * files_info)
     return 1; 
 }
 
-int 
-make_filename(files_info_t * files_info)  
+char *
+make_output_filename(files_info_t * files_info)  
 {
-    // if (files_info->path == NULL) {
-    //     files_info->path = (char **)malloc(sizeof(char *)) ; 
-    // }else{
-    //     files_info->path = (char **)realloc(files_info->count + 1, files_info->path) ;
-    // }
+    if (files_info->path == NULL) {
+        files_info->path = (char **)malloc(sizeof(char *)) ; 
+    }else{
+        files_info->path = (char **)realloc(files_info->path, (files_info->count + 1) * sizeof(char *)) ;
+    }
 
-    // files_info->path[files_info->count] = (char *)malloc(sizeof(char) * (strlen(files_info->dir_name) + 20));  //  /input1 (7)
-    // sprintf(files_info->path[files_info->count] , "%s/output%d", files_info->dir_name, files_info->count); 
-    // files_info->count++; 
+    files_info->path[files_info->count] = (char *)malloc(sizeof(char) * (strlen(files_info->dir_name) + 20));  //  /output1 (8)
+    sprintf(files_info->path[files_info->count] , "%s/output%d", files_info->dir_name, files_info->count); 
 
-    return 1; 
+    files_info->count++;
+    return files_info->path[files_info->count - 1]; 
+}
+
+char *
+make_error_filename(files_info_t * files_info)  
+{
+    if (files_info->path == NULL) {
+        files_info->path = (char **)malloc(sizeof(char *)) ; 
+    }else{
+        files_info->path = (char **)realloc(files_info->path, (files_info->count + 1) * sizeof(char *)) ;
+    }
+
+    files_info->path[files_info->count] = (char *)malloc(sizeof(char) * (strlen(files_info->dir_name) + 20));  //  /output1 (8)
+    sprintf(files_info->path[files_info->count] , "%s/error%d", files_info->dir_name, files_info->count); 
+
+    files_info->count++;
+    return files_info->path[files_info->count - 1]; 
 }
