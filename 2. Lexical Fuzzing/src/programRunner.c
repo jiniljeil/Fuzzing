@@ -1,10 +1,6 @@
 #include "../include/programRunner.h"
 #include <unistd.h>
 #define BUFF_SIZE 1024
-
-int stdin_pipes[2]; 
-int stdout_pipes[2];
-int stderr_pipes[2]; 
 char* program; 
 
 void program_runner_initialize(char* prog) { 
@@ -17,6 +13,9 @@ char* getProgramName() {
 }
 
 subprocess * run_process(char* input) {
+    int stdin_pipes[2]; 
+    int stdout_pipes[2];
+    int stderr_pipes[2]; 
     subprocess * subproc = NULL;
 
     if(pipe(stdin_pipes) < 0) {
@@ -54,7 +53,7 @@ subprocess * run_process(char* input) {
         dup2(stderr_pipes[WRITE], 2); 
 
         execlp(program, program, NULL); 
-        printf("Execute error!\n") ;
+        printf("Execute error!\n") ; 
         exit(1); 
     }else {
         /* parent */

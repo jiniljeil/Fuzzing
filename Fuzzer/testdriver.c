@@ -4,7 +4,7 @@ int main(void){
     test_config_t config ; 
 	config_init(&config) ;
 
-    config.binary_path = "/bin/cat"; 
+    config.prog_arg.binary_path = "/bin/cat"; 
 
     fuzzer_init(&config) ; 
 
