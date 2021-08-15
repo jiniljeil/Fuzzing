@@ -21,7 +21,7 @@
 
 static test_config_t config ; 
 int pid ;  // store the pid to kill the process when the timeout is occured. 
-
+files_info_t * p_files_info; 
 /*
     Default config initialization 
 */
@@ -126,7 +126,8 @@ config_copy(test_config_t * config_p)
 int 
 default_test_oracle(int returncode, int trial) 
 {
-    return returncode; 
+    if (returncode == 0) return 0; 
+    else return returncode ; 
 }
 
 // TODO
@@ -135,7 +136,7 @@ test_oracle_run(result_t * result, int returncode, int trial)
 {
     result->returncode = returncode ; 
     int ret_code = config.oracle(returncode, trial); 
-    result->test_result = (returncode == 0) ? "PASS" : (returncode < 0) ? "FAIL" : "UNSOLVED" ; 
+    result->test_result = (returncode == 0) ? "PASS" : (returncode < 0) ? "FAIL" : "UNRESOLVED" ; 
 }
 
 /*
@@ -264,7 +265,7 @@ run(char * input, int length, files_info_t * files_info, int num)
         char * error_file = make_filename(files_info, num, STDERR_FILENO) ; 
         int error_fd = open(error_file, O_WRONLY | O_CREAT, 0644); 
 
-        while( (stderr_size = read(stderr_pipes[READ],  std_err, BUFF_SIZE)) > 0) {
+        while( (stderr_size = read(stderr_pipes[READ], std_err, BUFF_SIZE)) > 0) {
             write(error_fd, std_err, stderr_size); 
         }
 
@@ -300,9 +301,11 @@ print_result(files_info_t * files_info, result_t * result, int num)
     fd = open(files_info->path[ 3 * num + 1], O_RDONLY); 
 
     while((stdout_size = read(fd, stdout_result, BUFF_SIZE - 1)) > 0) {
-        stdout_result[stdout_size] = '\0'; 
-        printf("%s", stdout_result) ;
+        if (stdout_size != BUFF_SIZE - 1 ) {
+            stdout_result[stdout_size] = '\0'; 
+        }
     }   
+    printf("%s", stdout_result) ;
 
     printf("\', stderr=\'"); 
     close(fd); 
@@ -313,9 +316,11 @@ print_result(files_info_t * files_info, result_t * result, int num)
     fd = open(files_info->path[ 3 * num + 2], O_RDONLY); 
 
     while((stderr_size = read(fd, stderr_result, BUFF_SIZE - 1)) > 0) {
-        stderr_result[stderr_size] = '\0'; 
-        printf("%s", stderr_result); 
+        if (stderr_size != BUFF_SIZE - 1 ) {
+            stderr_result[stderr_size] = '\0'; 
+        }
     }
+    printf("%s", stderr_result); 
 
     printf("\'), %s)\n", result->test_result); 
 }
@@ -330,10 +335,63 @@ config_free()
     free(config.cmd_args); 
 }
 
+int 
+get_input(char * input, int len, int trial) 
+{ 
+    char path[PATH_MAX];
+    ssize_t size = 0;
+
+    sprintf(path, "%s/input%d", p_files_info->dir_name, trial); 
+
+    int fd = open(path, O_RDONLY) ; 
+    // 수정 필요 
+    if ((size += read(fd, input, len)) > 0) {
+        input[size] = '\0'; 
+    }
+
+    close(fd); 
+
+    return size ;
+} 
+
+int 
+get_output(char * output, int len, int trial) 
+{
+    char path[PATH_MAX];
+    ssize_t size = 0 ;
+    sprintf(path, "%s/output%d", p_files_info->dir_name, trial); 
+
+    int fd = open(path, O_RDONLY) ; 
+    // 수정 필요 
+    if ((size += read(fd, output, len)) > 0) {
+        output[size] = '\0'; 
+    }
+    close(fd); 
+    return size; 
+}
+
+int 
+get_error(char * error, int len, int trial) 
+{
+    char path[PATH_MAX];
+    ssize_t size = 0 ;
+    sprintf(path, "%s/error%d", p_files_info->dir_name, trial); 
+
+    int fd = open(path, O_RDONLY) ; 
+    // 수정 필요 
+    if ((size += read(fd, error, len)) > 0) {
+        error[size] = '\0'; 
+    }
+    close(fd); 
+    return size; 
+}
+
+
 void 
 fuzzer_main ()
 {
     files_info_t files_info ;
+    p_files_info = &files_info; 
 
     create_temp_dir(&files_info) ;
     srand(time(0)); 
@@ -360,7 +418,7 @@ fuzzer_main ()
 
     	int returncode = run(input, input_len, &files_info, i + 1) ; 
 
-        test_oracle_run(&results[i], returncode, i) ; 
+        test_oracle_run(&results[i], returncode, i + 1) ; 
 
         print_result(&files_info, &results[i], i); 
     	
