@@ -12,15 +12,15 @@ typedef struct test_config {
 
     int f_min_len ;
     int f_max_len ;
-	int f_char_start ; 
+    int f_char_start ; 
     int f_char_range ;
 
     char * binary_path ; 
-	char ** cmd_args ; // >> -b : case 1 / @ : case 2 / @@ : case 3 ?
+    char ** cmd_args ; // >> -b : case 1 / @ : case 2 / @@ : case 3 ?
     int num_of_options ; 
     int timeout ;
 
-    int (* oracle) (char * dir_name) ;
+    int (* oracle) (int, int) ;
 } test_config_t ;
 
 #endif
