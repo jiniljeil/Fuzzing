@@ -21,9 +21,9 @@ User can set the configuration through config declared on the <strong>"include/c
     - set the customized test oracle 
 
 
-### Default test oracle 
+## Default test oracle 
 This judges the result from the return code of test program. 
 
-### Current Test Driver  
+## Current Test Driver  
 1. **/bin/cat** program 
 2. **troff** program 
