@@ -162,12 +162,13 @@ fuzzer_init (test_config_t * config_p)
             exit(1);
         }
 
-        if (config.f_char_start < 0 || config.f_char_start > 127) {
-            fprintf(stderr, "Fuzzer init: The start of ASCII character is between 0 and 127.\n"); 
+        if (config.f_char_start < 0 || config.f_char_start > 255) {
+            fprintf(stderr, "Fuzzer init: The start of ASCII character is between 0 and 255.\n"); 
             exit(1); 
         }
-        if (config.f_char_range < 0 || (config.f_char_start + config.f_char_range) > 127) {
-            fprintf(stderr, "Fuzzer init: The range of ASCII character is between 0 and 127.\n"); 
+
+        if (config.f_char_range < 0 || (config.f_char_start + config.f_char_range) > 255) {
+            fprintf(stderr, "Fuzzer init: The range of ASCII character is between 0 and 255.\n"); 
             exit(1); 
         }
         
@@ -194,8 +195,8 @@ timout_handler(const int signal)
         fprintf(stderr, "Time out! (%d seconds)\n", config.timeout);    
         int exit_proc = kill(pid, SIGINT) ;
         if (exit_proc != 0) {
-            perror("Kill error!\n");
-            exit(1); 
+            perror("Kill error!\n"); 
+            exit(1);  
         }
     }
 }
