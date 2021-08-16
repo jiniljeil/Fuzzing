@@ -2,10 +2,12 @@
 
 RandomFuzzer consists of the type of three. It makes the random input and runs the program based on input.
 
-[Fuzzer Configuration]
+### [Fuzzer Configuration]
 1. Create inputs
 2. Run the program  
 3. Test oracle 
+
+## Setting  
 
 User can set the configuration through config declared on the <strong>"include/config.h"</strong>. For example, if the user wants to test the program, it can proceed in the following way. 
 
