@@ -393,6 +393,27 @@ get_error(char * error, int len, int trial)
     return size; 
 }
 
+void 
+fuzzer_summary(result_t * results)  
+{   
+    int no_backslash_cnt = 0, no_8bit_failure_cnt = 0, no_dot_failure_cnt = 0; 
+    for(int i = 0 ; i < config.trial ; i++) {
+        if (results[i].returncode == 256) {
+            no_backslash_cnt++; 
+        }else if (results[i].returncode == 512) {
+            no_8bit_failure_cnt++; 
+        }else if (results[i].returncode == 768) {
+            no_dot_failure_cnt++; 
+        }
+    }
+
+    printf("---------------Fuzzer Summary---------------\n"); 
+    printf("1. no_backslash_d(\\D): %d\n", no_backslash_cnt) ; 
+    printf("2. no_8bit: %d\n", no_8bit_failure_cnt); 
+    printf("3. no_dot: %d\n", no_dot_failure_cnt); 
+    printf("4. normal case: %d\n", config.trial - no_backslash_cnt - no_8bit_failure_cnt - no_dot_failure_cnt) ;
+    printf("--------------------------------------------\n"); 
+}
 
 void 
 fuzzer_main (test_config_t * config)
@@ -408,8 +429,6 @@ fuzzer_main (test_config_t * config)
     /* 
         Time out setting 
     */
-    struct itimerval t; 
-
     signal(SIGALRM, timout_handler); 
 
     result_t * results = (result_t *)malloc(sizeof(result_t) * config->trial); 
@@ -432,12 +451,13 @@ fuzzer_main (test_config_t * config)
         free(input) ;
     }
 
+    fuzzer_summary(results) ;
+
 #ifdef FILE_REMOVE 
     // remove the output and error files
     remove_files_and_dir(&files_info); 
 #endif
-
     free(results); 
-    files_info_free(&files_info);
+    files_info_free(&files_info); 
     config_free(); 
 }
