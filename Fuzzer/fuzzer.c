@@ -147,7 +147,7 @@ fuzzer_init (test_config_t * config_p)
 {
     config_copy(config_p); 
 
-	if (config.binary_path != 0x0 && access(config.binary_path, X_OK) != -1 ) {
+    if (config.binary_path != 0x0 && access(config.binary_path, X_OK) != -1 ) {
         if (config.f_min_len < 0) {
             fprintf(stderr, "Fuzzer init: The minimum length of random string must be greater than zero.\n"); 
             exit(1); 
@@ -411,7 +411,7 @@ fuzzer_main (test_config_t * config)
 
     for (int i = 0; i < config->trial; i++) {
         alarm(config->timeout);
-        
+
     	char * input = (char *)malloc(sizeof(char) * (config->f_max_len + 1)); 
 
         int input_len = create_input(config, input) ; 
