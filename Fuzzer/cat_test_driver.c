@@ -1,4 +1,4 @@
-#include "fuzzer.h"
+#include "include/fuzzer.h"
 #include <string.h>
 #include <assert.h>
 #include <stdio.h> 
@@ -37,5 +37,5 @@ int main(void){
     config.num_of_options = 1; 
     config.oracle = test_oracle; 
 
-  	fuzzer_main(&config);
+    fuzzer_main(&config);
 }

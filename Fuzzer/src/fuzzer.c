@@ -1,4 +1,4 @@
-#include "fuzzer.h" 
+#include "../include/fuzzer.h" 
 #include <stdlib.h> 
 #include <unistd.h>
 #include <stdio.h> 

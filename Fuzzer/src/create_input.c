@@ -1,4 +1,4 @@
-#include "create_input.h"
+#include "../include/create_input.h"
 #include <stdlib.h> 
 
 int
