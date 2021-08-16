@@ -192,7 +192,11 @@ timout_handler(const int signal)
 {
     if (signal == SIGALRM) {
         fprintf(stderr, "Time out! (%d seconds)\n", config.timeout);    
-        kill(pid, SIGINT) ;
+        int exit_proc = kill(pid, SIGINT) ;
+        if (exit_proc != 0) {
+            perror("Kill error!\n");
+            exit(1); 
+        }
     }
 }
 
