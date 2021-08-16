@@ -282,30 +282,32 @@ print_result(files_info_t * files_info, result_t * result, int num)
 {
 
     int fd;
-    ssize_t stdout_size, stderr_size; 
+    ssize_t stdout_size = 0, stderr_size = 0, w_stdout_size = 0, w_stderr_size = 0; 
     char stdout_result[BUFF_SIZE]; 
     char stderr_result[BUFF_SIZE]; 
+
+    memset(stdout_result, 0, sizeof(stdout_result)) ;
+    memset(stderr_result, 0, sizeof(stderr_result)) ;
 
     printf("(CompletedProcess(program=\'%s\', args=\'", config.binary_path); 
     
     for(int i = 0; i < config.num_of_options; i++) {
-        if ( i == config.num_of_options - 1) printf("%s", config.cmd_args[i]);
-        else printf("%s ", config.cmd_args[i]); 
+        if ( i == config.num_of_options - 1) printf("%s", config.cmd_args[i+1]);
+        else printf("%s ", config.cmd_args[i+1]); 
     }
     
     printf("\',  returncode=%d, stdout=\'", result->returncode); 
 
+    fflush(stdout);
     /*
         Standard output  
-    */
+    */ 
     fd = open(files_info->path[ 3 * num + 1], O_RDONLY); 
 
     while((stdout_size = read(fd, stdout_result, BUFF_SIZE - 1)) > 0) {
-        if (stdout_size != BUFF_SIZE - 1 ) {
-            stdout_result[stdout_size] = '\0'; 
-        }
+        w_stdout_size = write(1, stdout_result, stdout_size) ;
+        if (w_stdout_size != stdout_size) perror("Standard output: write error!\n");
     }   
-    printf("%s", stdout_result) ;
 
     printf("\', stderr=\'"); 
     close(fd); 
@@ -313,14 +315,14 @@ print_result(files_info_t * files_info, result_t * result, int num)
     /*
         Standard error 
     */
+    fflush(stdout) ; 
+
     fd = open(files_info->path[ 3 * num + 2], O_RDONLY); 
 
     while((stderr_size = read(fd, stderr_result, BUFF_SIZE - 1)) > 0) {
-        if (stderr_size != BUFF_SIZE - 1 ) {
-            stderr_result[stderr_size] = '\0'; 
-        }
+        w_stderr_size = write(1, stderr_result, stderr_size) ;
+        if (w_stderr_size != stderr_size) perror("Standard error: write error!\n");
     }
-    printf("%s", stderr_result); 
 
     printf("\'), %s)\n", result->test_result); 
 }
@@ -388,10 +390,12 @@ get_error(char * error, int len, int trial)
 
 
 void 
-fuzzer_main ()
+fuzzer_main (test_config_t * config)
 {
     files_info_t files_info ;
     p_files_info = &files_info; 
+
+    fuzzer_init(config) ; 
 
     create_temp_dir(&files_info) ;
     srand(time(0)); 
@@ -403,16 +407,14 @@ fuzzer_main ()
 
     signal(SIGALRM, timout_handler); 
 
-    t.it_value.tv_sec = config.timeout; 
-    t.it_interval = t.it_value ;
-    
-    result_t * results = (result_t *)malloc(sizeof(result_t) * config.trial); 
+    result_t * results = (result_t *)malloc(sizeof(result_t) * config->trial); 
 
-    for (int i = 0; i < config.trial; i++) {
-        setitimer(ITIMER_REAL, &t, 0x0); 
-    	char * input = (char *)malloc(sizeof(char) * (config.f_max_len + 1)); 
+    for (int i = 0; i < config->trial; i++) {
+        alarm(config->timeout);
+        
+    	char * input = (char *)malloc(sizeof(char) * (config->f_max_len + 1)); 
 
-        int input_len = create_input(&config, input) ; 
+        int input_len = create_input(config, input) ; 
 
         create_input_file(&files_info, input, input_len, i + 1);
 

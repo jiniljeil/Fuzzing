@@ -37,6 +37,5 @@ int main(void){
     config.num_of_options = 1; 
     config.oracle = test_oracle; 
 
-    fuzzer_init(&config) ; 
-  	fuzzer_main();
+  	fuzzer_main(&config);
 }
