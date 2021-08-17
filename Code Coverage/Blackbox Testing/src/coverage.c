@@ -44,5 +44,3 @@ cgi_decode(char * text, char * s)
     text[idx] = 0x0; 
     return 0 ; 
 }
-
-

@@ -19,7 +19,7 @@ void test_1() {
     printf("cgi_decode(\"%%20\") == \"%s\"\n", text2) ; 
     printf("cgi_decode(\"abc\") == \"%s\"\n", text3) ; 
 #ifdef VALUE_ERROR 
-    cgi_decode("%%?a") ; 
+    cgi_decode("%?a") ; 
 #endif
     printf("-----------------------------------------------\n"); 
 }
