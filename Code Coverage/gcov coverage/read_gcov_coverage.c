@@ -15,8 +15,10 @@ void read_gcov_coverage(char * program) {
 #ifdef PRINT_GCOV
     print_gcovfile() ;
 #endif
-    char * gcov_filename = (char *)malloc(sizeof(char) * (prog_length + 6)); // .gcov
+    int gcov_filename_length = prog_length + 6 ; 
+    char * gcov_filename = (char *)malloc(sizeof(char) * (gcov_filename_length)); // .gcov
     sprintf(gcov_filename, "%s.gcov", program) ;
+    gcov_filename[gcov_filename_length] = 0x0 ;
     char * token; 
 
     FILE * fp = fopen(gcov_filename, "rw"); 
