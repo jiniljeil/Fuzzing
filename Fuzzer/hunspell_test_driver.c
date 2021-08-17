@@ -9,7 +9,7 @@ test_oracle(int returncode, int trial)
     
     if(returncode != 0) { 
         get_error(error, 1024, trial) ; 
-	    perror(error) ; 	
+        perror(error) ; 	
 	return returncode ; 
     }
 
