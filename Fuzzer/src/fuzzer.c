@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <sys/time.h>
 #include <signal.h>
+#include <sys/wait.h> 
 #define READ 0
 #define WRITE 1 
 #define BUFF_SIZE 1024

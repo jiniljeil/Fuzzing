@@ -28,7 +28,7 @@ test_oracle(int returncode, int trial )
 
 int main(void){
     test_config_t config ; 
-	config_init(&config) ;
+    config_init(&config) ;
 
     config.binary_path = "/bin/cat"; 
     char * options[3] = {"-e"}; 
