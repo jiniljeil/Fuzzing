@@ -13,13 +13,12 @@ hex_values(char c)
     return -1 ; 
 }
 
-char * 
-cgi_decode(char * s) 
+int 
+cgi_decode(char * text, char * s) 
 {   
     char c ; 
     int idx = 0 ; 
     int length = strlen(s) ; 
-    char * text = (char *)malloc(sizeof(char) * length) ;
 
     for(int i = 0 ; i < length ; i++) {
         c = s[i] ;
@@ -36,13 +35,14 @@ cgi_decode(char * s)
                 text[idx++] = (char) value ;
             }else {
                 fprintf(stderr, "Invalid encoding\n") ;
-                return NULL ; 
+                return -1 ; 
             }
         }else{
             text[idx++] = c ; 
         }
     }   
-    return text ; 
+    text[idx] = 0x0; 
+    return 0 ; 
 }
 
 
