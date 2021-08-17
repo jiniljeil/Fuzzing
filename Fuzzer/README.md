@@ -27,3 +27,4 @@ This judges the result from the return code of test program.
 ## Current Test Driver  
 1. **/bin/cat** program 
 2. **troff** program 
+3. **hunspell** program  
