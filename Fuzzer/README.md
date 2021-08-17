@@ -1,6 +1,6 @@
 ## Random Fuzzer 
 
-RandomFuzzer consists of the type of three. It makes the random input and runs the program based on input.
+> RandomFuzzer consists of the type of three. It makes the random input and runs the program based on input.
 
 ### [Fuzzer Configuration]
 1. Create inputs
@@ -9,7 +9,7 @@ RandomFuzzer consists of the type of three. It makes the random input and runs t
 
 ## Setting  
 
-User can set the configuration through config declared on the <strong>"include/config.h"</strong>. For example, if the user wants to test the program, it can proceed in the following way. 
+> User can set the configuration through config declared on the <strong>"include/config.h"</strong>. For example, if the user wants to test the program, it can proceed in the following way. 
 
 1. Declare the variable type of <strong>test_config_t</strong>. 
 2. Call the <strong>config_init</strong> function.   
@@ -22,8 +22,8 @@ User can set the configuration through config declared on the <strong>"include/c
 
 
 ## Default test oracle 
-This judges the result from the return code of test program. 
+> This judges the result from the return code of test program. 
 
 ## Current Test Driver  
-1. **/bin/cat** program 
-2. **troff** program 
+1. <a href="https://github.com/jiniljeil/Fuzzing/blob/master/Fuzzer/cat_test_driver.c">**/bin/cat** program</a>
+2. <a href="https://github.com/jiniljeil/Fuzzing/blob/master/Fuzzer/troff_test_driver.c">**troff** program </a>

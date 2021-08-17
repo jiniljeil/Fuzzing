@@ -15,7 +15,7 @@ no_backslash_d(char input, int * no_backslash_d_flag, int * non_printable_flag)
     }
     if (*non_printable_flag) {
         if ((int)input >= 0 && (int)input <= 31) {
-            perror("Error: The input sequence \\D (backslash + D) followed by a non-printable character\n"); 
+            fprintf(stderr, "Error: The input sequence \\D (backslash + D) followed by a non-printable character\n"); 
             exit(1); // 256 
         }else{
             *non_printable_flag = false; 
@@ -44,7 +44,7 @@ no_8bit(char input, int * no_8bit_flag)
 
     if(*no_8bit_flag) {
         if(input == '\n') {
-            perror("Error: A character in the ASCII range 128–255 (i.e., the 8th bit is set) followed by a newline character\n");
+            fprintf(stderr, "Error: A character in the ASCII range 128–255 (i.e., the 8th bit is set) followed by a newline character\n");
             exit(2); // 512 
         }else{
             *no_8bit_flag = false; 
@@ -62,7 +62,7 @@ no_dot(char input, int * no_dot_flag)
     
     if( *no_dot_flag) {
         if( input == '\n') {
-            perror("Error: A single dot (.) followed by a newline character.\n"); 
+            fprintf(stderr, "Error: A single dot (.) followed by a newline character.\n"); 
             exit(3) ; // 768
         }else{
             *no_dot_flag = false; 
