@@ -14,7 +14,7 @@ int coverage_compile(char * program, char * executable_prog) {
         perror("fork failed!\n"); 
         exit(1); 
     }else if( pid == 0 ) {
-        char * args[] = {"/usr/bin/gcc","-fprofile-arcs", "-ftest-coverage", "-o", executable_prog, program, 0x0}; 
+        char * args[] = {"/usr/bin/gcc","--coverage", "-o", executable_prog, program, 0x0}; 
         execv("/usr/bin/gcc", args); 
 
         fprintf(stderr, "Execute failed!\n"); 
