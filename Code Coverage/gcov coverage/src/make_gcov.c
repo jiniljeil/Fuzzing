@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <string.h> 
 #include <stdio.h>
+#define REMOVE_EXECFILE
 
 int coverage_compile(char * program, char * executable_prog) {
     int status ;
@@ -24,7 +25,7 @@ int coverage_compile(char * program, char * executable_prog) {
     return status ;
 }
 
-int execute_prog(char * executable_prog) { 
+int execute_prog(char * executable_prog, char * arg) { 
     int status ; 
 
     int pid = fork(); 
@@ -33,7 +34,7 @@ int execute_prog(char * executable_prog) {
         perror("fork failed!\n"); 
         exit(1); 
     }else if( pid == 0 ) {
-        char * args[] = {executable_prog, 0x0} ;
+        char * args[] = {executable_prog, arg, 0x0} ;
         execv(executable_prog, args) ;
 
         fprintf(stderr, "Execute failed!\n"); 
@@ -53,7 +54,7 @@ int create_gcov(char * path) {
         perror("fork failed!\n"); 
         exit(1); 
     }else if( pid == 0 ) {
-        char * args[] = {"/usr/bin/gcov",path, 0x0} ;
+        char * args[] = {"/usr/bin/gcov", path, 0x0} ;
         execv("/usr/bin/gcov", args) ;
 
         fprintf(stderr, "Execute failed!\n"); 
@@ -81,7 +82,7 @@ char* remove_the_extension(char * program, int prog_length){
     return prog_name ; 
 }
 
-void make_gcov_file(char * program, int prog_length) {
+void make_gcov_file(char * program, int prog_length, char * arg) {
     char * prog_name = remove_the_extension(program, prog_length) ;
 
     // PATH
@@ -91,12 +92,14 @@ void make_gcov_file(char * program, int prog_length) {
     path[path_length] = 0x0 ; 
 
     coverage_compile(program, prog_name); 
-    execute_prog(path); 
+    execute_prog(path, arg); 
     create_gcov(path) ;
 
+#ifdef REMOVE_EXECFILE 
     if( remove(prog_name) != 0) {
         fprintf(stderr, "Error: unable to delete the file\n"); 
     }
+#endif 
     free(prog_name); 
     free(path); 
 }

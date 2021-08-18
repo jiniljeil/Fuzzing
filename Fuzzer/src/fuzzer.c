@@ -12,7 +12,9 @@
 #define READ 0
 #define WRITE 1 
 #define BUFF_SIZE 1024
+// #define TROFF_RESULT
 // #define FILE_REMOVE
+
 /*
 1. check some conditions
     - binary path validity
@@ -397,6 +399,8 @@ get_error(char * error, int len, int trial)
 void 
 fuzzer_summary(result_t * results)  
 {   
+
+#ifdef TROFF_RESULT
     int no_backslash_cnt = 0, no_8bit_failure_cnt = 0, no_dot_failure_cnt = 0; 
     for(int i = 0 ; i < config.trial ; i++) {
         if (results[i].returncode == 256) {
@@ -414,11 +418,57 @@ fuzzer_summary(result_t * results)
     printf("3. no_dot: %d\n", no_dot_failure_cnt); 
     printf("4. normal case: %d\n", config.trial - no_backslash_cnt - no_8bit_failure_cnt - no_dot_failure_cnt) ;
     printf("--------------------------------------------\n"); 
+#endif 
+}
+
+void
+make_result_file(result_t * results) 
+{
+    int pass = 0, fail = 0, unresolved = 0;
+    double total_exec_time = 0; 
+
+    for(int i = 0 ; i < config.trial ; i++) {
+        if (results[i].returncode == 0) pass++; 
+        else if (results[i].returncode < 0) fail++; 
+        else unresolved++; 
+        total_exec_time += results[i].exec_time ; 
+    }
+
+    FILE * fp = fopen("TestingResult", "wb") ; 
+
+    if (fp == NULL) {
+        fprintf(stderr, "Error: the file does not open!\n"); 
+        return ;
+    } else{ 
+        fprintf(fp, "------------Fuzzer Configuration------------\n"); 
+        fprintf(fp, "Program : %s\n", config.binary_path) ; 
+        fprintf(fp, "Options: ") ;
+        for(int i = 1 ; i < config.num_of_options + 1; i++) {
+            fprintf(fp, "%s ", config.cmd_args[i]); 
+        }
+        fprintf(fp, "\nTime out setting : %d\n", config.timeout); 
+        fprintf(fp, "The trial of testing : %d\n\n", config.trial); 
+        fprintf(fp, "The maximum length of random string : %d\n", config.f_max_len); 
+        fprintf(fp, "The minimum length of random string : %d\n", config.f_min_len); 
+        fprintf(fp, "The ASCII character start number : %d\n", config.f_char_start); 
+        fprintf(fp, "The ASCCI character range number : %d\n", config.f_char_range);
+        fprintf(fp, "--------------------------------------------\n"); 
+
+        fprintf(fp, "---------------Fuzzer Summary---------------\n"); 
+        fprintf(fp, "1. PASS : %d\n", pass);
+        fprintf(fp, "2. FAIL : %d\n", fail); 
+        fprintf(fp, "3. UNRESOVLED : %d\n", unresolved); 
+        fprintf(fp, "4. Total executed the time : %.6f (s)\n", total_exec_time); 
+        fprintf(fp, "5. Average executed the time : %.6f (s)\n", total_exec_time / config.trial) ; 
+        fprintf(fp, "--------------------------------------------\n"); 
+    }
+    fclose(fp); 
 }
 
 void 
 fuzzer_main (test_config_t * config)
-{
+{   
+    clock_t start, end ; 
     files_info_t files_info ;
     p_files_info = &files_info; 
 
@@ -435,6 +485,8 @@ fuzzer_main (test_config_t * config)
     result_t * results = (result_t *)malloc(sizeof(result_t) * config->trial); 
 
     for (int i = 0; i < config->trial; i++) {
+        start = clock(); 
+
         alarm(config->timeout);
 
     	char * input = (char *)malloc(sizeof(char) * (config->f_max_len + 1)); 
@@ -450,10 +502,14 @@ fuzzer_main (test_config_t * config)
         print_result(&files_info, &results[i], i); 
     	
         free(input) ;
+
+        end = clock(); 
+
+        results[i].exec_time = (double)(end - start) / CLOCKS_PER_SEC ;
     }
 
     fuzzer_summary(results) ;
-
+    make_result_file(results); 
 #ifdef FILE_REMOVE 
     // remove the output and error files
     remove_files_and_dir(&files_info); 

@@ -8,9 +8,8 @@
 void read_gcov_coverage(char * program) {
     
     // executeable program name (remove the extension)
-    int ext_point = 0, prog_length = strlen(program); 
-
-    make_gcov_file(program, prog_length) ;
+    int ext_point = 0, prog_length = strlen(program);  
+    make_gcov_file(program, prog_length, "Send+mail+to+me%40fuzzingbook.org") ;
 
 #ifdef PRINT_GCOV
     print_gcovfile() ;
