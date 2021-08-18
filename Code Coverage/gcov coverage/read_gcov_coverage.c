@@ -20,7 +20,7 @@ void read_gcov_coverage(char * program) {
     gcov_filename[gcov_filename_length] = 0x0 ;
     char * token; 
 
-    FILE * fp = fopen(gcov_filename, "rw"); 
+    FILE * fp = fopen(gcov_filename, "rb"); 
 
     if ( fp == NULL ) {
         perror("File open failed!\n");
