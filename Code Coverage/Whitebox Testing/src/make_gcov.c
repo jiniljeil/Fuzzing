@@ -91,9 +91,18 @@ void make_gcov_file(char * program, int prog_length, char * arg) {
     sprintf(path, "./%s", prog_name); 
     path[path_length] = 0x0 ; 
 
-    coverage_compile(program, prog_name); 
-    execute_prog(path, arg); 
-    create_gcov(path) ;
+    if ( coverage_compile(program, prog_name) != 0 ) { 
+        perror("Error: GCC compile failed!\n"); 
+        exit(1) ; 
+    }
+    if ( execute_prog(path, arg) != 0 ) {
+        perror("Error: program execution failed!\n"); 
+        exit(1); 
+    }
+    if ( create_gcov(path) != 0 ) { 
+        perror("Error: GCOV compile failed!\n"); 
+        exit(1); 
+    } 
 
 #ifdef REMOVE_EXECFILE 
     if( remove(prog_name) != 0) {
