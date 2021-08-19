@@ -15,6 +15,9 @@ typedef struct test_config {
     int f_char_start ; 
     int f_char_range ;
 
+    int is_source ; 
+    char * source_file ; 
+    
     char * binary_path ; 
     char ** cmd_args ; // >> -b : case 1 / @ : case 2 / @@ : case 3 ?
     int num_of_options ; 

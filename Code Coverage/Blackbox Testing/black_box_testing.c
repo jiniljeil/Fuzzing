@@ -14,7 +14,6 @@ void test_1() {
     cgi_decode(text3, "abc");
     assert(strcmp(text3, "abc") == 0); 
 
-    
     printf("cgi_decode(\"+\") == \"%s\"\n", text1 ) ; 
     printf("cgi_decode(\"%%20\") == \"%s\"\n", text2) ; 
     printf("cgi_decode(\"abc\") == \"%s\"\n", text3) ; 

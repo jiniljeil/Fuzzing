@@ -1,4 +1,5 @@
 #include "../include/fuzzer.h" 
+#include "../include/whitebox.h" 
 #include <stdlib.h> 
 #include <unistd.h>
 #include <stdio.h> 
@@ -12,7 +13,7 @@
 #define READ 0
 #define WRITE 1 
 #define BUFF_SIZE 1024
-// #define TROFF_RESULT
+#define TROFF_RESULT
 // #define FILE_REMOVE
 
 /*
@@ -35,6 +36,9 @@ config_init(test_config_t * config_p)
     config_p->f_max_len = MAX_LENGTH ;
     config_p->f_char_start = CHAR_START ; 
     config_p->f_char_range = CHAR_RANGE ; 
+
+    config_p->is_source = 0 ;
+    config_p->source_file = NULL ; 
 
     config_p->binary_path = NULL ;
     config_p->timeout = 2; 
@@ -229,6 +233,8 @@ run(char * input, int length, files_info_t * files_info, int num)
         /* 
             Give the standard input on the program, execute the program. 
         */
+        alarm(config.timeout);
+
         close(stdout_pipes[READ]); 
         close(stderr_pipes[READ]);
         
@@ -333,6 +339,7 @@ print_result(files_info_t * files_info, result_t * result, int num)
     }
 
     printf("\'), %s)\n", result->test_result); 
+    close(fd); 
 }
 
 void 
@@ -396,10 +403,9 @@ get_error(char * error, int len, int trial)
     return size; 
 }
 
-void 
-fuzzer_summary(result_t * results)  
-{   
-
+void
+make_result_file(result_t * results) 
+{
 #ifdef TROFF_RESULT
     int no_backslash_cnt = 0, no_8bit_failure_cnt = 0, no_dot_failure_cnt = 0; 
     for(int i = 0 ; i < config.trial ; i++) {
@@ -411,19 +417,7 @@ fuzzer_summary(result_t * results)
             no_dot_failure_cnt++; 
         }
     }
-
-    printf("---------------Fuzzer Summary---------------\n"); 
-    printf("1. no_backslash_d(\\D): %d\n", no_backslash_cnt) ; 
-    printf("2. no_8bit: %d\n", no_8bit_failure_cnt); 
-    printf("3. no_dot: %d\n", no_dot_failure_cnt); 
-    printf("4. normal case: %d\n", config.trial - no_backslash_cnt - no_8bit_failure_cnt - no_dot_failure_cnt) ;
-    printf("--------------------------------------------\n"); 
-#endif 
-}
-
-void
-make_result_file(result_t * results) 
-{
+#endif
     int pass = 0, fail = 0, unresolved = 0;
     double total_exec_time = 0; 
 
@@ -434,7 +428,7 @@ make_result_file(result_t * results)
         total_exec_time += results[i].exec_time ; 
     }
 
-    FILE * fp = fopen("TestingResult", "wb") ; 
+    FILE * fp = fopen("TestingResult", "a") ; 
 
     if (fp == NULL) {
         fprintf(stderr, "Error: the file does not open!\n"); 
@@ -460,6 +454,11 @@ make_result_file(result_t * results)
         fprintf(fp, "3. UNRESOVLED : %d\n", unresolved); 
         fprintf(fp, "4. Total executed the time : %.6f (s)\n", total_exec_time); 
         fprintf(fp, "5. Average executed the time : %.6f (s)\n", total_exec_time / config.trial) ; 
+#ifdef TROFF_RESULT
+        fprintf(fp, "6. no_backslash_d(\\D): %d\n", no_backslash_cnt) ; 
+        fprintf(fp, "7. no_8bit: %d\n", no_8bit_failure_cnt); 
+        fprintf(fp, "8. no_dot: %d\n", no_dot_failure_cnt); 
+#endif 
         fprintf(fp, "--------------------------------------------\n"); 
     }
     fclose(fp); 
@@ -487,16 +486,11 @@ fuzzer_main (test_config_t * config)
     for (int i = 0; i < config->trial; i++) {
         start = clock(); 
 
-        alarm(config->timeout);
-
     	char * input = (char *)malloc(sizeof(char) * (config->f_max_len + 1)); 
-
         int input_len = create_input(config, input) ; 
-
         create_input_file(&files_info, input, input_len, i + 1);
 
     	int returncode = run(input, input_len, &files_info, i + 1) ; 
-
         test_oracle_run(&results[i], returncode, i + 1) ; 
 
         print_result(&files_info, &results[i], i); 
@@ -508,7 +502,7 @@ fuzzer_main (test_config_t * config)
         results[i].exec_time = (double)(end - start) / CLOCKS_PER_SEC ;
     }
 
-    fuzzer_summary(results) ;
+    // fuzzer_summary(results) ;
     make_result_file(results); 
 #ifdef FILE_REMOVE 
     // remove the output and error files
