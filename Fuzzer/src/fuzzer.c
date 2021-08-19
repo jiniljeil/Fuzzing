@@ -13,7 +13,7 @@
 #define READ 0
 #define WRITE 1 
 #define BUFF_SIZE 1024
-#define TROFF_RESULT
+#define TROFF_RESULT  
 // #define FILE_REMOVE
 
 /*
@@ -37,7 +37,7 @@ config_init(test_config_t * config_p)
     config_p->f_char_start = CHAR_START ; 
     config_p->f_char_range = CHAR_RANGE ; 
 
-    config_p->is_source = 0 ;
+    config_p->is_source = false ;
     config_p->source_file = NULL ; 
 
     config_p->binary_path = NULL ;
@@ -78,21 +78,55 @@ config_copy(test_config_t * config_p)
         exit(1); 
     }
 
+    int path_length = 0 ;
+
     config.f_min_len = config_p->f_min_len;
     config.f_max_len = config_p->f_max_len; 
     config.f_char_start = config_p->f_char_start ; 
     config.f_char_range = config_p->f_char_range ;
 
-    int path_length = strlen(config_p->binary_path); 
-
-    if( path_length > PATH_MAX ) {
+    // SOURCE FILE -> Coverage compile 
+    config.is_source = config_p->is_source ;
+    
+    int source_file_length = 0 ; 
+    if ( config.is_source == true && config_p->source_file != NULL){  
+        source_file_length = strlen(config_p->source_file) ; 
+    }
+    if( source_file_length > PATH_MAX ) {
         perror("Path is the longest! The max length of path is 4096.\n"); 
         return ;
+    }else if(config.is_source == true) {
+
+        config.source_file = (char *)malloc(sizeof(char) * PATH_MAX) ; 
+
+        // realpath 
+        if ( realpath(config_p->source_file, config.source_file) == 0x0 ) {
+            perror("Error: realpath returns NULL!\n") ; 
+            exit(1); 
+        }
+
+        char * prog_name = remove_the_extension(config.source_file, strlen(config.source_file));
+
+        int check = coverage_compile(config.source_file, prog_name); 
+        if ( check != 0 ) {
+            perror("Compile error!\n"); 
+            exit(1); 
+        }
+        config.binary_path = (char *) malloc(sizeof(char) * (strlen(prog_name) + 1)) ;
+        strcpy(config.binary_path, prog_name); 
     }else{
-        config.binary_path = (char *)malloc(sizeof(char) * (path_length + 1)) ; 
-        strcpy(config.binary_path, config_p->binary_path);
+        // EXECUTABLE FILE PATH
+        
+        path_length = strlen(config_p->binary_path); 
+        if( path_length > PATH_MAX ) {
+            perror("Path is the longest! The max length of path is 4096.\n"); 
+            return ;
+        }else{
+            config.binary_path = (char *)malloc(sizeof(char) * (path_length + 1)) ; 
+            strcpy(config.binary_path, config_p->binary_path);
+        }
     }
-    
+
     config.timeout = config_p->timeout; 
     config.num_of_options = config_p->num_of_options; 
 
@@ -154,7 +188,8 @@ fuzzer_init (test_config_t * config_p)
 {
     config_copy(config_p); 
 
-    if (config.binary_path != 0x0 && access(config.binary_path, X_OK) != -1 ) {
+    if ((config.binary_path != 0x0 && access(config.binary_path, X_OK) != -1) || 
+            (config.is_source == true && config.source_file != 0x0 && access(config.source_file, R_OK) != -1) ) {
         if (config.f_min_len < 0) {
             fprintf(stderr, "Fuzzer init: The minimum length of random string must be greater than zero.\n"); 
             exit(1); 
@@ -285,6 +320,7 @@ run(char * input, int length, files_info_t * files_info, int num)
 
         close(stdout_pipes[READ]); 
         close(stderr_pipes[READ]); 
+
         close(output_fd); 
         close(error_fd); 
     }
@@ -294,7 +330,6 @@ run(char * input, int length, files_info_t * files_info, int num)
 void 
 print_result(files_info_t * files_info, result_t * result, int num) 
 {
-
     int fd;
     ssize_t stdout_size = 0, stderr_size = 0, w_stdout_size = 0, w_stderr_size = 0; 
     char stdout_result[BUFF_SIZE]; 
@@ -345,7 +380,9 @@ print_result(files_info_t * files_info, result_t * result, int num)
 void 
 config_free() 
 {
-    free(config.binary_path) ;
+    if (config.binary_path != NULL) free(config.binary_path) ;
+    if (config.source_file != NULL) free(config.source_file) ;
+
     for(int i = 0 ; i < config.num_of_options + 2; i++) {
         free(config.cmd_args[i]); 
     }
@@ -465,49 +502,85 @@ make_result_file(result_t * results)
 }
 
 void 
-fuzzer_main (test_config_t * config)
+fuzzer_main (test_config_t * config_p)
 {   
     clock_t start, end ; 
     files_info_t files_info ;
+    coverset_t coverage_sets ; 
+
     p_files_info = &files_info; 
 
-    fuzzer_init(config) ; 
+    fuzzer_init(config_p) ; 
 
     create_temp_dir(&files_info) ;
     srand(time(0)); 
-    
+
+    coverage_sets.coverage_set = (int*)malloc(sizeof(int) * config.trial); 
+
+    int num_of_source_lines = num_of_lines(config.source_file); 
+
+    coverage_sets.union_coverage_set = (char*)malloc(sizeof(char) * num_of_source_lines); 
+    memset(coverage_sets.union_coverage_set, 0, num_of_source_lines);
+
     /* 
         Time out setting 
     */
     signal(SIGALRM, timout_handler); 
 
-    result_t * results = (result_t *)malloc(sizeof(result_t) * config->trial); 
+    result_t * results = (result_t *)malloc(sizeof(result_t) * config.trial); 
 
-    for (int i = 0; i < config->trial; i++) {
+    char * c_file = remove_slash(config.source_file, strlen(config.source_file));
+
+    for (int i = 0; i < config.trial; i++) {
         start = clock(); 
 
-    	char * input = (char *)malloc(sizeof(char) * (config->f_max_len + 1)); 
-        int input_len = create_input(config, input) ; 
+    	char * input = (char *)malloc(sizeof(char) * (config.f_max_len + 1)); 
+        int input_len = create_input(&config, input) ; 
         create_input_file(&files_info, input, input_len, i + 1);
 
     	int returncode = run(input, input_len, &files_info, i + 1) ; 
         test_oracle_run(&results[i], returncode, i + 1) ; 
 
-        print_result(&files_info, &results[i], i); 
+        if ( config.is_source) { 
+            if (create_gcov(c_file) != 0 ) {
+                perror("Error: the gcov file does not make!\n"); 
+            }
+            int num_of_lines = read_gcov_coverage(c_file, &coverage_sets, i) ;     
+            coverage_sets.num_of_total_coverage = (coverage_sets.num_of_total_coverage < num_of_lines) 
+                ? coverage_sets.num_of_total_coverage : num_of_lines ;
+        }
+        // print_result(&files_info, &results[i], i); 
     	
         free(input) ;
 
         end = clock(); 
 
         results[i].exec_time = (double)(end - start) / CLOCKS_PER_SEC ;
+
+        // remove_the_gcda_file(c_file); 
     }
 
+    printf("---------------Covearge Dataset---------------\n"); 
+    for(int i = 0; i < config.trial ; i++) {
+        printf("Trial[%d] (%d): ", i + 1, coverage_sets.coverage_set[i]); 
+        for(int j = 0 ; j < coverage_sets.coverage_set[i]; j++) {
+            printf("#"); 
+        }
+        printf("\n");
+    }
+    printf("--------------------------------------------\n"); 
+    
+
+    
     // fuzzer_summary(results) ;
     make_result_file(results); 
 #ifdef FILE_REMOVE 
     // remove the output and error files
     remove_files_and_dir(&files_info); 
 #endif
+    free(c_file); 
+    free(coverage_sets.coverage_set);
+    free(coverage_sets.union_coverage_set);
     free(results); 
     files_info_free(&files_info); 
     config_free(); 

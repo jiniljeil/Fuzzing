@@ -4,12 +4,18 @@
 #include "config.h"
 #include "create_input.h"
 #include "file.h"
+#define true 1 
+#define false 0
 
 typedef struct result { 
     int returncode; 
     char * test_result; 
     double exec_time ; 
 } result_t ; 
+
+// 각 인풋에 대한 라인 커버 갯수 (카운트의 배열)
+// 전체 덮어씌인 커버 갯수 
+// UNION 라인 커버 (배열)
 
 void fuzzer_init (test_config_t * config_p); 
 void config_init(test_config_t * config_p); 

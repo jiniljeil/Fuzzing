@@ -46,7 +46,7 @@ int execute_prog(char * executable_prog, char * arg) {
 }
 
 int create_gcov(char * path) {
-    int status ; 
+    int status ;
 
     int pid = fork(); 
 
@@ -113,12 +113,11 @@ void make_gcov_file(char * program, int prog_length, char * arg) {
     free(path); 
 }
 
-void read_gcov_coverage(char * program, char * arg) {
+int read_gcov_coverage(char * program, coverset_t * coverset, int trial) {
     
     // executeable program name (remove the extension)
-    // "Send+mail+to+me%40fuzzingbook.org"
+    int num_of_lines = 0; 
     int ext_point = 0, prog_length = strlen(program);  
-    make_gcov_file(program, prog_length, arg) ;
 
     int gcov_filename_length = prog_length + 6 ; 
     char * gcov_filename = (char *)malloc(sizeof(char) * (gcov_filename_length)); // .gcov
@@ -140,15 +139,83 @@ void read_gcov_coverage(char * program, char * arg) {
             buf[s] = 0x0 ; 
             token = strtok(buf, ":") ;
             int executed_count = atoi(token); 
-
+            
             if ( executed_count > 0) {
                 token = strtok(NULL, ":") ; 
                 int executed_statment = atoi(token); 
-                printf("(\'%s\', %d)\n", program, executed_statment) ;
+                // coverage
+                if (coverset->union_coverage_set[executed_statment] != '1'){
+                    coverset->union_coverage_set[executed_statment] = '1'; 
+                }
+                num_of_lines++;
+                // printf("(\'%s\', d)\n", program, executed_statment) ;
             }
         }
         free(buf) ;
     }
+    // coverage
+    coverset->coverage_set[trial] = num_of_lines ; 
+
     fclose(fp); 
     free(gcov_filename);
+
+    return num_of_lines ;
+}
+
+char * remove_slash(char * source_file, int length) { 
+    char * c_file ; 
+    for(int i = length ; i >= 0 ;i--) {
+        if (source_file[i] == '/') {  
+            c_file = (char*)malloc(sizeof(char) * (length - i + 1));  
+            for(int j = 0 ; j < length - i; j++) {
+                c_file[j] =  source_file[i + j + 1] ;
+            }
+            c_file[length - i] = 0x0 ; 
+
+            break; 
+        }
+    }
+    return c_file; 
+}
+
+/*
+void remove_the_gcda_file(char * c_file) {
+    char * gcda_file = (char *)malloc(sizeof(char) * 4096) ;
+    if (realpath(c_file, gcda_file) == 0x0) {
+        perror("Error: realpath returns NULL!\n") ; 
+        exit(1); 
+    }
+
+    int length = strlen(gcda_file); 
+    // char * gcda_file = (char *)malloc(sizeof(char) * (length + 4))  ; 
+
+    gcda_file[length] = 0x0; 
+
+    strcat(gcda_file, "gcda"); 
+
+    if (remove(gcda_file) == -1) {
+        free(gcda_file) ; 
+        perror("Error: file remove failed!\n"); 
+        return ;
+    }
+    free(gcda_file) ; 
+}
+*/
+
+int num_of_lines(char * program) {
+    FILE * fp = fopen(program, "rb") ;
+
+    if (fp == NULL) {
+        perror("Error: file open failed!\n"); 
+        return -1; 
+    }
+    int num = 0 ; 
+    char *line = NULL; 
+    size_t size = 0; 
+    while(!feof(fp) && getline(&line, &size, fp)) {
+        num++; 
+    }
+    fclose(fp); 
+
+    return num ;
 }

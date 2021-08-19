@@ -1,71 +1,50 @@
 ------------Fuzzer Configuration------------
-Program : ./troff_bug_detect
+Program : /Users/jinil/Desktop/Fuzzing/Fuzzer/lib/cgi_decode
 Options: 
 Time out setting : 2
-The trial of testing : 4000
+The trial of testing : 10
 
-The maximum length of random string : 1500
-The minimum length of random string : 1500
-The ASCII character start number : 0
-The ASCCI character range number : 255
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 32
+The ASCCI character range number : 64
 --------------------------------------------
 ---------------Fuzzer Summary---------------
-1. PASS : 2654
+1. PASS : 0
 2. FAIL : 0
-3. UNRESOVLED : 1346
-4. Total executed the time : 4.195144 (s)
-5. Average executed the time : 0.001049 (s)
-6. no_backslash_d(\D): 4
-7. no_8bit: 1333
-8. no_dot: 9
---------------------------------------------
-------------Fuzzer Configuration------------
-Program : ./troff_bug_detect
-Options: 
-Time out setting : 2
-The trial of testing : 1000
-
-The maximum length of random string : 300
-The minimum length of random string : 100
-The ASCII character start number : 0
-The ASCCI character range number : 255
---------------------------------------------
----------------Fuzzer Summary---------------
-1. PASS : 783
-2. FAIL : 0
-3. UNRESOVLED : 217
-4. Total executed the time : 0.787620 (s)
-5. Average executed the time : 0.000788 (s)
-6. no_backslash_d(\D): 0
-7. no_8bit: 216
-8. no_dot: 1
---------------------------------------------
-------------Fuzzer Configuration------------
-Program : ./troff_bug_detect
-Options: 
-Time out setting : 2
-The trial of testing : 500
-
-The maximum length of random string : 500
-The minimum length of random string : 100
-The ASCII character start number : 0
-The ASCCI character range number : 255
---------------------------------------------
----------------Fuzzer Summary---------------
-1. PASS : 376
-2. FAIL : 0
-3. UNRESOVLED : 124
-4. Total executed the time : 0.385881 (s)
-5. Average executed the time : 0.000772 (s)
-6. no_backslash_d(\D): 0
-7. no_8bit: 124
+3. UNRESOVLED : 10
+4. Total executed the time : 0.009803 (s)
+5. Average executed the time : 0.000980 (s)
+6. no_backslash_d(\D): 10
+7. no_8bit: 0
 8. no_dot: 0
 --------------------------------------------
 ------------Fuzzer Configuration------------
-Program : ./troff_bug_detect
+Program : /Users/jinil/Desktop/Fuzzing/Fuzzer/lib/cgi_decode
 Options: 
 Time out setting : 2
-The trial of testing : 5000
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 32
+The ASCCI character range number : 64
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 0
+2. FAIL : 0
+3. UNRESOVLED : 10
+4. Total executed the time : 0.009438 (s)
+5. Average executed the time : 0.000944 (s)
+6. no_backslash_d(\D): 10
+7. no_8bit: 0
+8. no_dot: 0
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/Fuzzer/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 1000
 
 The maximum length of random string : 5000
 The minimum length of random string : 10
@@ -73,12 +52,138 @@ The ASCII character start number : 0
 The ASCCI character range number : 255
 --------------------------------------------
 ---------------Fuzzer Summary---------------
-1. PASS : 3353
+1. PASS : 693
 2. FAIL : 0
-3. UNRESOVLED : 1647
-4. Total executed the time : 5.460416 (s)
-5. Average executed the time : 0.001092 (s)
+3. UNRESOVLED : 307
+4. Total executed the time : 1.122811 (s)
+5. Average executed the time : 0.001123 (s)
 6. no_backslash_d(\D): 0
-7. no_8bit: 1638
-8. no_dot: 9
+7. no_8bit: 303
+8. no_dot: 4
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/Fuzzer/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 1000
+
+The maximum length of random string : 5000
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 672
+2. FAIL : 0
+3. UNRESOVLED : 328
+4. Total executed the time : 1.111469 (s)
+5. Average executed the time : 0.001111 (s)
+6. no_backslash_d(\D): 1
+7. no_8bit: 324
+8. no_dot: 3
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/Fuzzer/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 1000
+
+The maximum length of random string : 5000
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 657
+2. FAIL : 0
+3. UNRESOVLED : 343
+4. Total executed the time : 1.091816 (s)
+5. Average executed the time : 0.001092 (s)
+6. no_backslash_d(\D): 1
+7. no_8bit: 338
+8. no_dot: 4
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/Fuzzer/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 5000
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 8
+2. FAIL : 0
+3. UNRESOVLED : 2
+4. Total executed the time : 0.009655 (s)
+5. Average executed the time : 0.000965 (s)
+6. no_backslash_d(\D): 0
+7. no_8bit: 2
+8. no_dot: 0
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/Fuzzer/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 5000
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 9
+2. FAIL : 0
+3. UNRESOVLED : 1
+4. Total executed the time : 0.009424 (s)
+5. Average executed the time : 0.000942 (s)
+6. no_backslash_d(\D): 0
+7. no_8bit: 1
+8. no_dot: 0
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/Fuzzer/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 5000
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 7
+2. FAIL : 0
+3. UNRESOVLED : 3
+4. Total executed the time : 0.009751 (s)
+5. Average executed the time : 0.000975 (s)
+6. no_backslash_d(\D): 0
+7. no_8bit: 3
+8. no_dot: 0
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/Fuzzer/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 5000
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 6
+2. FAIL : 0
+3. UNRESOVLED : 4
+4. Total executed the time : 0.010374 (s)
+5. Average executed the time : 0.001037 (s)
+6. no_backslash_d(\D): 0
+7. no_8bit: 4
+8. no_dot: 0
 --------------------------------------------
