@@ -664,9 +664,11 @@ fuzzer_main (test_config_t * config_p)
     }
 
 #ifdef PRINT_COVERAGE
-    // print_each_of_trial_coverage(&coverage_sets) ;
-
-    print_coveage_result(&coverage_sets, num_of_source_lines); 
+    if (config.is_source == true) {
+        // print_each_of_trial_coverage(&coverage_sets) 
+        print_coveage_result(&coverage_sets, num_of_source_lines); 
+    }
+    
 #endif 
     // fuzzer_summary(results) ;
     make_result_file(results); 
