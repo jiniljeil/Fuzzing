@@ -628,10 +628,12 @@ fuzzer_main (test_config_t * config_p)
         int input_len = create_input(&config, input) ; 
         create_input_file(&files_info, input, input_len, i + 1);
 
-        if (config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
-            for(int j = 1 ; j <= config.num_of_cl_arguments; j++) {
-                config.cmd_args[j] = (char *)malloc(sizeof(char) * (input_len + 1)) ;
-                strcpy(config.cmd_args[j], input); 
+        if (config.is_source == true && config.source_file != NULL) {
+            if (config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
+                for(int j = 1 ; j <= config.num_of_cl_arguments; j++) {
+                    config.cmd_args[j] = (char *)malloc(sizeof(char) * (input_len + 1)) ;
+                    strcpy(config.cmd_args[j], input); 
+                }
             }
         }
 
