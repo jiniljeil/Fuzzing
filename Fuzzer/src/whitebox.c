@@ -187,11 +187,14 @@ void remove_the_gcda_file(char * c_file) {
 
     strcat(gcda_file, "gcda"); 
 
-    if (remove(gcda_file) == -1) {
-        free(gcda_file) ; 
-        perror("Error: file remove failed!\n"); 
-        return ;
+    if( access(gcda_file, F_OK) != -1 ) {
+        if (remove(gcda_file) != 0) {
+            free(gcda_file) ; 
+            perror("Error: file remove failed!\n"); 
+            return ;
+        }
     }
+    
     free(gcda_file) ; 
 }
 
