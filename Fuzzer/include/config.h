@@ -6,6 +6,8 @@
 #define MAX_LENGTH 100
 #define CHAR_START 32
 #define CHAR_RANGE 64
+#define STDIN_INPUT 0 
+#define CL_ARGUMENTS 1
 
 typedef struct test_config {
     int trial ;
@@ -18,8 +20,11 @@ typedef struct test_config {
     int is_source ; 
     char * source_file ; 
     
+    int input_method ;
+    int num_of_cl_arguments ;
+
     char * binary_path ; 
-    char ** cmd_args ; // >> -b : case 1 / @ : case 2 / @@ : case 3 ?
+    char ** cmd_args ; 
     int num_of_options ; 
     int timeout ;
 

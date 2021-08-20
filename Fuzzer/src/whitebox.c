@@ -178,18 +178,12 @@ char * remove_slash(char * source_file, int length) {
     return c_file; 
 }
 
-/*
+
 void remove_the_gcda_file(char * c_file) {
-    char * gcda_file = (char *)malloc(sizeof(char) * 4096) ;
-    if (realpath(c_file, gcda_file) == 0x0) {
-        perror("Error: realpath returns NULL!\n") ; 
-        exit(1); 
-    }
-
-    int length = strlen(gcda_file); 
-    // char * gcda_file = (char *)malloc(sizeof(char) * (length + 4))  ; 
-
-    gcda_file[length] = 0x0; 
+    int length = strlen(c_file); 
+    char * gcda_file = (char *)malloc(sizeof(char) * (length + 4))  ; 
+    strcpy(gcda_file, c_file);
+    gcda_file[length - 1] = 0x0; 
 
     strcat(gcda_file, "gcda"); 
 
@@ -200,7 +194,7 @@ void remove_the_gcda_file(char * c_file) {
     }
     free(gcda_file) ; 
 }
-*/
+
 
 int num_of_lines(char * program) {
     FILE * fp = fopen(program, "rb") ;

@@ -13,7 +13,10 @@
 #define READ 0
 #define WRITE 1 
 #define BUFF_SIZE 1024
-#define TROFF_RESULT  
+// #define TROFF_RESULT  
+#define PRINT_COVERAGE
+// #define PRINT_COVERAGE_CASE1
+#define PRINT_COVERAGE_CASE2
 // #define FILE_REMOVE
 
 /*
@@ -39,6 +42,9 @@ config_init(test_config_t * config_p)
 
     config_p->is_source = false ;
     config_p->source_file = NULL ; 
+    
+    config_p->input_method = STDIN_INPUT ;
+    config_p->num_of_cl_arguments = 0 ;
 
     config_p->binary_path = NULL ;
     config_p->timeout = 2; 
@@ -127,6 +133,9 @@ config_copy(test_config_t * config_p)
         }
     }
 
+    config.input_method = config_p->input_method ;
+    config.num_of_cl_arguments = config_p->num_of_cl_arguments ;
+
     config.timeout = config_p->timeout; 
     config.num_of_options = config_p->num_of_options; 
 
@@ -151,10 +160,18 @@ config_copy(test_config_t * config_p)
             config.cmd_args[config.num_of_options + 1] = NULL; 
         }
     }else{
-        config.cmd_args = (char **)malloc(sizeof(char *) * 2); 
-        config.cmd_args[0] = (char *)malloc(sizeof(char) * (path_length + 1)); 
-        strcpy(config.cmd_args[0], config.binary_path); 
-        config.cmd_args[1] = NULL; 
+
+        if (config.input_method == CL_ARGUMENTS) {
+            config.cmd_args = (char **)malloc(sizeof(char *) * (config.num_of_cl_arguments + 2)); 
+            config.cmd_args[0] = (char *)malloc(sizeof(char) * (path_length + 1)); 
+            strcpy(config.cmd_args[0], config.binary_path); 
+            config.cmd_args[config.num_of_cl_arguments + 1] = NULL; 
+        }else{
+            config.cmd_args = (char **)malloc(sizeof(char *) * 2); 
+            config.cmd_args[0] = (char *)malloc(sizeof(char) * (path_length + 1)); 
+            strcpy(config.cmd_args[0], config.binary_path); 
+            config.cmd_args[1] = NULL; 
+        }
     }
 
     config.trial = config_p->trial;
@@ -187,6 +204,16 @@ void
 fuzzer_init (test_config_t * config_p)
 {
     config_copy(config_p); 
+
+    if (config.input_method != STDIN_INPUT && config.input_method != CL_ARGUMENTS) {
+        fprintf(stderr, "Fuzzer init: it has the input methods are STDIN_INPUT and CL_ARGUMENTS.\n"); 
+        exit(1); 
+    }
+
+    if (config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments == 0) {
+        fprintf(stderr, "Fuzzer init: Please set the number of command line arguments!\n") ;
+        exit(1); 
+    }
 
     if ((config.binary_path != 0x0 && access(config.binary_path, X_OK) != -1) || 
             (config.is_source == true && config.source_file != 0x0 && access(config.source_file, R_OK) != -1) ) {
@@ -282,7 +309,13 @@ run(char * input, int length, files_info_t * files_info, int num)
         dup2(stdout_pipes[WRITE], 1);
         dup2(stderr_pipes[WRITE], 2); 
 
-        execv(config.binary_path, config.cmd_args); 
+        if (config.input_method == STDIN_INPUT) {
+            execv(config.binary_path, config.cmd_args); 
+        }else if (config.input_method == CL_ARGUMENTS) {
+            char * envp[] = { NULL };
+            execve(config.binary_path, config.cmd_args, envp) ;
+        }
+        
         printf("The process execute error!\n") ; 
         exit(1); 
     }else {
@@ -386,6 +419,7 @@ config_free()
     for(int i = 0 ; i < config.num_of_options + 2; i++) {
         free(config.cmd_args[i]); 
     }
+
     free(config.cmd_args); 
 }
 
@@ -501,6 +535,61 @@ make_result_file(result_t * results)
     fclose(fp); 
 }
 
+void
+print_each_of_trial_coverage(coverset_t * coverage_sets) {
+    printf("---------------Covearge Dataset---------------\n"); 
+    for(int i = 0; i < config.trial ; i++) {
+        printf("Trial[%d] (%d): ", i + 1, coverage_sets->coverage_set[i]); 
+        for(int j = 0 ; j < coverage_sets->coverage_set[i]; j++) {
+            printf("#"); 
+        }
+        printf("\n");
+    }
+}
+
+void 
+print_coveage_result(coverset_t * coverage_sets, int num_of_source_lines) 
+{
+
+#ifdef PRINT_COVERAGE_CASE1
+    printf("--------------------------------------------\n"); 
+    
+    printf("---------------Union Coverage---------------\n");
+    
+    for(int i = 0 ; i < num_of_source_lines ; i++) {
+        if (coverage_sets->union_coverage_set[i] == '1') {
+            printf("%d ", i); 
+            coverage_sets->num_of_total_coverage++; 
+        }
+    }
+
+    printf("\nThe number of max coverage of specific line : %d\n", coverage_sets->num_of_max_coverage); 
+    printf("The number of total covered lines : %d\n", coverage_sets->num_of_total_coverage); 
+    printf("--------------------------------------------\n"); 
+#endif 
+
+#ifdef PRINT_COVERAGE_CASE2
+
+    FILE * fp = fopen("CoverageResult", "a"); 
+
+    if( fp == NULL) {
+        perror("Error: file open failed!\n"); 
+        exit(1); 
+    }else{
+
+    }
+    for(int i = 0 ; i < num_of_source_lines ; i++) {
+        if (coverage_sets->union_coverage_set[i] == '1') {
+            fprintf(fp, "%d ", i); 
+            coverage_sets->num_of_total_coverage++; 
+        }
+    }
+    fprintf(fp, "\nThe number of total covered lines : %d\n", coverage_sets->num_of_total_coverage); 
+    fclose(fp) ;
+#endif
+}
+
+
 void 
 fuzzer_main (test_config_t * config_p)
 {   
@@ -516,7 +605,8 @@ fuzzer_main (test_config_t * config_p)
     srand(time(0)); 
 
     coverage_sets.coverage_set = (int*)malloc(sizeof(int) * config.trial); 
-
+    coverage_sets.num_of_total_coverage = 0 ; 
+    coverage_sets.num_of_max_coverage = 0 ;
     int num_of_source_lines = num_of_lines(config.source_file); 
 
     coverage_sets.union_coverage_set = (char*)malloc(sizeof(char) * num_of_source_lines); 
@@ -538,6 +628,13 @@ fuzzer_main (test_config_t * config_p)
         int input_len = create_input(&config, input) ; 
         create_input_file(&files_info, input, input_len, i + 1);
 
+        if (config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
+            for(int j = 1 ; j <= config.num_of_cl_arguments; j++) {
+                config.cmd_args[j] = (char *)malloc(sizeof(char) * (input_len + 1)) ;
+                strcpy(config.cmd_args[j], input); 
+            }
+        }
+
     	int returncode = run(input, input_len, &files_info, i + 1) ; 
         test_oracle_run(&results[i], returncode, i + 1) ; 
 
@@ -546,32 +643,31 @@ fuzzer_main (test_config_t * config_p)
                 perror("Error: the gcov file does not make!\n"); 
             }
             int num_of_lines = read_gcov_coverage(c_file, &coverage_sets, i) ;     
-            coverage_sets.num_of_total_coverage = (coverage_sets.num_of_total_coverage < num_of_lines) 
-                ? coverage_sets.num_of_total_coverage : num_of_lines ;
+            coverage_sets.num_of_max_coverage = (coverage_sets.num_of_max_coverage < num_of_lines) 
+                ? num_of_lines : coverage_sets.num_of_max_coverage ;
         }
         // print_result(&files_info, &results[i], i); 
     	
+        // 마지막에 free 를 해주는 logic 이 있으므로 마지막은 제외 
+        if ( i != config.trial - 1 && config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
+            for (int j = 1 ; j <= config.num_of_cl_arguments; j++) {
+                free(config.cmd_args[j]); 
+            }
+        }
         free(input) ;
 
         end = clock(); 
 
         results[i].exec_time = (double)(end - start) / CLOCKS_PER_SEC ;
 
-        // remove_the_gcda_file(c_file); 
+        remove_the_gcda_file(c_file); 
     }
 
-    printf("---------------Covearge Dataset---------------\n"); 
-    for(int i = 0; i < config.trial ; i++) {
-        printf("Trial[%d] (%d): ", i + 1, coverage_sets.coverage_set[i]); 
-        for(int j = 0 ; j < coverage_sets.coverage_set[i]; j++) {
-            printf("#"); 
-        }
-        printf("\n");
-    }
-    printf("--------------------------------------------\n"); 
-    
+#ifdef PRINT_COVERAGE
+    // print_each_of_trial_coverage(&coverage_sets) ;
 
-    
+    print_coveage_result(&coverage_sets, num_of_source_lines); 
+#endif 
     // fuzzer_summary(results) ;
     make_result_file(results); 
 #ifdef FILE_REMOVE 

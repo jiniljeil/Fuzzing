@@ -3,6 +3,7 @@
 
 typedef struct coverset {
     int * coverage_set ;
+    int num_of_max_coverage ; 
     int num_of_total_coverage ; 
     char * union_coverage_set ;
 } coverset_t; 

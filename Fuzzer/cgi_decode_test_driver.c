@@ -7,9 +7,15 @@ int main(void){
     config.source_file = "lib/cgi_decode.c"; 
     config.is_source = true ; 
 
-    config.trial = 10;
-    config.f_min_len = 10; 
-    config.f_max_len = 100; 
+    config.input_method = CL_ARGUMENTS ;
+    config.num_of_cl_arguments = 1; 
 
+
+    config.trial = 100;
+    config.f_min_len = 10; 
+    config.f_max_len = 10; 
+    
     fuzzer_main(&config);
+
+    
 }
