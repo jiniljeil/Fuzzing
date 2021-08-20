@@ -111,7 +111,7 @@ config_copy(test_config_t * config_p)
             exit(1); 
         }
 
-        char * prog_name = remove_the_extension(config.source_file, strlen(config.source_file));
+        char * prog_name = remove_the_extension(config.source_file, source_file_length);
 
         int check = coverage_compile(config.source_file, prog_name); 
         if ( check != 0 ) {
@@ -619,7 +619,7 @@ fuzzer_main (test_config_t * config_p)
 
     result_t * results = (result_t *)malloc(sizeof(result_t) * config.trial); 
 
-    char * c_file = remove_slash(config.source_file, strlen(config.source_file));
+    char * c_file = remove_slash(config.source_file, strlen(config.source_file) - 1);
 
     for (int i = 0; i < config.trial; i++) {
         start = clock(); 
