@@ -42,7 +42,6 @@ void read_gcov_coverage(char * program) {
         free(buf) ;
     }
     fclose(fp); 
-    free(gcov_filename);
 }
 
 int main(void) {

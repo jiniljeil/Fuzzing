@@ -5,7 +5,7 @@
 #include <string.h> 
 #include <stdio.h>
 #define REMOVE_EXECFILE
-
+#define PATH_MAX 4096
 int coverage_compile(char * program, char * executable_prog) {
     int status ;
     int pid = fork(); 
@@ -54,7 +54,7 @@ int create_gcov(char * path) {
         perror("fork failed!\n"); 
         exit(1); 
     }else if( pid == 0 ) {
-        char * args[] = {"/usr/bin/gcov", path, 0x0} ;
+        char * args[] = {"/usr/bin/gcov", "-b", "-c", path, 0x0} ;
         execv("/usr/bin/gcov", args) ;
 
         fprintf(stderr, "Execute failed!\n"); 
@@ -113,16 +113,12 @@ void make_gcov_file(char * program, int prog_length, char * arg) {
     free(path); 
 }
 
-int read_gcov_coverage(char * program, coverset_t * coverset, int trial) {
+int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial) {
     
     // executeable program name (remove the extension)
     int num_of_lines = 0; 
-    int ext_point = 0, prog_length = strlen(program);  
-
-    int gcov_filename_length = prog_length + 6 ; 
-    char * gcov_filename = (char *)malloc(sizeof(char) * (gcov_filename_length)); // .gcov
-    sprintf(gcov_filename, "%s.gcov", program) ;
-    gcov_filename[gcov_filename_length] = 0x0 ;
+    int ext_point = 0; 
+    // int prog_length = strlen(program); 
 
     char * token; 
 
@@ -132,49 +128,71 @@ int read_gcov_coverage(char * program, coverset_t * coverset, int trial) {
         perror("File open failed!\n");
         exit(1) ;  
     }else{
-        char * buf = (char *)malloc(sizeof(char) * 256); 
+        char * buf = NULL; 
         ssize_t s ; 
-        size_t size = 256; 
-        while((s = getline(&buf, &size, fp)) > 0) {
-            buf[s] = 0x0 ; 
-            token = strtok(buf, ":") ;
-            int executed_count = atoi(token); 
-            
-            if ( executed_count > 0) {
-                token = strtok(NULL, ":") ; 
-                int executed_statment = atoi(token); 
-                // coverage
-                if (coverset->union_coverage_set[executed_statment] != '1'){
-                    coverset->union_coverage_set[executed_statment] = '1'; 
+        size_t size = 0; 
+        int line_number = 1 ; 
+        int num_of_branch_cover = 0 ; 
+
+        while(!feof(fp)){
+            if((s = getline(&buf, &size, fp)) != -1) {
+                buf[s] = 0x0 ; 
+                if (!strncmp("branch", buf, 6)) {
+                    if (strstr(buf, "take") != NULL) {
+                        num_of_branch_cover++; 
+                        if (coverset->union_branch_coverage_set[line_number] != '1') {
+                            coverset->union_branch_coverage_set[line_number] = '1'; 
+                        }
+                    }
+                    line_number++;
+                }else{
+                    token = strtok(buf, ":") ;
+                    int executed_count = atoi(token); 
+                    
+                    if ( executed_count > 0) {
+                        token = strtok(NULL, ":") ; 
+                        int executed_statment = atoi(token); 
+                        // coverage
+                        if (coverset->union_coverage_set[executed_statment] != '1'){
+                            coverset->union_coverage_set[executed_statment] = '1'; 
+                        }
+                        num_of_lines++;
+                    }
                 }
-                num_of_lines++;
-                // printf("(\'%s\', d)\n", program, executed_statment) ;
             }
         }
+
         free(buf) ;
+        fclose(fp); 
     }
     // coverage
     coverset->coverage_set[trial] = num_of_lines ; 
 
-    fclose(fp); 
-    free(gcov_filename);
+    
 
     return num_of_lines ;
 }
 
 char * remove_slash(char * source_file, int length) { 
-    char * c_file ; 
+    char * c_file = NULL; 
+
+    int no_slash = 1 ; 
     for(int i = length ; i >= 0 ;i--) {
         if (source_file[i] == '/') {  
-            c_file = (char*)malloc(sizeof(char) * (length - i + 1));  
+            c_file = (char *) malloc(sizeof(char) * (length - i + 1)); 
             for(int j = 0 ; j < length - i; j++) {
                 c_file[j] =  source_file[i + j + 1] ;
             }
             c_file[length - i] = 0x0 ; 
-
+            no_slash = 0;
             break; 
         }
     }
+
+    if( no_slash ) {
+        c_file = (char *)malloc(sizeof(char) * (strlen(source_file) + 1)); 
+        strcpy(c_file, source_file); 
+    } 
     return c_file; 
 }
 
@@ -183,7 +201,6 @@ void remove_the_gcda_file(char * c_file) {
     int length = strlen(c_file); 
     char * gcda_file = (char *)malloc(sizeof(char) * (length + 4))  ; 
     strcpy(gcda_file, c_file);
-    gcda_file[length - 1] = 0x0; 
 
     strcat(gcda_file, "gcda"); 
 
@@ -199,7 +216,7 @@ void remove_the_gcda_file(char * c_file) {
 }
 
 
-int num_of_lines(char * program) {
+int num_of_uncovered_lines(char * program) {
     FILE * fp = fopen(program, "rb") ;
 
     if (fp == NULL) {
@@ -209,10 +226,46 @@ int num_of_lines(char * program) {
     int num = 0 ; 
     char *line = NULL; 
     size_t size = 0; 
-    while(!feof(fp) && getline(&line, &size, fp)) {
-        num++; 
-    }
-    fclose(fp); 
+    ssize_t len = 0; 
+    char * token ; 
 
+    while(!feof(fp)) {
+        if ((len = getline(&line, &size, fp)) != -1) { 
+            line[len] = 0x0; 
+            token = strtok(line, ":"); 
+            if (strstr(token, "#####") != NULL) {
+                num++;
+            }
+        }
+    }
+    free(line); 
+    fclose(fp); 
+    
+    return num ;
+}
+
+int num_of_uncovered_branch_lines(char * program) {
+    FILE * fp = fopen(program, "rb"); 
+    if (fp == NULL) {
+        perror("Error: file open failed!\n"); 
+        return -1; 
+    }
+    int num = 0 ; 
+    char *line = NULL; 
+    size_t size = 0; 
+    ssize_t len = 0; 
+    char * token ; 
+
+    while(!feof(fp)) {
+        if ((len = getline(&line, &size, fp)) != -1) { 
+            line[len] = 0x0; 
+            if(!strncmp("branch", line, 6)) {
+                num++; 
+            }
+        }
+    }
+    free(line); 
+    fclose(fp); 
+    
     return num ;
 }

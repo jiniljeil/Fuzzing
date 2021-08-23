@@ -10,13 +10,16 @@
 #include <sys/time.h>
 #include <signal.h>
 #include <sys/wait.h> 
+#include <assert.h> 
 #define READ 0
 #define WRITE 1 
 #define BUFF_SIZE 1024
 // #define TROFF_RESULT  
 #define PRINT_COVERAGE
-// #define PRINT_COVERAGE_CASE1
-#define PRINT_COVERAGE_CASE2
+#define PRINT_COVERAGE_CASE1
+
+// #define PRINT_COVERAGE_CASE2
+
 // #define FILE_REMOVE
 
 /*
@@ -96,34 +99,35 @@ config_copy(test_config_t * config_p)
     
     int source_file_length = 0 ; 
     if ( config.is_source == true && config_p->source_file != NULL){  
-        source_file_length = strlen(config_p->source_file) ; 
-    }
-    if( source_file_length > PATH_MAX ) {
-        perror("Path is the longest! The max length of path is 4096.\n"); 
-        return ;
-    }else if(config.is_source == true) {
-
         config.source_file = (char *)malloc(sizeof(char) * PATH_MAX) ; 
-
         // realpath 
         if ( realpath(config_p->source_file, config.source_file) == 0x0 ) {
             perror("Error: realpath returns NULL!\n") ; 
             exit(1); 
-        }
+        }   
 
-        char * prog_name = remove_the_extension(config.source_file, source_file_length);
+        source_file_length = strlen(config.source_file); 
+    }
+    if( source_file_length > PATH_MAX ) {
+        perror("Path is the longest! The max length of path is 4096.\n"); 
+        return ;
+    }else if(config.is_source == true && source_file_length != 0) {
+        char * prog_name = remove_the_extension(config.source_file, source_file_length - 1);
 
         int check = coverage_compile(config.source_file, prog_name); 
+
         if ( check != 0 ) {
             perror("Compile error!\n"); 
             exit(1); 
         }
+
         config.binary_path = (char *) malloc(sizeof(char) * (strlen(prog_name) + 1)) ;
         strcpy(config.binary_path, prog_name); 
+        free(prog_name); 
     }else{
         // EXECUTABLE FILE PATH
-        
         path_length = strlen(config_p->binary_path); 
+
         if( path_length > PATH_MAX ) {
             perror("Path is the longest! The max length of path is 4096.\n"); 
             return ;
@@ -202,7 +206,7 @@ test_oracle_run(result_t * result, int returncode, int trial)
 */
 void
 fuzzer_init (test_config_t * config_p)
-{
+{   
     config_copy(config_p); 
 
     if (config.input_method != STDIN_INPUT && config.input_method != CL_ARGUMENTS) {
@@ -312,8 +316,7 @@ run(char * input, int length, files_info_t * files_info, int num)
         if (config.input_method == STDIN_INPUT) {
             execv(config.binary_path, config.cmd_args); 
         }else if (config.input_method == CL_ARGUMENTS) {
-            char * envp[] = { NULL };
-            execve(config.binary_path, config.cmd_args, envp) ;
+            execv(config.binary_path, config.cmd_args) ;
         }
         
         printf("The process execute error!\n") ; 
@@ -417,7 +420,7 @@ config_free()
     if (config.source_file != NULL) free(config.source_file) ;
 
     for(int i = 0 ; i < config.num_of_options + 2; i++) {
-        free(config.cmd_args[i]); 
+        if (config.cmd_args[i] != NULL) free(config.cmd_args[i]); 
     }
 
     free(config.cmd_args); 
@@ -548,11 +551,10 @@ print_each_of_trial_coverage(coverset_t * coverage_sets) {
 }
 
 void 
-print_coveage_result(coverset_t * coverage_sets, int num_of_source_lines) 
+print_coveage_result(coverset_t * coverage_sets, int num_of_source_lines, int num_of_branch_lines) 
 {
 
 #ifdef PRINT_COVERAGE_CASE1
-    printf("--------------------------------------------\n"); 
     
     printf("---------------Union Coverage---------------\n");
     
@@ -561,10 +563,14 @@ print_coveage_result(coverset_t * coverage_sets, int num_of_source_lines)
             printf("%d ", i); 
             coverage_sets->num_of_total_coverage++; 
         }
+        if (coverage_sets->union_branch_coverage_set[i] == '1') {
+            coverage_sets->num_of_total_branch_coverage++; 
+        }
     }
 
-    printf("\nThe number of max coverage of specific line : %d\n", coverage_sets->num_of_max_coverage); 
-    printf("The number of total covered lines : %d\n", coverage_sets->num_of_total_coverage); 
+    printf("\nThe number of max coverage of specific line : %d / %d\n", coverage_sets->num_of_max_coverage, num_of_source_lines); 
+    printf("The number of total covered lines : %d / %d\n", coverage_sets->num_of_total_coverage, num_of_source_lines); 
+    printf("The number of total covered branches : %d / %d\n", coverage_sets->num_of_total_branch_coverage, num_of_branch_lines); 
     printf("--------------------------------------------\n"); 
 #endif 
 
@@ -597,20 +603,17 @@ fuzzer_main (test_config_t * config_p)
     files_info_t files_info ;
     coverset_t coverage_sets ; 
 
+    files_info.count = 0;
     p_files_info = &files_info; 
 
     fuzzer_init(config_p) ; 
-
     create_temp_dir(&files_info) ;
     srand(time(0)); 
 
     coverage_sets.coverage_set = (int*)malloc(sizeof(int) * config.trial); 
     coverage_sets.num_of_total_coverage = 0 ; 
     coverage_sets.num_of_max_coverage = 0 ;
-    int num_of_source_lines = num_of_lines(config.source_file); 
-
-    coverage_sets.union_coverage_set = (char*)malloc(sizeof(char) * num_of_source_lines); 
-    memset(coverage_sets.union_coverage_set, 0, num_of_source_lines);
+    coverage_sets.num_of_total_branch_coverage = 0 ;
 
     /* 
         Time out setting 
@@ -620,6 +623,23 @@ fuzzer_main (test_config_t * config_p)
     result_t * results = (result_t *)malloc(sizeof(result_t) * config.trial); 
 
     char * c_file = remove_slash(config.source_file, strlen(config.source_file) - 1);
+
+    // "#####" of gcov file counts
+    if (create_gcov(c_file) != 0) { 
+        perror("Error: the gcov file does not make!\n"); 
+    }  
+
+    char gcov_file[PATH_MAX]; 
+    sprintf(gcov_file, "%s.gcov", c_file); 
+
+    int num_of_source_lines = num_of_uncovered_lines(gcov_file); 
+    coverage_sets.union_coverage_set = (char*)malloc(sizeof(char) * num_of_source_lines); 
+
+    int num_of_branch_lines = num_of_uncovered_branch_lines(gcov_file); 
+    coverage_sets.union_branch_coverage_set = (char*)malloc(sizeof(char) * num_of_branch_lines); 
+    
+    // memset(coverage_sets.union_coverage_set, 0, num_of_source_lines);
+    // memset(coverage_sets.union_branch_coverage_set , 0, num_of_branch_lines); 
 
     for (int i = 0; i < config.trial; i++) {
         start = clock(); 
@@ -640,22 +660,23 @@ fuzzer_main (test_config_t * config_p)
     	int returncode = run(input, input_len, &files_info, i + 1) ; 
         test_oracle_run(&results[i], returncode, i + 1) ; 
 
-        if ( config.is_source) { 
+        if ( config.is_source && config.source_file != NULL) { 
             if (create_gcov(c_file) != 0 ) {
                 perror("Error: the gcov file does not make!\n"); 
             }
-            int num_of_lines = read_gcov_coverage(c_file, &coverage_sets, i) ;     
-            coverage_sets.num_of_max_coverage = (coverage_sets.num_of_max_coverage < num_of_lines) 
-                ? num_of_lines : coverage_sets.num_of_max_coverage ;
-        }
-        // print_result(&files_info, &results[i], i); 
-    	
-        // 마지막에 free 를 해주는 logic 이 있으므로 마지막은 제외 
-        if ( i != config.trial - 1 && config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
-            for (int j = 1 ; j <= config.num_of_cl_arguments; j++) {
-                free(config.cmd_args[j]); 
+            int num_of_lines = read_gcov_coverage(gcov_file, &coverage_sets, i) ;     
+            coverage_sets.num_of_max_coverage = (coverage_sets.num_of_max_coverage < num_of_lines) ? num_of_lines : coverage_sets.num_of_max_coverage ;
+
+            if ( i != config.trial - 1 && config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
+                for (int j = 1 ; j <= config.num_of_cl_arguments; j++) {
+                    if (config.cmd_args[j] != NULL) free(config.cmd_args[j]);
+                }
             }
         }
+        
+        // print_result(&files_info, &results[i], i);  
+        // 마지막에 free 를 해주는 logic 이 있으므로 마지막은 제외 
+        
         free(input) ;
 
         end = clock(); 
@@ -665,10 +686,17 @@ fuzzer_main (test_config_t * config_p)
         remove_the_gcda_file(c_file); 
     }
 
+    if( access(gcov_file, F_OK) != -1 ) {
+        if (remove(gcov_file) != 0) { 
+            perror("Error: file remove failed!\n"); 
+            return ;
+        }
+    }
+
 #ifdef PRINT_COVERAGE
     if (config.is_source == true) {
         // print_each_of_trial_coverage(&coverage_sets) 
-        print_coveage_result(&coverage_sets, num_of_source_lines); 
+        print_coveage_result(&coverage_sets, num_of_source_lines, num_of_branch_lines);
     }
     
 #endif 
@@ -678,10 +706,11 @@ fuzzer_main (test_config_t * config_p)
     // remove the output and error files
     remove_files_and_dir(&files_info); 
 #endif
-    free(c_file); 
-    free(coverage_sets.coverage_set);
-    free(coverage_sets.union_coverage_set);
-    free(results); 
+    if (c_file != NULL) free(c_file); 
+    if (coverage_sets.coverage_set != NULL) free(coverage_sets.coverage_set);
+    if (coverage_sets.union_coverage_set != NULL) free(coverage_sets.union_coverage_set);
+    if (coverage_sets.union_branch_coverage_set != NULL) free(coverage_sets.union_branch_coverage_set); 
+    if (results != NULL) free(results); 
     files_info_free(&files_info); 
     config_free(); 
 }
