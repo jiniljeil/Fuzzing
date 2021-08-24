@@ -8,7 +8,7 @@
 char * delete_random_character(char * seed_input) {
     if (seed_input == NULL) return NULL ;
     int length = strlen(seed_input); 
-    char * deleted_string = (char*)malloc(sizeof(char) * (length + 1)); 
+    char * deleted_string = (char*)malloc(sizeof(char) * (length)); 
 
     int pos = rand() % length;  
     int idx = 0 ; 
@@ -18,7 +18,7 @@ char * delete_random_character(char * seed_input) {
     if (pos != length - 1) {
         memcpy(deleted_string + pos, seed_input + pos + 1, length - pos); 
     }
-    deleted_string[length] = 0x0; 
+    deleted_string[length-1] = 0x0; 
     
     return deleted_string ; 
 }
