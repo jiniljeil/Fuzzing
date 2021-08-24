@@ -5,7 +5,7 @@
 
 int http_program(char * url) {
     regex_t regex; 
-
+    regmatch_t regmatch[6] ; 
     // http://www.google.com/search:8080?q=fuzzing&p=f#ddd
     // Pattern: ^(http|https):\/\/([a-zA-Z0-9\.]+)\/?([^\:]*)\:?([0-9]+)\??([a-zA-Z0-9\&\=]+)\#?(.*)
     char * pattern = "^(http|https):\\/\\/([a-zA-Z0-9\\.]+)\\/\?([^\\:]*)\\:\?([0-9]+)\\\?\?([a-zA-Z0-9\\&\\=]+)\\#\?(.*)";
@@ -14,7 +14,7 @@ int http_program(char * url) {
         fprintf(stderr,"This URL is not matched from URL format."); 
         return 0; 
     } 
-    
+
     return 1; 
 }
 

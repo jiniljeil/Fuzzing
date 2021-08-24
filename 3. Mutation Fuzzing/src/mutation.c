@@ -7,26 +7,27 @@
 
 char * delete_random_character(char * seed_input) {
     if (seed_input == NULL) return NULL ;
-    char * deleted_string = (char*)malloc(sizeof(char) * (strlen(seed_input) - 1)); 
     int length = strlen(seed_input); 
+    char * deleted_string = (char*)malloc(sizeof(char) * (length + 1)); 
 
     int pos = rand() % length;  
     int idx = 0 ; 
-    // abcde
-    printf("%d\n", pos); 
+
     memcpy(deleted_string, seed_input, pos); 
+
     if (pos != length) {
         memcpy(deleted_string + pos, seed_input + pos + 1, length - pos); 
     }
-
+    deleted_string[length] = 0x0; 
+    
     return deleted_string ; 
 }
 
 char * insert_random_character(char * seed_input) {
     if (seed_input == NULL) return NULL; 
-    char * inserted_string = (char*)malloc(sizeof(char) * (strlen(seed_input) + 1));
-
     int length = strlen(seed_input); 
+    char * inserted_string = (char*)malloc(sizeof(char) * (length + 1 + 1));
+
     int pos = rand() % (length + 1); 
 
     char random_character = (char) (rand() % 96 + 32); // 32 ~ 127 
@@ -34,7 +35,7 @@ char * insert_random_character(char * seed_input) {
     memcpy(inserted_string, seed_input, pos); 
     inserted_string[pos] = random_character ; 
     memcpy(inserted_string + pos + 1, seed_input + pos, length - pos);
-
+    inserted_string[length + 1] = 0x0;
     return inserted_string ; 
 }
 
@@ -50,10 +51,11 @@ char * flip_random_character(char * seed_input) {
     int bit = 1 << (rand() % 7); 
     char new_c = (char) ((int)c ^ bit); 
 
-    char * flip_string = (char*)malloc(sizeof(char) * length); 
+    char * flip_string = (char*)malloc(sizeof(char) * (length + 1)); 
     memcpy(flip_string, seed_input, pos); 
     flip_string[pos] = new_c; 
     memcpy(flip_string + pos + 1, seed_input + pos + 1, length - pos); 
+    flip_string[length] = 0x0; 
 
     return flip_string ;
 }
