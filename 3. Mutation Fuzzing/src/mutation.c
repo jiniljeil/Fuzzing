@@ -15,7 +15,7 @@ char * delete_random_character(char * seed_input) {
 
     memcpy(deleted_string, seed_input, pos); 
 
-    if (pos != length) {
+    if (pos != length - 1) {
         memcpy(deleted_string + pos, seed_input + pos + 1, length - pos); 
     }
     deleted_string[length] = 0x0; 
