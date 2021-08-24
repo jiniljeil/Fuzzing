@@ -10,3 +10,7 @@ typedef struct url {
     char * query ; // a list of key/value pairs, such as q=fuzzing
     char * fragment ; // a marker for a location in the retrieved document, such as #result
 } url_t; 
+
+int url_parser(char * url, url_t * url_info); 
+int http_program(char * url); 
+int is_valid_url(char * url); 

@@ -5,10 +5,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-char * delete_random_character(char * seed_input) {
-    if (seed_input == NULL) return NULL ;
-    int length = strlen(seed_input); 
-    char * deleted_string = (char*)malloc(sizeof(char) * (length)); 
+int delete_random_character(char * deleted_string, char * seed_input, int seed_length) {
+    if (seed_input == NULL) return -1 ;
+    if (deleted_string == NULL) {
+        fprintf(stderr, "[delete_random_character]: Should allocate the space of first parameter.\n"); 
+        return -1; 
+    }
+    int length = seed_length; 
 
     int pos = rand() % length;  
     int idx = 0 ; 
@@ -20,13 +23,12 @@ char * delete_random_character(char * seed_input) {
     }
     deleted_string[length-1] = 0x0; 
     
-    return deleted_string ; 
+    return 1; 
 }
 
-char * insert_random_character(char * seed_input) {
-    if (seed_input == NULL) return NULL; 
-    int length = strlen(seed_input); 
-    char * inserted_string = (char*)malloc(sizeof(char) * (length + 1 + 1));
+int insert_random_character(char * inserted_string, char * seed_input, int seed_length ) {
+    if (seed_input == NULL) return -1; 
+    int length = seed_length; 
 
     int pos = rand() % (length + 1); 
 
@@ -36,14 +38,13 @@ char * insert_random_character(char * seed_input) {
     inserted_string[pos] = random_character ; 
     memcpy(inserted_string + pos + 1, seed_input + pos, length - pos);
     inserted_string[length + 1] = 0x0;
-    return inserted_string ; 
+    return 1 ; 
 }
 
-char * flip_random_character(char * seed_input) {
-    if (seed_input == NULL) return NULL; 
-
-    int length = strlen(seed_input); 
-    if (length == 0) return seed_input; 
+int flip_random_character(char * flip_string, char * seed_input, int seed_length) {
+    if (seed_input == NULL) return -1; 
+    int length = seed_length ;
+    if (length == 0) return 0; 
 
     int pos = rand() % length ; 
     char c = seed_input[pos];  
@@ -51,31 +52,18 @@ char * flip_random_character(char * seed_input) {
     int bit = 1 << (rand() % 7); 
     char new_c = (char) ((int)c ^ bit); 
 
-    char * flip_string = (char*)malloc(sizeof(char) * (length + 1)); 
     memcpy(flip_string, seed_input, pos); 
     flip_string[pos] = new_c; 
     memcpy(flip_string + pos + 1, seed_input + pos + 1, length - pos); 
     flip_string[length] = 0x0; 
 
-    return flip_string ;
+    return 1; 
 }
 
-char * mutate(char * seed_input) {
-    char * (*mutator) (char *) ; 
+int mutate(char * string, char * seed_input, int seed_length) {
+    int (*mutator[3]) (char *, char *, int) = {delete_random_character, insert_random_character, flip_random_character}; 
 
-    int choice = rand() % 3 ; 
+    int choice = rand() % 3 ;
 
-    switch(choice) {
-        case 0: 
-            mutator = &delete_random_character ; 
-            break ;
-        case 1: 
-            mutator = &insert_random_character ; 
-            break ; 
-        case 2: 
-            mutator = &flip_random_character ; 
-            break ;
-    }
-
-    return mutator(seed_input); 
+    return mutator[choice](string, seed_input, seed_length); 
 }
