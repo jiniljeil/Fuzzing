@@ -1,5 +1,6 @@
 #include "../include/fuzzer.h" 
 #include "../include/whitebox.h" 
+#include "../include/mutation.h"
 #include <stdlib.h> 
 #include <unistd.h>
 #include <stdio.h> 
@@ -42,6 +43,8 @@ config_init(test_config_t * config_p)
     config_p->f_max_len = MAX_LENGTH ;
     config_p->f_char_start = CHAR_START ; 
     config_p->f_char_range = CHAR_RANGE ; 
+
+    config_p->mutation_trial = 1; 
 
     config_p->is_source = false ;
     config_p->source_file = NULL ; 
@@ -93,6 +96,9 @@ config_copy(test_config_t * config_p)
     config.f_max_len = config_p->f_max_len; 
     config.f_char_start = config_p->f_char_start ; 
     config.f_char_range = config_p->f_char_range ;
+    
+    config.mutation_trial = config_p->mutation_trial; 
+    strncpy(config.seed_dir, config_p->seed_dir, PATH_MAX) ;
 
     // SOURCE FILE -> Coverage compile 
     config.is_source = config_p->is_source ;
@@ -113,7 +119,6 @@ config_copy(test_config_t * config_p)
         return ;
     }else if(config.is_source == true && source_file_length != 0) {
         char * prog_name = remove_the_extension(config.source_file, source_file_length - 1);
-
         int check = coverage_compile(config.source_file, prog_name); 
 
         if ( check != 0 ) {
@@ -208,6 +213,16 @@ void
 fuzzer_init (test_config_t * config_p)
 {   
     config_copy(config_p); 
+
+    if (config.mutation_trial < 1) {
+        fprintf(stderr, "Fuzzer init: Please set the number of mutation trial more than 0.!\n"); 
+        exit(1); 
+    }
+
+    if (strlen(config.seed_dir) == 0) { 
+        fprintf(stderr, "Fuzzer init : Please enter the seed directory name!\n"); 
+        exit(1); 
+    }
 
     if (config.input_method != STDIN_INPUT && config.input_method != CL_ARGUMENTS) {
         fprintf(stderr, "Fuzzer init: it has the input methods are STDIN_INPUT and CL_ARGUMENTS.\n"); 
@@ -551,14 +566,14 @@ print_each_of_trial_coverage(coverset_t * coverage_sets) {
 }
 
 void 
-print_coveage_result(coverset_t * coverage_sets, int num_of_source_lines, int num_of_branch_lines) 
+print_coveage_result(coverset_t * coverage_sets, int num_of_lines, int num_of_source_lines, int num_of_branch_lines) 
 {
 
 #ifdef PRINT_COVERAGE_CASE1
     
     printf("---------------Union Coverage---------------\n");
     
-    for(int i = 0 ; i < num_of_source_lines ; i++) {
+    for(int i = 0 ; i < num_of_lines ; i++) {
         if (coverage_sets->union_coverage_set[i] == '1') {
             printf("%d ", i); 
             coverage_sets->num_of_total_coverage++; 
@@ -610,10 +625,15 @@ fuzzer_main (test_config_t * config_p)
     create_temp_dir(&files_info) ;
     srand(time(0)); 
 
-    coverage_sets.coverage_set = (int*)malloc(sizeof(int) * config.trial); 
-    coverage_sets.num_of_total_coverage = 0 ; 
-    coverage_sets.num_of_max_coverage = 0 ;
-    coverage_sets.num_of_total_branch_coverage = 0 ;
+    char * storage[1024]; 
+    int num_of_seed_files = store_seed_files(config.seed_dir, storage); 
+
+    if (config.is_source == true && config.source_file != NULL) {
+        coverage_sets.coverage_set = (int*)malloc(sizeof(int) * config.trial); 
+        coverage_sets.num_of_total_coverage = 0 ; 
+        coverage_sets.num_of_max_coverage = 0 ;
+        coverage_sets.num_of_total_branch_coverage = 0 ;
+    }
 
     /* 
         Time out setting 
@@ -622,52 +642,56 @@ fuzzer_main (test_config_t * config_p)
 
     result_t * results = (result_t *)malloc(sizeof(result_t) * config.trial); 
 
-    char * c_file = remove_slash(config.source_file, strlen(config.source_file) - 1);
+    char * c_file; 
+    if (config.is_source == true && config.source_file != NULL) {
+        c_file = remove_slash(config.source_file, strlen(config.source_file) - 1); 
+    }
+    
 
     // "#####" of gcov file counts
-    if (create_gcov(c_file) != 0) { 
+    if (config.is_source == true && config.source_file != NULL && create_gcov(c_file) != 0) { 
         perror("Error: the gcov file does not make!\n"); 
     }  
-
-    char gcov_file[PATH_MAX]; 
-    sprintf(gcov_file, "%s.gcov", c_file); 
-
-    int num_of_source_lines = num_of_uncovered_lines(gcov_file); 
-    coverage_sets.union_coverage_set = (char*)malloc(sizeof(char) * num_of_source_lines); 
-
-    int num_of_branch_lines = num_of_uncovered_branch_lines(gcov_file); 
-    coverage_sets.union_branch_coverage_set = (char*)malloc(sizeof(char) * num_of_branch_lines); 
     
-    // memset(coverage_sets.union_coverage_set, 0, num_of_source_lines);
-    // memset(coverage_sets.union_branch_coverage_set , 0, num_of_branch_lines); 
+    char gcov_file[PATH_MAX]; 
+    int num_of_lines = 0, num_of_source_lines = 0 , num_of_branch_lines = 0 ; 
 
-    char * input = (char *)malloc(sizeof(char) * (config.f_max_len + 1)); 
+    if ( config.is_source == true && config.source_file != NULL ) {
+        sprintf(gcov_file, "%s.gcov", c_file); 
+        num_of_lines = num_of_total_lines(c_file); 
+        num_of_source_lines = num_of_uncovered_lines(gcov_file); 
+        num_of_branch_lines = num_of_uncovered_branch_lines(gcov_file); 
+    }
+
+    memset(coverage_sets.union_coverage_set, 0, num_of_source_lines);
+    memset(coverage_sets.union_branch_coverage_set , 0, num_of_branch_lines); 
+
+    char * input = (char *)malloc(sizeof(char) * (BUFF_SIZE)); 
+
     for (int i = 0; i < config.trial; i++) {
         start = clock(); 
-
-        int input_len = create_input(&config, input) ; 
+        int input_len = mutate_input(input, storage, i % num_of_seed_files, config.mutation_trial); 
         create_input_file(&files_info, input, input_len, i + 1);
-
-        if (config.is_source == true && config.source_file != NULL) {
-            if (config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
+        
+        if (config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
+            if (config.is_source == true && config.source_file != NULL) {
                 for(int j = 1 ; j <= config.num_of_cl_arguments; j++) {
                     config.cmd_args[j] = (char *)malloc(sizeof(char) * (input_len + 1)) ;
                     strcpy(config.cmd_args[j], input); 
                 }
             }
         }
-
     	int returncode = run(input, input_len, &files_info, i + 1) ; 
         test_oracle_run(&results[i], returncode, i + 1) ; 
 
-        if ( config.is_source && config.source_file != NULL) { 
+        if ( config.is_source == true && config.source_file != NULL) { 
             if (create_gcov(c_file) != 0 ) {
                 perror("Error: the gcov file does not make!\n"); 
             }
             int num_of_lines = read_gcov_coverage(gcov_file, &coverage_sets, i) ;     
             coverage_sets.num_of_max_coverage = (coverage_sets.num_of_max_coverage < num_of_lines) ? num_of_lines : coverage_sets.num_of_max_coverage ;
 
-            if ( i != config.trial - 1 && config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
+            if ( i != config.trial - 1 && config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0 ) {
                 for (int j = 1 ; j <= config.num_of_cl_arguments; j++) {
                     if (config.cmd_args[j] != NULL) free(config.cmd_args[j]);
                 }
@@ -681,17 +705,17 @@ fuzzer_main (test_config_t * config_p)
 
         results[i].exec_time = (double)(end - start) / CLOCKS_PER_SEC ;
 
-        if (config.input_method == CL_ARGUMENTS) {
-            remove_the_gcda_file(c_file); 
+        if (config.is_source == true && config.source_file != NULL) {
+            remove_the_gcda_and_gcno_file(c_file); 
         }
     }
     free(input) ;
     
 
 #ifdef PRINT_COVERAGE
-    if (config.input_method == CL_ARGUMENTS) {
+    if (config.is_source == true && config.source_file != NULL) {
         // print_each_of_trial_coverage(&coverage_sets) 
-        print_coveage_result(&coverage_sets, num_of_source_lines, num_of_branch_lines);
+        print_coveage_result(&coverage_sets, num_of_lines, num_of_source_lines, num_of_branch_lines);
 
         if( access(gcov_file, F_OK) != -1 ) {
             if (remove(gcov_file) != 0) { 
@@ -710,8 +734,6 @@ fuzzer_main (test_config_t * config_p)
 #endif
     if (c_file != NULL) free(c_file); 
     if (coverage_sets.coverage_set != NULL) free(coverage_sets.coverage_set);
-    if (coverage_sets.union_coverage_set != NULL) free(coverage_sets.union_coverage_set);
-    if (coverage_sets.union_branch_coverage_set != NULL) free(coverage_sets.union_branch_coverage_set); 
     if (results != NULL) free(results); 
     files_info_free(&files_info); 
     config_free(); 

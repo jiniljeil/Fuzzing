@@ -17,6 +17,9 @@ typedef struct test_config {
     int f_char_start ; 
     int f_char_range ;
 
+    char seed_dir[PATH_MAX]; 
+    int mutation_trial ; 
+
     int is_source ; 
     char * source_file ; 
     

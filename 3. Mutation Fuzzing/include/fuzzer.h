@@ -2,7 +2,6 @@
 #define FUZZER 
 
 #include "config.h"
-#include "create_input.h"
 #include "file.h"
 #define true 1 
 #define false 0

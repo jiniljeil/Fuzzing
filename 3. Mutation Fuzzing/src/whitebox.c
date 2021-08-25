@@ -135,8 +135,8 @@ int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial) {
         int num_of_branch_cover = 0 ; 
 
         while(!feof(fp)){
-            if((s = getline(&buf, &size, fp)) != -1) {
-                buf[s] = 0x0 ; 
+            if((s = getline(&buf, &size, fp)) > 0) {
+                // buf[s] = 0x0 ; 
                 if (!strncmp("branch", buf, 6)) {
                     if (strstr(buf, "take") != NULL) {
                         num_of_branch_cover++; 
@@ -147,29 +147,28 @@ int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial) {
                     line_number++;
                 }else{
                     token = strtok(buf, ":") ;
+                    
                     int executed_count = atoi(token); 
                     
                     if ( executed_count > 0) {
                         token = strtok(NULL, ":") ; 
-                        int executed_statment = atoi(token); 
+                        int executed_statment;
+                        if (token != NULL) executed_statment = atoi(token); 
                         // coverage
-                        if (coverset->union_coverage_set[executed_statment] != '1'){
+                        // if (coverset->union_coverage_set[executed_statment] != '1'){
                             coverset->union_coverage_set[executed_statment] = '1'; 
-                        }
+                        // }
                         num_of_lines++;
                     }
                 }
             }
         }
-
         free(buf) ;
         fclose(fp); 
     }
     // coverage
     coverset->coverage_set[trial] = num_of_lines ; 
-
     
-
     return num_of_lines ;
 }
 
@@ -199,22 +198,48 @@ char * remove_slash(char * source_file, int length) {
 
 void remove_the_gcda_file(char * c_file) {
     int length = strlen(c_file); 
-    char * gcda_file = (char *)malloc(sizeof(char) * (length + 4))  ; 
-    strcpy(gcda_file, c_file);
 
+    char * gcda_file = (char *)malloc(sizeof(char) * (length + 4)) ; 
+    char * gcno_file = (char *)malloc(sizeof(char) * (length + 4)) ; 
+
+    strncpy(gcda_file, c_file, length -1);
     strcat(gcda_file, "gcda"); 
 
     if( access(gcda_file, F_OK) != -1 ) {
         if (remove(gcda_file) != 0) {
             free(gcda_file) ; 
-            perror("Error: file remove failed!\n"); 
+            perror("Error: gcda file remove failed!\n"); 
             return ;
         }
     }
     
-    free(gcda_file) ; 
+    free(gcda_file); 
 }
 
+
+int num_of_total_lines(char * program) {
+
+    FILE * fp = fopen(program, "rb"); 
+
+    int num = 0 ; 
+    char *line = NULL; 
+    size_t size = 0; 
+    ssize_t len = 0; 
+
+    if( fp == NULL) {
+        perror("Error: file open failed!\n"); 
+        return -1; 
+    }
+
+    while(!feof(fp)) {
+        if ((len = getline(&line, &size, fp)) != -1) { 
+            num++;
+        }
+    }
+    free(line); 
+    fclose(fp); 
+    return num; 
+}
 
 int num_of_uncovered_lines(char * program) {
     FILE * fp = fopen(program, "rb") ;

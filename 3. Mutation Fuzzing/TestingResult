@@ -1,0 +1,2394 @@
+------------Fuzzer Configuration------------
+Program : /bin/cat
+Options: -e 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 32
+The ASCCI character range number : 64
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.007526 (s)
+5. Average executed the time : 0.000753 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /bin/cat
+Options: -e 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 32
+The ASCCI character range number : 64
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.007469 (s)
+5. Average executed the time : 0.000747 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /bin/cat
+Options: -e 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 32
+The ASCCI character range number : 64
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.007542 (s)
+5. Average executed the time : 0.000754 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /bin/cat
+Options: -e 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 32
+The ASCCI character range number : 64
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.006974 (s)
+5. Average executed the time : 0.000697 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /bin/cat
+Options: -e 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 32
+The ASCCI character range number : 64
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.007088 (s)
+5. Average executed the time : 0.000709 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /bin/cat
+Options: -e 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 32
+The ASCCI character range number : 64
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.008108 (s)
+5. Average executed the time : 0.000811 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009197 (s)
+5. Average executed the time : 0.000920 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.006648 (s)
+5. Average executed the time : 0.000665 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.006774 (s)
+5. Average executed the time : 0.000677 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.007543 (s)
+5. Average executed the time : 0.000754 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.007757 (s)
+5. Average executed the time : 0.000776 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.007232 (s)
+5. Average executed the time : 0.000723 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.007642 (s)
+5. Average executed the time : 0.000764 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.006881 (s)
+5. Average executed the time : 0.000688 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009639 (s)
+5. Average executed the time : 0.000964 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009331 (s)
+5. Average executed the time : 0.000933 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009175 (s)
+5. Average executed the time : 0.000917 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009151 (s)
+5. Average executed the time : 0.000915 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009260 (s)
+5. Average executed the time : 0.000926 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.008731 (s)
+5. Average executed the time : 0.000873 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009523 (s)
+5. Average executed the time : 0.000952 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009230 (s)
+5. Average executed the time : 0.000923 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010182 (s)
+5. Average executed the time : 0.001018 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009589 (s)
+5. Average executed the time : 0.000959 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009481 (s)
+5. Average executed the time : 0.000948 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009244 (s)
+5. Average executed the time : 0.000924 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010017 (s)
+5. Average executed the time : 0.001002 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009822 (s)
+5. Average executed the time : 0.000982 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009859 (s)
+5. Average executed the time : 0.000986 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010152 (s)
+5. Average executed the time : 0.001015 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009560 (s)
+5. Average executed the time : 0.000956 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009477 (s)
+5. Average executed the time : 0.000948 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009807 (s)
+5. Average executed the time : 0.000981 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009867 (s)
+5. Average executed the time : 0.000987 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010841 (s)
+5. Average executed the time : 0.001084 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010807 (s)
+5. Average executed the time : 0.001081 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010004 (s)
+5. Average executed the time : 0.001000 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010513 (s)
+5. Average executed the time : 0.001051 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010657 (s)
+5. Average executed the time : 0.001066 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009240 (s)
+5. Average executed the time : 0.000924 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009400 (s)
+5. Average executed the time : 0.000940 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009333 (s)
+5. Average executed the time : 0.000933 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009860 (s)
+5. Average executed the time : 0.000986 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010333 (s)
+5. Average executed the time : 0.001033 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010158 (s)
+5. Average executed the time : 0.001016 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009881 (s)
+5. Average executed the time : 0.000988 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010440 (s)
+5. Average executed the time : 0.001044 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009928 (s)
+5. Average executed the time : 0.000993 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009820 (s)
+5. Average executed the time : 0.000982 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009893 (s)
+5. Average executed the time : 0.000989 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009555 (s)
+5. Average executed the time : 0.000956 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010684 (s)
+5. Average executed the time : 0.001068 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010293 (s)
+5. Average executed the time : 0.001029 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010215 (s)
+5. Average executed the time : 0.001021 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010200 (s)
+5. Average executed the time : 0.001020 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010313 (s)
+5. Average executed the time : 0.001031 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010105 (s)
+5. Average executed the time : 0.001011 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009735 (s)
+5. Average executed the time : 0.000974 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009945 (s)
+5. Average executed the time : 0.000995 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010485 (s)
+5. Average executed the time : 0.001048 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009995 (s)
+5. Average executed the time : 0.000999 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010400 (s)
+5. Average executed the time : 0.001040 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010393 (s)
+5. Average executed the time : 0.001039 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.008794 (s)
+5. Average executed the time : 0.000879 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009717 (s)
+5. Average executed the time : 0.000972 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009482 (s)
+5. Average executed the time : 0.000948 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009725 (s)
+5. Average executed the time : 0.000972 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009763 (s)
+5. Average executed the time : 0.000976 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010312 (s)
+5. Average executed the time : 0.001031 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010041 (s)
+5. Average executed the time : 0.001004 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009437 (s)
+5. Average executed the time : 0.000944 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009858 (s)
+5. Average executed the time : 0.000986 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009303 (s)
+5. Average executed the time : 0.000930 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009818 (s)
+5. Average executed the time : 0.000982 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009270 (s)
+5. Average executed the time : 0.000927 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009601 (s)
+5. Average executed the time : 0.000960 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010239 (s)
+5. Average executed the time : 0.001024 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009741 (s)
+5. Average executed the time : 0.000974 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009919 (s)
+5. Average executed the time : 0.000992 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010524 (s)
+5. Average executed the time : 0.001052 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009790 (s)
+5. Average executed the time : 0.000979 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010376 (s)
+5. Average executed the time : 0.001038 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010241 (s)
+5. Average executed the time : 0.001024 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.011088 (s)
+5. Average executed the time : 0.001109 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010262 (s)
+5. Average executed the time : 0.001026 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010487 (s)
+5. Average executed the time : 0.001049 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010501 (s)
+5. Average executed the time : 0.001050 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010653 (s)
+5. Average executed the time : 0.001065 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010672 (s)
+5. Average executed the time : 0.001067 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009975 (s)
+5. Average executed the time : 0.000998 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010541 (s)
+5. Average executed the time : 0.001054 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010878 (s)
+5. Average executed the time : 0.001088 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010486 (s)
+5. Average executed the time : 0.001049 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009349 (s)
+5. Average executed the time : 0.000935 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009958 (s)
+5. Average executed the time : 0.000996 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.011022 (s)
+5. Average executed the time : 0.001102 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010001 (s)
+5. Average executed the time : 0.001000 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009527 (s)
+5. Average executed the time : 0.000953 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.011417 (s)
+5. Average executed the time : 0.001142 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010458 (s)
+5. Average executed the time : 0.001046 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010255 (s)
+5. Average executed the time : 0.001025 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.014613 (s)
+5. Average executed the time : 0.001461 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.011050 (s)
+5. Average executed the time : 0.001105 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.012302 (s)
+5. Average executed the time : 0.001230 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010852 (s)
+5. Average executed the time : 0.001085 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009933 (s)
+5. Average executed the time : 0.000993 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010833 (s)
+5. Average executed the time : 0.001083 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010043 (s)
+5. Average executed the time : 0.001004 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010896 (s)
+5. Average executed the time : 0.001090 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.011039 (s)
+5. Average executed the time : 0.001104 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010943 (s)
+5. Average executed the time : 0.001094 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010714 (s)
+5. Average executed the time : 0.001071 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010552 (s)
+5. Average executed the time : 0.001055 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010528 (s)
+5. Average executed the time : 0.001053 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010654 (s)
+5. Average executed the time : 0.001065 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.011462 (s)
+5. Average executed the time : 0.001146 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.011527 (s)
+5. Average executed the time : 0.001153 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010994 (s)
+5. Average executed the time : 0.001099 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010447 (s)
+5. Average executed the time : 0.001045 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009793 (s)
+5. Average executed the time : 0.000979 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010997 (s)
+5. Average executed the time : 0.001100 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010072 (s)
+5. Average executed the time : 0.001007 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010547 (s)
+5. Average executed the time : 0.001055 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010130 (s)
+5. Average executed the time : 0.001013 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010432 (s)
+5. Average executed the time : 0.001043 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009319 (s)
+5. Average executed the time : 0.000932 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009280 (s)
+5. Average executed the time : 0.000928 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009271 (s)
+5. Average executed the time : 0.000927 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.010362 (s)
+5. Average executed the time : 0.001036 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.011223 (s)
+5. Average executed the time : 0.001122 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009779 (s)
+5. Average executed the time : 0.000978 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009548 (s)
+5. Average executed the time : 0.000955 (s)
+--------------------------------------------
+------------Fuzzer Configuration------------
+Program : /Users/jinil/Desktop/Fuzzing/3. Mutation Fuzzing/lib/troff_bug_detect
+Options: 
+Time out setting : 2
+The trial of testing : 10
+
+The maximum length of random string : 100
+The minimum length of random string : 10
+The ASCII character start number : 0
+The ASCCI character range number : 255
+--------------------------------------------
+---------------Fuzzer Summary---------------
+1. PASS : 10
+2. FAIL : 0
+3. UNRESOVLED : 0
+4. Total executed the time : 0.009478 (s)
+5. Average executed the time : 0.000948 (s)
+--------------------------------------------

@@ -10,7 +10,7 @@ int url_parser(char * url, url_t * url_info) {
     regmatch_t regmatch[7] ; 
     int length = 0 ; 
 
-    char * info[] = {url_info->scheme, url_info->netloc, url_info->path, url_info->port, url_info->query, url_info->fragment}; 
+    char * info[6] ; 
 
     // http://www.google.com/search:8080?q=fuzzing&p=f#ddd
     // Pattern: ^(http|https)\:\/\/([a-zA-Z0-9\.]+)(\/[^\:^\?]*)?(\:[0-9]+)?(\?[a-zA-Z0-9\&\=]+)?\#?(.*)
@@ -28,9 +28,16 @@ int url_parser(char * url, url_t * url_info) {
         length = regmatch[i+1].rm_eo - regmatch[i+1].rm_so;
         info[i] = (char *)malloc(sizeof(char) * (length + 1)) ; 
         memcpy(info[i], url + regmatch[i+1].rm_so, length); 
-        info[i][length] = 0x0; 
+        info[i][length] = 0x0;
     }
 
+    url_info->scheme = info[0]; 
+    url_info->netloc = info[1]; 
+    url_info->path = info[2]; 
+    url_info->port = info[3]; 
+    url_info->query = info[4]; 
+    url_info->fragment = info[5]; 
+    
     return 1 ;
 }
 

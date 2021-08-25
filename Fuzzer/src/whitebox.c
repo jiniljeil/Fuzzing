@@ -137,7 +137,7 @@ int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial) {
         while(!feof(fp)){
             if((s = getline(&buf, &size, fp)) != -1) {
                 buf[s] = 0x0 ; 
-                if (!strncmp("branch", buf, 6)) {
+                ₩if (!strncmp("branch", buf, 6)) {
                     if (strstr(buf, "take") != NULL) {
                         num_of_branch_cover++; 
                         if (coverset->union_branch_coverage_set[line_number] != '1') {

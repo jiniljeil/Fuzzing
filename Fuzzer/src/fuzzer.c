@@ -581,8 +581,6 @@ print_coveage_result(coverset_t * coverage_sets, int num_of_source_lines, int nu
     if( fp == NULL) {
         perror("Error: file open failed!\n"); 
         exit(1); 
-    }else{
-
     }
     for(int i = 0 ; i < num_of_source_lines ; i++) {
         if (coverage_sets->union_coverage_set[i] == '1') {
@@ -660,7 +658,7 @@ fuzzer_main (test_config_t * config_p)
     	int returncode = run(input, input_len, &files_info, i + 1) ; 
         test_oracle_run(&results[i], returncode, i + 1) ; 
 
-        if ( config.is_source && config.source_file != NULL) { 
+        if (config.input_method == CL_ARGUMENTS) { 
             if (create_gcov(c_file) != 0 ) {
                 perror("Error: the gcov file does not make!\n"); 
             }
