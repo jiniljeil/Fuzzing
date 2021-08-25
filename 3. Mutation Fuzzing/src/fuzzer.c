@@ -658,13 +658,13 @@ fuzzer_main (test_config_t * config_p)
 
     if ( config.is_source == true && config.source_file != NULL ) {
         sprintf(gcov_file, "%s.gcov", c_file); 
-        num_of_lines = num_of_total_lines(c_file); 
+        num_of_lines = num_of_total_lines(config.source_file); 
         num_of_source_lines = num_of_uncovered_lines(gcov_file); 
         num_of_branch_lines = num_of_uncovered_branch_lines(gcov_file); 
     }
 
-    memset(coverage_sets.union_coverage_set, 0, num_of_source_lines);
-    memset(coverage_sets.union_branch_coverage_set , 0, num_of_branch_lines); 
+    memset(coverage_sets.union_coverage_set, '0', num_of_source_lines);
+    memset(coverage_sets.union_branch_coverage_set , '0', num_of_branch_lines); 
 
     char * input = (char *)malloc(sizeof(char) * (BUFF_SIZE)); 
 
@@ -706,7 +706,7 @@ fuzzer_main (test_config_t * config_p)
         results[i].exec_time = (double)(end - start) / CLOCKS_PER_SEC ;
 
         if (config.is_source == true && config.source_file != NULL) {
-            remove_the_gcda_and_gcno_file(c_file); 
+            remove_the_gcda_file(c_file); 
         }
     }
     free(input) ;
