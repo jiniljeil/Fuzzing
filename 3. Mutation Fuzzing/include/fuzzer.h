@@ -30,5 +30,4 @@ int get_input(char * input, int len, int trial) ;
 int get_output(char * output, int len, int trial) ;
 int get_error(char * error, int len, int trial) ;
 void fuzzer_summary(result_t * results) ;
-void make_result_file(result_t * results);
 #endif

@@ -155,9 +155,9 @@ int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial) {
                         int executed_statment;
                         if (token != NULL) executed_statment = atoi(token); 
                         // coverage
-                        // if (coverset->union_coverage_set[executed_statment] != '1'){
+                        if (coverset->union_coverage_set[executed_statment] != '1'){
                             coverset->union_coverage_set[executed_statment] = '1'; 
-                        // }
+                        }
                         num_of_lines++;
                     }
                 }
@@ -167,6 +167,7 @@ int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial) {
         fclose(fp); 
     }
     // coverage
+    
     coverset->coverage_set[trial] = num_of_lines ; 
     
     return num_of_lines ;

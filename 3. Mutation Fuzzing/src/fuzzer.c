@@ -493,67 +493,6 @@ get_error(char * error, int len, int trial)
 }
 
 void
-make_result_file(result_t * results) 
-{
-#ifdef TROFF_RESULT
-    int no_backslash_cnt = 0, no_8bit_failure_cnt = 0, no_dot_failure_cnt = 0; 
-    for(int i = 0 ; i < config.trial ; i++) {
-        if (results[i].returncode == 256) {
-            no_backslash_cnt++; 
-        }else if (results[i].returncode == 512) {
-            no_8bit_failure_cnt++; 
-        }else if (results[i].returncode == 768) {
-            no_dot_failure_cnt++; 
-        }
-    }
-#endif
-    int pass = 0, fail = 0, unresolved = 0;
-    double total_exec_time = 0; 
-
-    for(int i = 0 ; i < config.trial ; i++) {
-        if (results[i].returncode == 0) pass++; 
-        else if (results[i].returncode < 0) fail++; 
-        else unresolved++; 
-        total_exec_time += results[i].exec_time ; 
-    }
-
-    FILE * fp = fopen("TestingResult", "a") ; 
-
-    if (fp == NULL) {
-        fprintf(stderr, "Error: the file does not open!\n"); 
-        return ;
-    } else{ 
-        fprintf(fp, "------------Fuzzer Configuration------------\n"); 
-        fprintf(fp, "Program : %s\n", config.binary_path) ; 
-        fprintf(fp, "Options: ") ;
-        for(int i = 1 ; i < config.num_of_options + 1; i++) {
-            fprintf(fp, "%s ", config.cmd_args[i]); 
-        }
-        fprintf(fp, "\nTime out setting : %d\n", config.timeout); 
-        fprintf(fp, "The trial of testing : %d\n\n", config.trial); 
-        fprintf(fp, "The maximum length of random string : %d\n", config.f_max_len); 
-        fprintf(fp, "The minimum length of random string : %d\n", config.f_min_len); 
-        fprintf(fp, "The ASCII character start number : %d\n", config.f_char_start); 
-        fprintf(fp, "The ASCCI character range number : %d\n", config.f_char_range);
-        fprintf(fp, "--------------------------------------------\n"); 
-
-        fprintf(fp, "---------------Fuzzer Summary---------------\n"); 
-        fprintf(fp, "1. PASS : %d\n", pass);
-        fprintf(fp, "2. FAIL : %d\n", fail); 
-        fprintf(fp, "3. UNRESOVLED : %d\n", unresolved); 
-        fprintf(fp, "4. Total executed the time : %.6f (s)\n", total_exec_time); 
-        fprintf(fp, "5. Average executed the time : %.6f (s)\n", total_exec_time / config.trial) ; 
-#ifdef TROFF_RESULT
-        fprintf(fp, "6. no_backslash_d(\\D): %d\n", no_backslash_cnt) ; 
-        fprintf(fp, "7. no_8bit: %d\n", no_8bit_failure_cnt); 
-        fprintf(fp, "8. no_dot: %d\n", no_dot_failure_cnt); 
-#endif 
-        fprintf(fp, "--------------------------------------------\n"); 
-    }
-    fclose(fp); 
-}
-
-void
 print_each_of_trial_coverage(coverset_t * coverage_sets) {
     printf("---------------Covearge Dataset---------------\n"); 
     for(int i = 0; i < config.trial ; i++) {
@@ -646,7 +585,6 @@ fuzzer_main (test_config_t * config_p)
     if (config.is_source == true && config.source_file != NULL) {
         c_file = remove_slash(config.source_file, strlen(config.source_file) - 1); 
     }
-    
 
     // "#####" of gcov file counts
     if (config.is_source == true && config.source_file != NULL && create_gcov(c_file) != 0) { 
@@ -727,7 +665,6 @@ fuzzer_main (test_config_t * config_p)
     
 #endif 
     // fuzzer_summary(results) ;
-    make_result_file(results); 
 #ifdef FILE_REMOVE 
     // remove the output and error files
     remove_files_and_dir(&files_info); 
