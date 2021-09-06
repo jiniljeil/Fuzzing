@@ -113,7 +113,7 @@ void make_gcov_file(char * program, int prog_length, char * arg) {
     free(path); 
 }
 
-int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial) {
+int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial, int * new_branch) {
     
     // executeable program name (remove the extension)
     int num_of_lines = 0; 
@@ -141,6 +141,7 @@ int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial) {
                     if (strstr(buf, "take") != NULL) {
                         num_of_branch_cover++; 
                         if (coverset->union_branch_coverage_set[line_number] != '1') {
+                            if ( *new_branch == 0 ) *new_branch = 1; 
                             coverset->union_branch_coverage_set[line_number] = '1'; 
                         }
                     }
@@ -204,6 +205,7 @@ void remove_the_gcda_file(char * c_file) {
     char * gcno_file = (char *)malloc(sizeof(char) * (length + 4)) ; 
 
     strncpy(gcda_file, c_file, length -1);
+    gcda_file[length - 1] = 0x0 ;
     strcat(gcda_file, "gcda"); 
 
     if( access(gcda_file, F_OK) != -1 ) {

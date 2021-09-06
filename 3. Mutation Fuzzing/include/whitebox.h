@@ -19,6 +19,6 @@ char * remove_slash(char * source_file, int length);
 int num_of_total_lines(char * program); 
 int num_of_uncovered_lines(char * program); 
 int num_of_uncovered_branch_lines(char * program); 
-int read_gcov_coverage(char * program, coverset_t * coverset, int trial); 
+int read_gcov_coverage(char * program, coverset_t * coverset, int trial, int * new_branch); 
 void remove_the_gcda_file(char * c_file); 
 #endif

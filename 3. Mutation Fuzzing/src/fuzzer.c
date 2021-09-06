@@ -103,7 +103,8 @@ config_copy(test_config_t * config_p)
     // SOURCE FILE -> Coverage compile 
     config.is_source = config_p->is_source ;
     
-    int source_file_length = 0 ; 
+    int source_file_length = 0 ;
+    // Check whether the source filename is entered. 
     if ( config.is_source == true && config_p->source_file != NULL){  
         config.source_file = (char *)malloc(sizeof(char) * PATH_MAX) ; 
         // realpath 
@@ -148,6 +149,7 @@ config_copy(test_config_t * config_p)
     config.timeout = config_p->timeout; 
     config.num_of_options = config_p->num_of_options; 
 
+    // Check whether the option exists
     if(config_p->cmd_args != NULL) {
         if (check_num_of_options(config_p) == -1) {
             perror("Please specify the num of options.\n");
@@ -169,12 +171,14 @@ config_copy(test_config_t * config_p)
             config.cmd_args[config.num_of_options + 1] = NULL; 
         }
     }else{
-
+        // COMMAND LINE ARGUMENT
         if (config.input_method == CL_ARGUMENTS) {
             config.cmd_args = (char **)malloc(sizeof(char *) * (config.num_of_cl_arguments + 2)); 
             config.cmd_args[0] = (char *)malloc(sizeof(char) * (path_length + 1)); 
             strcpy(config.cmd_args[0], config.binary_path); 
             config.cmd_args[config.num_of_cl_arguments + 1] = NULL; 
+        
+        // STANDARD INPUT
         }else{
             config.cmd_args = (char **)malloc(sizeof(char *) * 2); 
             config.cmd_args[0] = (char *)malloc(sizeof(char) * (path_length + 1)); 
@@ -328,11 +332,7 @@ run(char * input, int length, files_info_t * files_info, int num)
         dup2(stdout_pipes[WRITE], 1);
         dup2(stderr_pipes[WRITE], 2); 
 
-        if (config.input_method == STDIN_INPUT) {
-            execv(config.binary_path, config.cmd_args); 
-        }else if (config.input_method == CL_ARGUMENTS) {
-            execv(config.binary_path, config.cmd_args) ;
-        }
+        execv(config.binary_path, config.cmd_args); 
         
         printf("The process execute error!\n") ; 
         exit(1); 
@@ -450,11 +450,15 @@ get_input(char * input, int len, int trial)
     sprintf(path, "%s/input%d", p_files_info->dir_name, trial); 
 
     int fd = open(path, O_RDONLY) ; 
-    // 수정 필요 
+    
+    if (fd == -1) {
+        perror("Cannot open input file\n"); 
+        return -1; 
+    }
+
     if ((size += read(fd, input, len)) > 0) {
         input[size] = '\0'; 
     }
-
     close(fd); 
 
     return size ;
@@ -557,6 +561,7 @@ fuzzer_main (test_config_t * config_p)
     files_info_t files_info ;
     coverset_t coverage_sets ; 
 
+    int new_branch = false; 
     files_info.count = 0;
     p_files_info = &files_info; 
 
@@ -581,7 +586,7 @@ fuzzer_main (test_config_t * config_p)
 
     result_t * results = (result_t *)malloc(sizeof(result_t) * config.trial); 
 
-    char * c_file; 
+    char * c_file = NULL; 
     if (config.is_source == true && config.source_file != NULL) {
         c_file = remove_slash(config.source_file, strlen(config.source_file) - 1); 
     }
@@ -594,7 +599,8 @@ fuzzer_main (test_config_t * config_p)
     char gcov_file[PATH_MAX]; 
     int num_of_lines = 0, num_of_source_lines = 0 , num_of_branch_lines = 0 ; 
 
-    if ( config.is_source == true && config.source_file != NULL ) {
+    // Get the number of total source code lines, uncovered lines, and uncovered branch.
+    if ( c_file != NULL && config.is_source == true && config.source_file != NULL ) {
         sprintf(gcov_file, "%s.gcov", c_file); 
         num_of_lines = num_of_total_lines(config.source_file); 
         num_of_source_lines = num_of_uncovered_lines(gcov_file); 
@@ -607,14 +613,21 @@ fuzzer_main (test_config_t * config_p)
     char * input = (char *)malloc(sizeof(char) * (BUFF_SIZE)); 
 
     for (int i = 0; i < config.trial; i++) {
+        new_branch = false; 
         start = clock(); 
+
         int input_len = mutate_input(input, storage, i % num_of_seed_files, config.mutation_trial); 
         create_input_file(&files_info, input, input_len, i + 1);
-        
+
+        // Copy the input
         if (config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
             if (config.is_source == true && config.source_file != NULL) {
                 for(int j = 1 ; j <= config.num_of_cl_arguments; j++) {
-                    config.cmd_args[j] = (char *)malloc(sizeof(char) * (input_len + 1)) ;
+                    if (config.cmd_args[j] != NULL) {
+                        config.cmd_args[j] = (char *)realloc(config.cmd_args[j], sizeof(char) * (input_len + 1));
+                    }else {
+                        config.cmd_args[j] = (char *)malloc(sizeof(char) * (input_len + 1)) ;
+                    }
                     strcpy(config.cmd_args[j], input); 
                 }
             }
@@ -626,14 +639,8 @@ fuzzer_main (test_config_t * config_p)
             if (create_gcov(c_file) != 0 ) {
                 perror("Error: the gcov file does not make!\n"); 
             }
-            int num_of_lines = read_gcov_coverage(gcov_file, &coverage_sets, i) ;     
+            int num_of_lines = read_gcov_coverage(gcov_file, &coverage_sets, i, &new_branch) ;     
             coverage_sets.num_of_max_coverage = (coverage_sets.num_of_max_coverage < num_of_lines) ? num_of_lines : coverage_sets.num_of_max_coverage ;
-
-            if ( i != config.trial - 1 && config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0 ) {
-                for (int j = 1 ; j <= config.num_of_cl_arguments; j++) {
-                    if (config.cmd_args[j] != NULL) free(config.cmd_args[j]);
-                }
-            }
         }
         
         // print_result(&files_info, &results[i], i);  
@@ -646,9 +653,16 @@ fuzzer_main (test_config_t * config_p)
         if (config.is_source == true && config.source_file != NULL) {
             remove_the_gcda_file(c_file); 
         }
+
+        // When the mutated input is found
+        if (new_branch == true) {
+            if ( add_seed_file(config.seed_dir, storage, &num_of_seed_files, input, input_len) == -1) { 
+                perror("Cannot add the seed input in the directory!\n"); 
+            }
+            new_branch = false; 
+        }
     }
     free(input) ;
-    
 
 #ifdef PRINT_COVERAGE
     if (config.is_source == true && config.source_file != NULL) {
@@ -671,7 +685,8 @@ fuzzer_main (test_config_t * config_p)
 #endif
     if (c_file != NULL) free(c_file); 
     if (coverage_sets.coverage_set != NULL) free(coverage_sets.coverage_set);
-    if (results != NULL) free(results); 
+    if (results != NULL) free(results);
+    for(int i = 0 ; i < num_of_seed_files ; i++) free(storage[i]);  
     files_info_free(&files_info); 
     config_free(); 
 }

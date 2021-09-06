@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include <dirent.h>
 #define BUFF_SIZE 1024 
-
+#define PATH_MAX 4096
 int store_seed_files(char * seed_dir, char * storage[]) {
     DIR * dp = opendir(seed_dir); 
     struct dirent * ep ; 
@@ -28,6 +28,37 @@ int store_seed_files(char * seed_dir, char * storage[]) {
     }
     // the number of seed file 
     return idx; 
+}
+
+int add_seed_file(char * seed_dir, char * seed_input[], int * num_of_seed_files, char * input, int input_len) {
+    char path[PATH_MAX]; 
+    ssize_t size = 0 ; 
+
+    int path_length = sprintf(path, "%s/seed%d", seed_dir, *num_of_seed_files); 
+    path[path_length] = 0x0; 
+
+    seed_input[*num_of_seed_files] = (char *)malloc(sizeof(char) * (path_length + 1)); 
+
+    strcpy(seed_input[*num_of_seed_files], path); 
+
+    int fd ; 
+
+    if ((fd = open(path, O_WRONLY | O_CREAT, 0644)) == -1) {
+        perror("Cannot open input file\n"); 
+        return -1 ;
+    }
+    
+    int sent = 0 ; 
+    while(sent < input_len) {
+        sent += write(fd, input, input_len - sent); 
+    }
+
+    if ( sent != input_len) {
+        perror("Write error!\n"); 
+        return -1;
+    }
+
+    return (++*num_of_seed_files); 
 }
 
 int delete_random_character(char * deleted_string, char * seed_input, int seed_length) {
@@ -101,7 +132,6 @@ int mutate(char * string, char * seed_input, int seed_length) {
 }
 
 int mutate_input(char * input, char * seed_file_storage[] , int order, int mutation) {
-    
     int fd = -1; 
     if (access(seed_file_storage[order], R_OK) != -1 ) {
         fd = open(seed_file_storage[order], O_RDONLY);
@@ -109,7 +139,7 @@ int mutate_input(char * input, char * seed_file_storage[] , int order, int mutat
         fprintf(stderr, "file does not exist!\n"); 
         return -1; 
     }
-    
+
     char buf[BUFF_SIZE]; 
 
     ssize_t s = 0 ; 
