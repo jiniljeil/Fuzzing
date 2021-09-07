@@ -9,6 +9,8 @@
 #include <dirent.h>
 #define BUFF_SIZE 1024 
 #define PATH_MAX 4096
+
+
 int store_seed_files(char * seed_dir, char * storage[]) {
     DIR * dp = opendir(seed_dir); 
     struct dirent * ep ; 
@@ -102,7 +104,7 @@ int insert_random_character(char * inserted_string, char * seed_input, int seed_
     return length + 1 ; 
 }
 
-int flip_random_character(char * flip_string, char * seed_input, int seed_length) {
+int bit_flip_random_character(char * flip_string, char * seed_input, int seed_length) {
     if (seed_input == NULL) return -1; 
     int length = seed_length ;
     if (length == 0) return 0; 
@@ -112,22 +114,107 @@ int flip_random_character(char * flip_string, char * seed_input, int seed_length
     int pos = rand() % length ; 
     char c = seed_input[pos];  
 
-    int bit = 1 << (rand() % 7); 
-    char new_c = (char) ((int)c ^ bit); 
+    int bit_size[3] = {1, 2, 4}; 
 
-    memcpy(flip_string, seed_input, pos); 
-    flip_string[pos] = new_c; 
-    memcpy(flip_string + pos + 1, seed_input + pos + 1, length - pos); 
-    flip_string[length] = 0x0; 
+    for(int i = 0 ; i < 3 ; i++) {
+        if (length > bit_size[2 - i]) {
+            int random_bit = rand() % (3 - i) ;
+            int bit = 1 << (rand() % (7 - bit_size[random_bit])) ;
+            char new_c = (char) ((int)c ^ bit); 
+            
+            memcpy(flip_string, seed_input, seed_length) ; 
+            flip_string[pos] = new_c; 
+            flip_string[seed_length] = 0x0;
+            break ;             
+        }
+    }
+
+    return length; 
+}
+int byte_flip_random_character(char * byte_flip_string, char * seed_input, int seed_length) {
+    if (seed_input == NULL) return -1; 
+    int length = seed_length; 
+    if (length == 0) return 0 ;
+
+    memset(byte_flip_string, 0, seed_length); 
+
+    int byte_size[3] = {1, 2, 4}; 
+
+    for(int i = 0 ; i < 3; i++) {
+        if (length > byte_size[2 - i]) {
+            int byte = rand() % (3 - i) ;
+            int pos = rand() % (length - byte_size[byte]);
+            
+            memcpy(byte_flip_string, seed_input, seed_length); 
+
+            for(int b = 0 ; b < byte_size[byte]; b++) {
+                char c = seed_input[pos + b] ;
+                char new_c = (char) ((int) c ^ 0xff); 
+
+                byte_flip_string[pos + b] = new_c; 
+            }
+            byte_flip_string[length] = 0x0 ;
+            break; 
+        }
+    }
+    return length; 
+}
+
+int simple_arithmatic(char * arith_string, char * seed_input, int seed_length) { 
+    if (seed_input == NULL) return -1; 
+    int length = seed_length ; 
+    if (length == 0) return 0; 
+
+    int pos = rand() % length ; 
+    char c = seed_input[pos];  
+
+    int bit = rand() % 71 + -35 ; 
+
+    memcpy(arith_string, seed_input, seed_length) ;
+
+    arith_string[pos] = (c + bit); 
 
     return length; 
 }
 
+int known_integer(char * integer_string, char * seed_input, int seed_length) {
+
+    if (seed_input == NULL) return -1; 
+    int length = seed_length ; 
+    if (length == 0) return 0 ; 
+
+    int byte_size[3] = {1, 2, 4} ; 
+    int integer_list_size[3] = {9, 19, 27}; 
+
+    for(int i = 0 ; i < 3; i++) {
+        if (length > byte_size[2 - i]) { 
+            int byte = rand() % (3 - i) ;
+            int pos = rand() % (length - byte_size[byte]);  
+
+            memcpy(integer_string, seed_input, seed_length); 
+
+            int random_idx = rand() % integer_list_size[byte]; 
+            if (byte == 0) {
+                u_int8_t u8 = interesting_8[random_idx]; 
+                integer_string[pos] = u8 ; 
+            }else if (byte == 1) {
+                u_int16_t u16 = interesting_16[random_idx]; 
+                integer_string[pos] = u16; 
+            }else if (byte == 2) {
+                u_int32_t u32 = interesting_32[random_idx]; 
+                integer_string[pos] = u32; 
+            }
+            break; 
+        }
+    }
+    
+    return length ;
+}
+
 int mutate(char * string, char * seed_input, int seed_length) {
-    int (*mutator[3]) (char *, char *, int) = {delete_random_character, insert_random_character, flip_random_character}; 
-
-    int choice = rand() % 3 ;
-
+    int (*mutator[6]) (char *, char *, int) = {delete_random_character, insert_random_character, bit_flip_random_character,
+                                                byte_flip_random_character, simple_arithmatic, known_integer}; 
+    int choice = rand() % 6 ;
     return mutator[choice](string, seed_input, seed_length); 
 }
 
