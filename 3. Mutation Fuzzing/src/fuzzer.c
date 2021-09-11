@@ -112,35 +112,23 @@ config_copy(test_config_t * config_p)
             perror("Error: realpath returns NULL!\n") ; 
             exit(1); 
         }   
-
         source_file_length = strlen(config.source_file); 
     }
-    if( source_file_length > PATH_MAX ) {
+
+    if ( source_file_length > PATH_MAX) {
         perror("Path is the longest! The max length of path is 4096.\n"); 
         return ;
-    }else if(config.is_source == true && source_file_length != 0) {
-        char * prog_name = remove_the_extension(config.source_file, source_file_length - 1);
-        int check = coverage_compile(config.source_file, prog_name); 
+    }
 
-        if ( check != 0 ) {
-            perror("Compile error!\n"); 
-            exit(1); 
-        }
+    // EXECUTABLE FILE PATH
+    path_length = strlen(config_p->binary_path); 
 
-        config.binary_path = (char *) malloc(sizeof(char) * (strlen(prog_name) + 1)) ;
-        strcpy(config.binary_path, prog_name); 
-        free(prog_name); 
+    if( path_length > PATH_MAX ) {
+        perror("Path is the longest! The max length of path is 4096.\n"); 
+        return ;
     }else{
-        // EXECUTABLE FILE PATH
-        path_length = strlen(config_p->binary_path); 
-
-        if( path_length > PATH_MAX ) {
-            perror("Path is the longest! The max length of path is 4096.\n"); 
-            return ;
-        }else{
-            config.binary_path = (char *)malloc(sizeof(char) * (path_length + 1)) ; 
-            strcpy(config.binary_path, config_p->binary_path);
-        }
+        config.binary_path = (char *)malloc(sizeof(char) * (path_length + 1)) ; 
+        strcpy(config.binary_path, config_p->binary_path);
     }
 
     config.input_method = config_p->input_method ;
@@ -585,14 +573,15 @@ fuzzer_main (test_config_t * config_p)
     signal(SIGALRM, timout_handler); 
 
     result_t * results = (result_t *)malloc(sizeof(result_t) * config.trial); 
+    
+    char * c_file = NULL ;
 
-    char * c_file = NULL; 
     if (config.is_source == true && config.source_file != NULL) {
         c_file = remove_slash(config.source_file, strlen(config.source_file) - 1); 
     }
 
     // "#####" of gcov file counts
-    if (config.is_source == true && config.source_file != NULL && create_gcov(c_file) != 0) { 
+    if (config.is_source == true && config.source_file != NULL && create_gcov(config.source_file) != 0) { 
         perror("Error: the gcov file does not make!\n"); 
     }  
     
@@ -602,7 +591,7 @@ fuzzer_main (test_config_t * config_p)
     // Get the number of total source code lines, uncovered lines, and uncovered branch.
     if ( c_file != NULL && config.is_source == true && config.source_file != NULL ) {
         sprintf(gcov_file, "%s.gcov", c_file); 
-        num_of_lines = num_of_total_lines(config.source_file); 
+        num_of_lines = num_of_total_lines(config.source_file);  
         num_of_source_lines = num_of_uncovered_lines(gcov_file); 
         num_of_branch_lines = num_of_uncovered_branch_lines(gcov_file); 
     }
@@ -632,11 +621,12 @@ fuzzer_main (test_config_t * config_p)
                 }
             }
         }
+        
     	int returncode = run(input, input_len, &files_info, i + 1) ; 
         test_oracle_run(&results[i], returncode, i + 1) ; 
 
         if ( config.is_source == true && config.source_file != NULL) { 
-            if (create_gcov(c_file) != 0 ) {
+            if (c_file != NULL && create_gcov(config.source_file) != 0 ) {
                 perror("Error: the gcov file does not make!\n"); 
             }
             int num_of_lines = read_gcov_coverage(gcov_file, &coverage_sets, i, &new_branch) ;     
@@ -651,7 +641,7 @@ fuzzer_main (test_config_t * config_p)
         results[i].exec_time = (double)(end - start) / CLOCKS_PER_SEC ;
 
         if (config.is_source == true && config.source_file != NULL) {
-            remove_the_gcda_file(c_file); 
+            remove_the_gcda_file(config.source_file); 
         }
 
         // When the mutated input is found

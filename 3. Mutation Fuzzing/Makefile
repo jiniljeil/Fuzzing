@@ -4,8 +4,9 @@ all: cat_test_driver.c src/fuzzer.c src/file.c src/whitebox.c src/mutation.c
 	gcc -o troff_test_driver troff_test_driver.c src/fuzzer.c src/file.c src/whitebox.c src/mutation.c 
 	# gcc -o hunspell_test_driver hunspell_test_driver.c src/fuzzer.c src/file.c src/whitebox.c src/mutation.c  
 	gcc -o cgi_decode_test_driver cgi_decode_test_driver.c src/fuzzer.c src/file.c src/whitebox.c src/mutation.c  
+	gcc -o bc_test_driver bc_test_driver.c src/fuzzer.c src/file.c src/whitebox.c src/mutation.c  
 
 clean:
-	rm -rf cat_test_driver tmp.* troff_buf_detect troff_bug_detect troff_test_driver lib/troff_buf_detect mutation_fuzzing_test
-	rm -rf hunspell_test_driver cgi_decode_test_driver *.gcno *.gcda cgi_decode *.gcov lib/cgi_decode 
+	rm -rf cat_test_driver tmp.* troff_test_driver mutation_fuzzing_test cgi_decode.c.gcov
+	rm -rf hunspell_test_driver cgi_decode_test_driver *.gcno *.gcda *.gcov
 

@@ -12,6 +12,7 @@ int main(void){
     config.num_of_cl_arguments = 1; 
 
     strcpy(config.seed_dir,"seed_dir"); 
+    config.binary_path = "lib/cgi_decode"; 
     config.mutation_trial = 3; 
 
     config.f_min_len = 10; 

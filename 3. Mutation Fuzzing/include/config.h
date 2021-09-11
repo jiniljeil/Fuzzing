@@ -20,7 +20,8 @@ typedef struct test_config {
     char seed_dir[PATH_MAX]; 
     int mutation_trial ; 
 
-    int is_source ; 
+    int is_makefile; 
+    int is_source ;  
     char * source_file ; 
     
     int input_method ;

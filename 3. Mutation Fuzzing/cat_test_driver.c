@@ -36,7 +36,6 @@ int main(void) {
 
     config.input_method = STDIN_INPUT ; 
 
-
     config.binary_path = "/bin/cat"; 
     char * options[3] = {"-e"}; 
 
