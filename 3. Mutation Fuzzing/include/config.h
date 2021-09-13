@@ -8,6 +8,7 @@
 #define CHAR_RANGE 64
 #define STDIN_INPUT 0 
 #define CL_ARGUMENTS 1
+#define MAX_NUM_SOURCES 32
 
 typedef struct test_config {
     int trial ;
@@ -21,8 +22,8 @@ typedef struct test_config {
     int mutation_trial ; 
 
     int is_makefile; 
-    int is_source ;  
-    char * source_file ; 
+    int num_of_source_files ;  
+    char * source_file[MAX_NUM_SOURCES]; 
     
     int input_method ;
     int num_of_cl_arguments ;

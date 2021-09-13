@@ -46,9 +46,9 @@ config_init(test_config_t * config_p)
 
     config_p->mutation_trial = 1; 
 
-    config_p->is_source = false ;
-    config_p->source_file = NULL ; 
-    
+    config_p->num_of_source_files = 0 ;
+    for(int i = 0 ; i < MAX_NUM_SOURCES ; i++) config_p->source_file[i] = NULL;
+
     config_p->input_method = STDIN_INPUT ;
     config_p->num_of_cl_arguments = 0 ;
 
@@ -101,23 +101,29 @@ config_copy(test_config_t * config_p)
     strncpy(config.seed_dir, config_p->seed_dir, PATH_MAX) ;
 
     // SOURCE FILE -> Coverage compile 
-    config.is_source = config_p->is_source ;
+    config.num_of_source_files = config_p->num_of_source_files ;
     
-    int source_file_length = 0 ;
+    int source_file_length[MAX_NUM_SOURCES] = {0} ;
     // Check whether the source filename is entered. 
-    if ( config.is_source == true && config_p->source_file != NULL){  
-        config.source_file = (char *)malloc(sizeof(char) * PATH_MAX) ; 
-        // realpath 
-        if ( realpath(config_p->source_file, config.source_file) == 0x0 ) {
-            perror("Error: realpath returns NULL!\n") ; 
-            exit(1); 
-        }   
-        source_file_length = strlen(config.source_file); 
+    if ( config.num_of_source_files > 0){  
+        for(int i = 0 ; i < config.num_of_source_files ; i++) {
+            if (config_p->source_file[i] != NULL) {
+                    config.source_file[i] = (char *)malloc(sizeof(char) * PATH_MAX) ; 
+                // realpath 
+                if ( realpath(config_p->source_file[i], config.source_file[i]) == 0x0 ) {
+                    perror("Error: realpath returns NULL!\n") ; 
+                    exit(1); 
+                }   
+                source_file_length[i] = strlen(config.source_file[i]); 
+            }
+        }
     }
 
-    if ( source_file_length > PATH_MAX) {
-        perror("Path is the longest! The max length of path is 4096.\n"); 
-        return ;
+    for(int i = 0 ; i < config.num_of_source_files ; i++) {
+        if ( source_file_length[i] > PATH_MAX) {
+            perror("Path is the longest! The max length of path is 4096.\n"); 
+            return ;
+        }
     }
 
     // EXECUTABLE FILE PATH
@@ -226,8 +232,23 @@ fuzzer_init (test_config_t * config_p)
         exit(1); 
     }
 
-    if ((config.binary_path != 0x0 && access(config.binary_path, X_OK) != -1) || 
-            (config.is_source == true && config.source_file != 0x0 && access(config.source_file, R_OK) != -1) ) {
+    if ((config.num_of_source_files > MAX_NUM_SOURCES)) {
+        fprintf(stderr, "Fuzzer init: Please set the number of source files less than 32(MAX_NUM_SOURCES)\n"); 
+        exit(1) ;
+    }
+
+    for (int i = 0 ; i < config.num_of_source_files ; i++) {
+        if (config.source_file[i] == 0x0) {
+            perror("Fuzzer init: The number of source files does not match with the number of entered source files!\n"); 
+            exit(1); 
+        }
+        if (access(config.source_file[i], R_OK) == -1) { 
+            perror("Fuzzer init: Source filepath is incorrect!\n"); 
+            exit(1); 
+        }
+    }
+
+    if ((config.binary_path != 0x0 && access(config.binary_path, X_OK) != -1)) {
         if (config.f_min_len < 0) {
             fprintf(stderr, "Fuzzer init: The minimum length of random string must be greater than zero.\n"); 
             exit(1); 
@@ -420,7 +441,9 @@ void
 config_free() 
 {
     if (config.binary_path != NULL) free(config.binary_path) ;
-    if (config.source_file != NULL) free(config.source_file) ;
+    for(int i = 0 ; i < config.num_of_source_files ; i++) {
+        if (config.source_file[i] != NULL) free(config.source_file[i]) ;
+    }
 
     for(int i = 0 ; i < config.num_of_options + 2; i++) {
         if (config.cmd_args[i] != NULL) free(config.cmd_args[i]); 
@@ -547,7 +570,7 @@ fuzzer_main (test_config_t * config_p)
 {   
     clock_t start, end ; 
     files_info_t files_info ;
-    coverset_t coverage_sets ; 
+    coverset_t coverage_sets[MAX_NUM_SOURCES] ; 
 
     int new_branch = false; 
     files_info.count = 0;
@@ -557,16 +580,21 @@ fuzzer_main (test_config_t * config_p)
     create_temp_dir(&files_info) ;
     srand(time(0)); 
 
+    for(int i = 0 ; i < config.num_of_source_files ; i++) {
+        printf("%s\n", config.source_file[i]) ;
+    }
     char * storage[1024]; 
     int num_of_seed_files = store_seed_files(config.seed_dir, storage); 
 
-    if (config.is_source == true && config.source_file != NULL) {
-        coverage_sets.coverage_set = (int*)malloc(sizeof(int) * config.trial); 
-        coverage_sets.num_of_total_coverage = 0 ; 
-        coverage_sets.num_of_max_coverage = 0 ;
-        coverage_sets.num_of_total_branch_coverage = 0 ;
+    for(int i = 0 ; i < config.num_of_source_files ; i++) {
+        if (config.num_of_source_files > 0 && config.source_file[i] != NULL) {
+            coverage_sets[i].coverage_set = (int*)malloc(sizeof(int) * config.trial); 
+            coverage_sets[i].num_of_total_coverage = 0 ; 
+            coverage_sets[i].num_of_max_coverage = 0 ;
+            coverage_sets[i].num_of_total_branch_coverage = 0 ;
+        }
     }
-
+    
     /* 
         Time out setting 
     */
@@ -574,30 +602,43 @@ fuzzer_main (test_config_t * config_p)
 
     result_t * results = (result_t *)malloc(sizeof(result_t) * config.trial); 
     
-    char * c_file = NULL ;
-
-    if (config.is_source == true && config.source_file != NULL) {
-        c_file = remove_slash(config.source_file, strlen(config.source_file) - 1); 
-    }
-
-    // "#####" of gcov file counts
-    if (config.is_source == true && config.source_file != NULL && create_gcov(config.source_file) != 0) { 
-        perror("Error: the gcov file does not make!\n"); 
-    }  
-    
+    char * c_file[MAX_NUM_SOURCES] = { NULL } ;
     char gcov_file[PATH_MAX]; 
-    int num_of_lines = 0, num_of_source_lines = 0 , num_of_branch_lines = 0 ; 
+    int num_of_lines[MAX_NUM_SOURCES] = {0,}; 
+    int num_of_source_lines[MAX_NUM_SOURCES] = {0,};
+    int num_of_branch_lines[MAX_NUM_SOURCES] = {0,}; 
 
-    // Get the number of total source code lines, uncovered lines, and uncovered branch.
-    if ( c_file != NULL && config.is_source == true && config.source_file != NULL ) {
-        sprintf(gcov_file, "%s.gcov", c_file); 
-        num_of_lines = num_of_total_lines(config.source_file);  
-        num_of_source_lines = num_of_uncovered_lines(gcov_file); 
-        num_of_branch_lines = num_of_uncovered_branch_lines(gcov_file); 
+    for(int i = 0 ; i < config.num_of_source_files ; i++) {
+        if (config.num_of_source_files > 0 && config.source_file[i] != NULL) {
+            c_file[i] = remove_slash(config.source_file[i], strlen(config.source_file[i]) - 1); 
+
+            // "#####" of gcov file counts
+            if (create_gcov(config.source_file[i]) != 0) {
+                perror("Error: the gcov file does not make!\n"); 
+            }
+            if ( c_file[i] != NULL) {
+                sprintf(gcov_file, "%s.gcov", c_file[i]); 
+                num_of_lines[i] = num_of_total_lines(config.source_file[i]);  
+                num_of_source_lines[i] = num_of_uncovered_lines(gcov_file); 
+                num_of_branch_lines[i] = num_of_uncovered_branch_lines(gcov_file); 
+            }
+
+            memset(coverage_sets[i].union_coverage_set, '0', num_of_source_lines[i]);
+            memset(coverage_sets[i].union_branch_coverage_set , '0', num_of_branch_lines[i]); 
+        }
     }
+    // Get the number of total source code lines, uncovered lines, and uncovered branch.
 
-    memset(coverage_sets.union_coverage_set, '0', num_of_source_lines);
-    memset(coverage_sets.union_branch_coverage_set , '0', num_of_branch_lines); 
+    // if ( c_file != NULL && config.num_of_source_files > 0 && config.source_file != NULL ) {
+    //     sprintf(gcov_file, "%s.gcov", c_file); 
+    //     num_of_lines = num_of_total_lines(config.source_file);  
+    //     num_of_source_lines = num_of_uncovered_lines(gcov_file); 
+    //     num_of_branch_lines = num_of_uncovered_branch_lines(gcov_file); 
+    // }
+
+
+    // memset(coverage_sets.union_coverage_set, '0', num_of_source_lines);
+    // memset(coverage_sets.union_branch_coverage_set , '0', num_of_branch_lines); 
 
     char * input = (char *)malloc(sizeof(char) * (BUFF_SIZE)); 
 
@@ -610,27 +651,30 @@ fuzzer_main (test_config_t * config_p)
 
         // Copy the input
         if (config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
-            if (config.is_source == true && config.source_file != NULL) {
-                for(int j = 1 ; j <= config.num_of_cl_arguments; j++) {
-                    if (config.cmd_args[j] != NULL) {
-                        config.cmd_args[j] = (char *)realloc(config.cmd_args[j], sizeof(char) * (input_len + 1));
-                    }else {
-                        config.cmd_args[j] = (char *)malloc(sizeof(char) * (input_len + 1)) ;
-                    }
-                    strcpy(config.cmd_args[j], input); 
+            for(int j = 1 ; j <= config.num_of_cl_arguments; j++) {
+                if (config.cmd_args[j] != NULL) {
+                    config.cmd_args[j] = (char *)realloc(config.cmd_args[j], sizeof(char) * (input_len + 1));
+                }else {
+                    config.cmd_args[j] = (char *)malloc(sizeof(char) * (input_len + 1)) ;
                 }
+                strcpy(config.cmd_args[j], input); 
             }
         }
         
     	int returncode = run(input, input_len, &files_info, i + 1) ; 
         test_oracle_run(&results[i], returncode, i + 1) ; 
 
-        if ( config.is_source == true && config.source_file != NULL) { 
-            if (c_file != NULL && create_gcov(config.source_file) != 0 ) {
-                perror("Error: the gcov file does not make!\n"); 
+        if ( config.num_of_source_files > 0) { 
+            for(int n = 0 ; n < config.num_of_source_files ; n++) {
+                if (config.source_file[n] != NULL) { 
+                    if (c_file[n] != NULL && create_gcov(config.source_file[n]) != 0 ) {
+                        perror("Error: the gcov file does not make!\n"); 
+                    }
+                    sprintf(gcov_file, "%s.gcov", c_file[n]); 
+                    int cov_num_of_lines = read_gcov_coverage(gcov_file, &coverage_sets[n], i, &new_branch) ;     
+                    coverage_sets[n].num_of_max_coverage = (coverage_sets[n].num_of_max_coverage < cov_num_of_lines) ? cov_num_of_lines : coverage_sets[n].num_of_max_coverage ;
+                }
             }
-            int num_of_lines = read_gcov_coverage(gcov_file, &coverage_sets, i, &new_branch) ;     
-            coverage_sets.num_of_max_coverage = (coverage_sets.num_of_max_coverage < num_of_lines) ? num_of_lines : coverage_sets.num_of_max_coverage ;
         }
         
         // print_result(&files_info, &results[i], i);  
@@ -640,8 +684,10 @@ fuzzer_main (test_config_t * config_p)
 
         results[i].exec_time = (double)(end - start) / CLOCKS_PER_SEC ;
 
-        if (config.is_source == true && config.source_file != NULL) {
-            remove_the_gcda_file(config.source_file); 
+        if (config.num_of_source_files > 0) {
+            for(int n = 0 ; n < config.num_of_source_files ; n++) {
+                if (config.source_file[n] != NULL) remove_the_gcda_file(config.source_file[n]);
+            }
         }
 
         // When the mutated input is found
@@ -655,14 +701,19 @@ fuzzer_main (test_config_t * config_p)
     free(input) ;
 
 #ifdef PRINT_COVERAGE
-    if (config.is_source == true && config.source_file != NULL) {
-        // print_each_of_trial_coverage(&coverage_sets) 
-        print_coveage_result(&coverage_sets, num_of_lines, num_of_source_lines, num_of_branch_lines);
+    if (config.num_of_source_files > 0) { 
+        for(int i = 0 ; i < config.num_of_source_files; i++) {
+            if (config.source_file[i] != NULL) {
+                // print_each_of_trial_coverage(&coverage_sets) 
+                print_coveage_result(&coverage_sets[i], num_of_lines[i], num_of_source_lines[i], num_of_branch_lines[i]);
 
-        if( access(gcov_file, F_OK) != -1 ) {
-            if (remove(gcov_file) != 0) { 
-                perror("Error: file remove failed!\n"); 
-                return ;
+                sprintf(gcov_file, "%s.gcov", c_file[i]); 
+                if( access(gcov_file, F_OK) != -1 ) {
+                    if (remove(gcov_file) != 0) { 
+                        perror("Error: file remove failed!\n"); 
+                        return ;
+                    }
+                }
             }
         }
     }
@@ -673,10 +724,13 @@ fuzzer_main (test_config_t * config_p)
     // remove the output and error files
     remove_files_and_dir(&files_info); 
 #endif
-    if (c_file != NULL) free(c_file); 
-    if (coverage_sets.coverage_set != NULL) free(coverage_sets.coverage_set);
+    for(int i = 0 ; i < config.num_of_source_files ; i++) {
+        if (c_file[i] != NULL) free(c_file[i]); 
+        if (coverage_sets[i].coverage_set != NULL) free(coverage_sets[i].coverage_set);
+    }
+   
     if (results != NULL) free(results);
     for(int i = 0 ; i < num_of_seed_files ; i++) free(storage[i]);  
-    files_info_free(&files_info); 
+    files_info_free(&files_info);  
     config_free(); 
 }

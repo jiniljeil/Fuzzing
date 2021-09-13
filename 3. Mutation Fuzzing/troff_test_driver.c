@@ -4,8 +4,8 @@ int main(void){
     test_config_t config ; 
 	config_init(&config) ;
 
-    config.is_source = true; 
-    config.source_file = "lib/troff_bug_detect.c"; 
+    config.num_of_source_files = 1; 
+    config.source_file[0] = "lib/troff_bug_detect.c"; 
     config.binary_path = "lib/troff_bug_detect"; 
 
     config.input_method = STDIN_INPUT ;
