@@ -6,7 +6,7 @@ int main(void){
 
     config.is_source = true; 
     config.source_file = "lib/troff_bug_detect.c"; 
-    // config.binary_path = "./troff_bug_detect"; 
+    config.binary_path = "lib/troff_bug_detect"; 
 
     config.input_method = STDIN_INPUT ;
     config.f_char_start = 0 ; 

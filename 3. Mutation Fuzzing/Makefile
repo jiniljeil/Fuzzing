@@ -1,6 +1,5 @@
 all: cat_test_driver.c src/fuzzer.c src/file.c src/whitebox.c src/mutation.c 
 	gcc -o cat_test_driver cat_test_driver.c src/fuzzer.c src/file.c src/whitebox.c src/mutation.c 
-	gcc -o troff_bug_detect lib/troff_bug_detect.c 
 	gcc -o troff_test_driver troff_test_driver.c src/fuzzer.c src/file.c src/whitebox.c src/mutation.c 
 	# gcc -o hunspell_test_driver hunspell_test_driver.c src/fuzzer.c src/file.c src/whitebox.c src/mutation.c  
 	gcc -o cgi_decode_test_driver cgi_decode_test_driver.c src/fuzzer.c src/file.c src/whitebox.c src/mutation.c  
