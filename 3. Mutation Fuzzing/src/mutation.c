@@ -212,8 +212,11 @@ int known_integer(char * integer_string, char * seed_input, int seed_length) {
 }
 
 int mutate(char * string, char * seed_input, int seed_length) {
-    int (*mutator[6]) (char *, char *, int) = {delete_random_character, insert_random_character, bit_flip_random_character,
-                                                byte_flip_random_character, simple_arithmatic, known_integer}; 
+    int (*mutator[6]) (char *, char *, int) = {
+        delete_random_character, insert_random_character, bit_flip_random_character,
+        byte_flip_random_character, simple_arithmatic, known_integer
+    }; 
+    
     int choice = rand() % 6 ;
     return mutator[choice](string, seed_input, seed_length); 
 }
