@@ -172,7 +172,7 @@ int byte_flip_random_character(char * byte_flip_string, char * seed_input, int s
 
             for(int b = 0 ; b < byte_size[byte]; b++) {
                 char c = seed_input[pos + b] ;
-                char new_c = (char) ((int) c ^ 0xff); 
+                char new_c = (char) ( c ^ 0xff ); 
 
                 byte_flip_string[pos + b] = new_c; 
             }
