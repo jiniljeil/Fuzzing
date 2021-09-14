@@ -194,6 +194,7 @@ char * remove_slash(char * source_file, int length) {
         c_file = (char *)malloc(sizeof(char) * (strlen(source_file) + 1)); 
         strcpy(c_file, source_file); 
     } 
+    c_file[strlen(source_file)] = 0x0; 
     return c_file; 
 }
 

@@ -628,18 +628,6 @@ fuzzer_main (test_config_t * config_p)
         }
     }
     // Get the number of total source code lines, uncovered lines, and uncovered branch.
-
-    // if ( c_file != NULL && config.num_of_source_files > 0 && config.source_file != NULL ) {
-    //     sprintf(gcov_file, "%s.gcov", c_file); 
-    //     num_of_lines = num_of_total_lines(config.source_file);  
-    //     num_of_source_lines = num_of_uncovered_lines(gcov_file); 
-    //     num_of_branch_lines = num_of_uncovered_branch_lines(gcov_file); 
-    // }
-
-
-    // memset(coverage_sets.union_coverage_set, '0', num_of_source_lines);
-    // memset(coverage_sets.union_branch_coverage_set , '0', num_of_branch_lines); 
-
     char * input = (char *)malloc(sizeof(char) * (BUFF_SIZE)); 
 
     for (int i = 0; i < config.trial; i++) {
@@ -705,6 +693,7 @@ fuzzer_main (test_config_t * config_p)
         for(int i = 0 ; i < config.num_of_source_files; i++) {
             if (config.source_file[i] != NULL) {
                 // print_each_of_trial_coverage(&coverage_sets) 
+                printf("\nSOURCE FILE: %s\n", config.source_file[i]); 
                 print_coveage_result(&coverage_sets[i], num_of_lines[i], num_of_source_lines[i], num_of_branch_lines[i]);
 
                 sprintf(gcov_file, "%s.gcov", c_file[i]); 

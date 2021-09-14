@@ -87,21 +87,44 @@ int delete_random_character(char * deleted_string, char * seed_input, int seed_l
     return length - 1; 
 }
 
-int insert_random_character(char * inserted_string, char * seed_input, int seed_length ) {
+int insert_random_character(char * inserted_string, char * seed_input, int seed_length) {
     if (seed_input == NULL) return -1; 
     int length = seed_length; 
 
     memset(inserted_string, 0, seed_length); 
 
-    int pos = rand() % (length + 1); 
+    int byte_size[3] = {1, 2, 4} ; 
+    int random_byte = 0 ; 
 
-    char random_character = (char) (rand() % 96 + 32); // 32 ~ 127 
+    for(int i = 0 ; i < 3 ; i++) {
+        if (BUFF_SIZE > byte_size[2 - i] + length) {
+            random_byte = rand() % (3 - i) ; 
+            break; 
+        }
+    }
 
-    memcpy(inserted_string, seed_input, pos); 
-    inserted_string[pos] = random_character ; 
-    memcpy(inserted_string + pos + 1, seed_input + pos, length - pos);
-    inserted_string[length + 1] = 0x0;
-    return length + 1 ; 
+    char copy_input[BUFF_SIZE] ;  
+    if (seed_length < BUFF_SIZE) {
+        memcpy(copy_input, seed_input, seed_length); 
+        copy_input[seed_length] = 0x0;  
+    }else{
+        return length ; 
+    }
+    
+    for(int i = 0 ; i < byte_size[random_byte] ; i++) {
+        int pos = rand() % (length + 1); 
+        char random_character = (char) (rand() % 96 + 32); // 32 ~ 127 
+
+        memcpy(inserted_string, copy_input, pos); 
+        inserted_string[pos] = random_character; 
+        memcpy(inserted_string + pos + 1, copy_input + pos, length - pos);
+
+        length++; 
+        memcpy(copy_input, inserted_string, length) ;
+        copy_input[length] = 0x0; 
+    }
+    
+    return length ; 
 }
 
 int bit_flip_random_character(char * flip_string, char * seed_input, int seed_length) {
@@ -216,7 +239,7 @@ int mutate(char * string, char * seed_input, int seed_length) {
         delete_random_character, insert_random_character, bit_flip_random_character,
         byte_flip_random_character, simple_arithmatic, known_integer
     }; 
-    
+
     int choice = rand() % 6 ;
     return mutator[choice](string, seed_input, seed_length); 
 }
