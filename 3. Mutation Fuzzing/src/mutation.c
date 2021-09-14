@@ -69,22 +69,31 @@ int delete_random_character(char * deleted_string, char * seed_input, int seed_l
         fprintf(stderr, "[delete_random_character]: Should allocate the space of first parameter.\n"); 
         return -1; 
     }
-    if (seed_length == 0) return 0 ;
+    if (seed_length == 0 || seed_length > BUFF_SIZE) return 0 ;
     int length = seed_length; 
 
     memset(deleted_string, 0 , seed_length) ;
 
-    int pos = rand() % length;  
-    int idx = 0 ; 
+    int byte_size[3] = {1, 2, 4}; 
+    int random_byte = 0 ;
+    for(int i = 0 ; i < 3; i++) {
+        if (length > byte_size[2 - i]) { 
+            random_byte = rand() % (3 - i); 
 
-    memcpy(deleted_string, seed_input, pos); 
+            int pos = rand() % (length - byte_size[random_byte]);  
+            int idx = 0 ; 
 
-    if (pos != length - 1) {
-        memcpy(deleted_string + pos, seed_input + pos + 1, length - pos); 
+            memcpy(deleted_string, seed_input, pos); 
+             
+            if (pos != length - byte_size[random_byte]) {
+                memcpy(deleted_string + pos, seed_input + pos + byte_size[random_byte], length - pos - byte_size[random_byte]); 
+            }
+            deleted_string[length-byte_size[random_byte]] = 0x0; 
+            break;  
+        }
     }
-    deleted_string[length-1] = 0x0; 
     
-    return length - 1; 
+    return length - byte_size[random_byte]; 
 }
 
 int insert_random_character(char * inserted_string, char * seed_input, int seed_length) {
