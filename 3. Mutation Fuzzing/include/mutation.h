@@ -42,7 +42,7 @@ int delete_random_character(char * deleted_string, char * seed_input, int seed_l
 int insert_random_character(char * inserted_string, char * seed_input, int seed_length) ; 
 int bit_flip_random_character(char * flip_string,char * seed_input, int seed_length) ; 
 int byte_flip_random_character(char * byte_flip_string, char * seed_input, int seed_length) ;
-int simple_arithmatic(char * arith_string, char * seed_input, int seed_length); 
+int byte_simple_arithmatic(char * arith_string, char * seed_input, int seed_length); 
 int known_integer(char * integer_string, char * seed_input, int seed_length); 
 int mutate(char * string, char * seed_input, int seed_length ) ;
 int mutate_input(char * input, char * seed_file_storage[] , int order, int mutation); 

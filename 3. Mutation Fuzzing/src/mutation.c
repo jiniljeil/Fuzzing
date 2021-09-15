@@ -192,19 +192,30 @@ int byte_flip_random_character(char * byte_flip_string, char * seed_input, int s
     return length; 
 }
 
-int simple_arithmatic(char * arith_string, char * seed_input, int seed_length) { 
+int byte_simple_arithmatic(char * arith_string, char * seed_input, int seed_length) { 
     if (seed_input == NULL) return -1; 
     int length = seed_length ; 
     if (length == 0) return 0; 
 
-    int pos = rand() % length ; 
-    char c = seed_input[pos];  
+    int byte_size[3] = {1, 2, 4}; 
 
-    int bit = rand() % 71 + -35 ; 
+    for(int i = 0 ; i < 3 ; i++) {
+        if (length > byte_size[2 - i]) {
+            int random_byte = rand() % (3 - i) ; 
+            int pos = rand() % (length - byte_size[random_byte]) ;
 
-    memcpy(arith_string, seed_input, seed_length) ;
+            memcpy(arith_string, seed_input, seed_length) ;
 
-    arith_string[pos] = (c + bit); 
+            for(int n = 0 ; n < byte_size[random_byte] ; n++) {
+                char c = seed_input[pos + n];  
+                int byte = rand() % 71 + -35 ; 
+                
+                arith_string[pos + n] = (c + byte); 
+            }
+            arith_string[length] = 0x0 ; 
+            break; 
+        }
+    }
 
     return length; 
 }
@@ -246,7 +257,7 @@ int known_integer(char * integer_string, char * seed_input, int seed_length) {
 int mutate(char * string, char * seed_input, int seed_length) {
     int (*mutator[6]) (char *, char *, int) = {
         delete_random_character, insert_random_character, bit_flip_random_character,
-        byte_flip_random_character, simple_arithmatic, known_integer
+        byte_flip_random_character, byte_simple_arithmatic, known_integer
     }; 
 
     int choice = rand() % 6 ;
