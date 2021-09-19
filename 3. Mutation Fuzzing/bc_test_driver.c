@@ -10,6 +10,7 @@ int main(void) {
     "lib/bc-1.07.1/bc/scan.c", "lib/bc-1.07.1/bc/storage.c", "lib/bc-1.07.1/bc/util.c",
     "lib/bc-1.07.1/bc/warranty.c"}; 
 
+    strcpy(config.working_dir, "lib/bc-1.07.1/bc/"); 
     config.num_of_source_files = 8; 
     for(int i = 0 ; i < config.num_of_source_files; i++) {
         config.source_file[i] = source_files[i] ;

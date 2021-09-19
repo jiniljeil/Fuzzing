@@ -48,9 +48,11 @@ config_init(test_config_t * config_p)
 
     config_p->num_of_source_files = 0 ;
     for(int i = 0 ; i < MAX_NUM_SOURCES ; i++) config_p->source_file[i] = NULL;
+    strcpy(config_p->working_dir, "./") ; 
 
     config_p->input_method = STDIN_INPUT ;
     config_p->num_of_cl_arguments = 0 ;
+    
 
     config_p->binary_path = NULL ;
     config_p->timeout = 2; 
@@ -99,6 +101,7 @@ config_copy(test_config_t * config_p)
     
     config.mutation_trial = config_p->mutation_trial; 
     strncpy(config.seed_dir, config_p->seed_dir, PATH_MAX) ;
+    strncpy(config.working_dir, config_p->working_dir, PATH_MAX) ; 
 
     // SOURCE FILE -> Coverage compile 
     config.num_of_source_files = config_p->num_of_source_files ;
@@ -520,14 +523,14 @@ print_each_of_trial_coverage(coverset_t * coverage_sets) {
 }
 
 void 
-print_coveage_result(coverset_t * coverage_sets, int num_of_lines, int num_of_source_lines, int num_of_branch_lines) 
+print_coveage_result(coverset_t * coverage_sets, int num_of_source_lines, int num_of_lines, int num_of_branch_lines) 
 {
 
 #ifdef PRINT_COVERAGE_CASE1
     
     printf("---------------Union Coverage---------------\n");
     
-    for(int i = 0 ; i < num_of_lines ; i++) {
+    for(int i = 0 ; i < num_of_source_lines ; i++) {
         if (coverage_sets->union_coverage_set[i] == '1') {
             printf("%d ", i); 
             coverage_sets->num_of_total_coverage++; 
@@ -537,8 +540,8 @@ print_coveage_result(coverset_t * coverage_sets, int num_of_lines, int num_of_so
         }
     }
 
-    printf("\nThe number of max coverage of specific line : %d / %d\n", coverage_sets->num_of_max_coverage, num_of_source_lines); 
-    printf("The number of total covered lines : %d / %d\n", coverage_sets->num_of_total_coverage, num_of_source_lines); 
+    printf("\nThe number of max coverage of specific line : %d / %d\n", coverage_sets->num_of_max_coverage, num_of_lines); 
+    printf("The number of total covered lines : %d / %d\n", coverage_sets->num_of_total_coverage, num_of_lines); 
     printf("The number of total covered branches : %d / %d\n", coverage_sets->num_of_total_branch_coverage, num_of_branch_lines); 
     printf("--------------------------------------------\n"); 
 #endif 
@@ -604,29 +607,37 @@ fuzzer_main (test_config_t * config_p)
     
     char * c_file[MAX_NUM_SOURCES] = { NULL } ;
     char gcov_file[PATH_MAX]; 
-    int num_of_lines[MAX_NUM_SOURCES] = {0,}; 
     int num_of_source_lines[MAX_NUM_SOURCES] = {0,};
-    int num_of_branch_lines[MAX_NUM_SOURCES] = {0,}; 
+    int num_of_lines[MAX_NUM_SOURCES] = {0,}; // line coverage 
+    int num_of_branch_lines[MAX_NUM_SOURCES] = {0,}; // branch coverage 
+
+    int ret = chdir(config.working_dir);  
+
+    if (ret != 0) { 
+        perror("Failed change working directory\n"); 
+    }
 
     for(int i = 0 ; i < config.num_of_source_files ; i++) {
         if (config.num_of_source_files > 0 && config.source_file[i] != NULL) {
             c_file[i] = remove_slash(config.source_file[i], strlen(config.source_file[i]) - 1); 
-
+ 
             // "#####" of gcov file counts
             if (create_gcov(config.source_file[i]) != 0) {
                 perror("Error: the gcov file does not make!\n"); 
             }
+
             if ( c_file[i] != NULL) {
                 sprintf(gcov_file, "%s.gcov", c_file[i]); 
-                num_of_lines[i] = num_of_total_lines(config.source_file[i]);  
-                num_of_source_lines[i] = num_of_uncovered_lines(gcov_file); 
+                num_of_source_lines[i]= num_of_total_lines(config.source_file[i]);  
+                num_of_lines[i] = num_of_uncovered_lines(gcov_file); 
                 num_of_branch_lines[i] = num_of_uncovered_branch_lines(gcov_file); 
             }
 
-            memset(coverage_sets[i].union_coverage_set, '0', num_of_source_lines[i]);
+            memset(coverage_sets[i].union_coverage_set, '0', num_of_lines[i]);
             memset(coverage_sets[i].union_branch_coverage_set , '0', num_of_branch_lines[i]); 
         }
     }
+
     // Get the number of total source code lines, uncovered lines, and uncovered branch.
     char * input = (char *)malloc(sizeof(char) * (BUFF_SIZE)); 
 
@@ -694,7 +705,7 @@ fuzzer_main (test_config_t * config_p)
             if (config.source_file[i] != NULL) {
                 // print_each_of_trial_coverage(&coverage_sets) 
                 printf("\nSOURCE FILE: %s\n", config.source_file[i]); 
-                print_coveage_result(&coverage_sets[i], num_of_lines[i], num_of_source_lines[i], num_of_branch_lines[i]);
+                print_coveage_result(&coverage_sets[i], num_of_source_lines[i], num_of_lines[i], num_of_branch_lines[i]);
 
                 sprintf(gcov_file, "%s.gcov", c_file[i]); 
                 if( access(gcov_file, F_OK) != -1 ) {
@@ -706,7 +717,6 @@ fuzzer_main (test_config_t * config_p)
             }
         }
     }
-    
 #endif 
     // fuzzer_summary(results) ;
 #ifdef FILE_REMOVE 

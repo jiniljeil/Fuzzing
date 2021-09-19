@@ -24,6 +24,7 @@ typedef struct test_config {
     int is_makefile; 
     int num_of_source_files ;  
     char * source_file[MAX_NUM_SOURCES]; 
+    char working_dir[PATH_MAX]; 
     
     int input_method ;
     int num_of_cl_arguments ;
