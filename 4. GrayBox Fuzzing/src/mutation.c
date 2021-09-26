@@ -60,7 +60,7 @@ int add_seed_file(char * seed_dir, char * seed_input[], int * num_of_seed_files,
         perror("Write error!\n"); 
         return -1;
     }
-
+    if (fd != -1) close(fd); 
     return (++*num_of_seed_files); 
 }
 

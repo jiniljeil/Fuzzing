@@ -591,10 +591,7 @@ fuzzer_main (test_config_t * config_p)
     create_temp_dir(&files_info) ;
     srand(time(0)); 
 
-    for(int i = 0 ; i < config.num_of_source_files ; i++) {
-        printf("%s\n", config.source_file[i]) ;
-    }
-    char * storage[1024]; 
+    char * storage[4096]; 
     int num_of_seed_files = store_seed_files(config.seed_dir, storage); 
 
     for(int i = 0 ; i < config.num_of_source_files ; i++) {
@@ -650,6 +647,9 @@ fuzzer_main (test_config_t * config_p)
     char * input = (char *)malloc(sizeof(char) * (BUFF_SIZE)); 
     seed_t * seed_set = (seed_t *)malloc(sizeof(seed_t) * SEED_MAX) ; 
     
+    for(int i = 0 ; i < num_of_seed_files; i++) { 
+        printf("%s ", seed_set[i].seed_input);
+    }
     if ( load_seed_inputs(seed_set, storage, num_of_seed_files) == -1) { 
         printf("SEED LOAD ERROR!\n"); 
         exit(1); 
@@ -708,6 +708,7 @@ fuzzer_main (test_config_t * config_p)
         }
 
         // When the mutated input is found
+        // TODO 
         if (new_branch == true) {
             if ( add_seed_file(config.seed_dir, storage, &num_of_seed_files, input, input_len) == -1) { 
                 perror("Cannot add the seed input in the directory!\n"); 
@@ -753,5 +754,5 @@ fuzzer_main (test_config_t * config_p)
     energy_set_free(energy_set) ;
     files_info_free(&files_info);  
     config_free(); 
-    free(seed_set);
+    if (seed_set != NULL) free(seed_set);
 }

@@ -18,6 +18,8 @@ int main(void){
     config.trial = 10;
     config.f_min_len = 10; 
     config.f_max_len = 100; 
-
-    fuzzer_main(&config);
+    for(int i = 0 ; i < 1000; i++) {
+        fuzzer_main(&config);
+    }
+    
 }

@@ -64,7 +64,7 @@ create_input_file(files_info_t * files_info, char * input, int input_length, int
         perror("Write error!\n"); 
         return -1;
     }
-    
+    if (input_fd != -1) close(input_fd); 
     return 1; 
 }
 
