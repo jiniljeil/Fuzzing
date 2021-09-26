@@ -7,7 +7,7 @@ int main(void){
 
     char * source_files[1] = {"lib/cgi_decode.c"}; 
     config.num_of_source_files = 1; 
-    
+
     for(int i = 0 ; i < config.num_of_source_files; i++) {
         config.source_file[i] = source_files[i] ;
     }

@@ -282,7 +282,7 @@ int load_seed_inputs(seed_t * seed_set, char * seed_file_storage[] , int num_of_
             seed_set[n].length += s; 
         }
         seed_set[n].seed_input[seed_set[n].length] = 0x0 ;
-
+        
         if (fd != -1) close(fd); 
     }
     return 1; 
@@ -305,5 +305,6 @@ int mutate_input(char * input, seed_t * seed_set, energy_set_t * energy_set, int
             }
         }
     }
+    input[input_length] = 0x0 ;
     return input_length ;
 }

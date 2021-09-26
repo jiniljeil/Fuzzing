@@ -672,10 +672,13 @@ fuzzer_main (test_config_t * config_p)
         if (config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
             for(int j = 1 ; j <= config.num_of_cl_arguments; j++) {
                 memcpy(config.cmd_args[j], input, input_len); 
-                config.cmd_args[input_len] = 0x0 ; 
+            }
+
+            for (int j = 0; j <= config.num_of_cl_arguments; j++) {
+                printf("%s ", config.cmd_args[j]) ;
             }
         }
-        
+
     	int returncode = run(input, input_len, &files_info, i + 1) ; 
         test_oracle_run(&results[i], returncode, i + 1) ; 
 
@@ -691,7 +694,6 @@ fuzzer_main (test_config_t * config_p)
                 }
             }
         }
-        
         // print_result(&files_info, &results[i], i);  
         // 마지막에 free 를 해주는 logic 이 있으므로 마지막은 제외 
 
@@ -724,13 +726,13 @@ fuzzer_main (test_config_t * config_p)
                 printf("\nSOURCE FILE: %s\n", config.source_file[i]); 
                 print_coveage_result(&coverage_sets[i], num_of_source_lines[i], num_of_lines[i], num_of_branch_lines[i]);
 
-                // sprintf(gcov_file, "%s.gcov", c_file[i]); 
-                // if( access(gcov_file, F_OK) != -1 ) {
-                //     if (remove(gcov_file) != 0) { 
-                //         perror("Error: file remove failed!\n"); 
-                //         return ;
-                //     }
-                // }
+                sprintf(gcov_file, "%s.gcov", c_file[i]); 
+                if( access(gcov_file, F_OK) != -1 ) {
+                    if (remove(gcov_file) != 0) { 
+                        perror("Error: file remove failed!\n"); 
+                        return ;
+                    }
+                }
             }
         }
     }

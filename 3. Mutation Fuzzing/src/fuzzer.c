@@ -653,7 +653,7 @@ fuzzer_main (test_config_t * config_p)
         // Copy the input
         if (config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
             for(int j = 1 ; j <= config.num_of_cl_arguments; j++) {
-                strcpy(config.cmd_args[j], input); 
+                memcpy(config.cmd_args[j], input, input_len); 
             }
         }
         
