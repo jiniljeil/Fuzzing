@@ -15,7 +15,7 @@ int main(void){
     strcpy(config.seed_dir,"seed_dir"); 
     config.mutation_trial = 3; 
 
-    config.trial = 10;
+    config.trial = 5000;
     config.f_min_len = 10; 
     config.f_max_len = 100; 
 

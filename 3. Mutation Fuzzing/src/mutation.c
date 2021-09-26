@@ -59,7 +59,8 @@ int add_seed_file(char * seed_dir, char * seed_input[], int * num_of_seed_files,
         perror("Write error!\n"); 
         return -1;
     }
-
+    
+    close(fd); 
     return (++*num_of_seed_files); 
 }
 
@@ -277,11 +278,11 @@ int mutate_input(char * input, char * seed_file_storage[] , int order, int mutat
 
     ssize_t s = 0 ; 
     size_t length = 0 ; 
-    while ((s = read(fd, buf + s, BUFF_SIZE - 1)) > 0) {
+    while ((s = read(fd, buf + s, BUFF_SIZE - s - 1)) > 0) {
         length += s ;
-        buf[length] = 0x0 ; 
     }
-
+    buf[length] = 0x0 ; 
+    
     if (fd != -1) close(fd); 
     
     int input_length = 0 ; 

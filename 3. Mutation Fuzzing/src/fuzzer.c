@@ -173,6 +173,9 @@ config_copy(test_config_t * config_p)
             config.cmd_args = (char **)malloc(sizeof(char *) * (config.num_of_cl_arguments + 2)); 
             config.cmd_args[0] = (char *)malloc(sizeof(char) * (path_length + 1)); 
             strcpy(config.cmd_args[0], config.binary_path); 
+
+            config.cmd_args[1] = (char *)malloc(sizeof(char) * BUFF_SIZE); 
+
             config.cmd_args[config.num_of_cl_arguments + 1] = NULL; 
         
         // STANDARD INPUT
@@ -637,7 +640,6 @@ fuzzer_main (test_config_t * config_p)
             memset(coverage_sets[i].union_branch_coverage_set , '0', num_of_branch_lines[i]); 
         }
     }
-
     // Get the number of total source code lines, uncovered lines, and uncovered branch.
     char * input = (char *)malloc(sizeof(char) * (BUFF_SIZE)); 
 
@@ -651,11 +653,6 @@ fuzzer_main (test_config_t * config_p)
         // Copy the input
         if (config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
             for(int j = 1 ; j <= config.num_of_cl_arguments; j++) {
-                if (config.cmd_args[j] != NULL) {
-                    config.cmd_args[j] = (char *)realloc(config.cmd_args[j], sizeof(char) * (input_len + 1));
-                }else {
-                    config.cmd_args[j] = (char *)malloc(sizeof(char) * (input_len + 1)) ;
-                }
                 strcpy(config.cmd_args[j], input); 
             }
         }
@@ -698,7 +695,6 @@ fuzzer_main (test_config_t * config_p)
         }
     }
     free(input) ;
-
 #ifdef PRINT_COVERAGE
     if (config.num_of_source_files > 0) { 
         for(int i = 0 ; i < config.num_of_source_files; i++) {

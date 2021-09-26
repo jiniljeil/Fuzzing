@@ -22,6 +22,6 @@ int main(void){
     config.f_min_len = 10; 
     config.f_max_len = 10; 
 
-    config.trial = 10; 
+    config.trial = 1000; 
     fuzzer_main(&config);
 }
