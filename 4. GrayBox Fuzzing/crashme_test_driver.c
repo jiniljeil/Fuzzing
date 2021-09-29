@@ -18,6 +18,6 @@ int main(void){
     config.binary_path = "lib/crashme"; 
     config.mutation_trial = 3; 
 
-    config.trial = 10; 
+    config.trial = 1000; 
     fuzzer_main(&config);
 }

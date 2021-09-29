@@ -172,9 +172,11 @@ config_copy(test_config_t * config_p)
             config.cmd_args = (char **)malloc(sizeof(char *) * (config.num_of_cl_arguments + 2)); 
             config.cmd_args[0] = (char *)malloc(sizeof(char) * (path_length + 1)); 
             strcpy(config.cmd_args[0], config.binary_path); 
-
-            config.cmd_args[1] = (char *)malloc(sizeof(char) * BUFF_SIZE); 
-
+            
+            for (int i = 1 ; i <= config.num_of_cl_arguments; i++) {
+                config.cmd_args[i] = (char *)malloc(sizeof(char) * BUFF_SIZE); 
+            }
+            
             config.cmd_args[config.num_of_cl_arguments + 1] = NULL; 
         // STANDARD INPUT
         }else{
@@ -647,9 +649,6 @@ fuzzer_main (test_config_t * config_p)
     char * input = (char *)malloc(sizeof(char) * (BUFF_SIZE)); 
     seed_t * seed_set = (seed_t *)malloc(sizeof(seed_t) * SEED_MAX) ; 
     
-    for(int i = 0 ; i < num_of_seed_files; i++) { 
-        printf("%s ", seed_set[i].seed_input);
-    }
     if ( load_seed_inputs(seed_set, storage, num_of_seed_files) == -1) { 
         printf("SEED LOAD ERROR!\n"); 
         exit(1); 
@@ -672,10 +671,6 @@ fuzzer_main (test_config_t * config_p)
         if (config.input_method == CL_ARGUMENTS && config.num_of_cl_arguments > 0) {
             for(int j = 1 ; j <= config.num_of_cl_arguments; j++) {
                 memcpy(config.cmd_args[j], input, input_len); 
-            }
-
-            for (int j = 0; j <= config.num_of_cl_arguments; j++) {
-                printf("%s ", config.cmd_args[j]) ;
             }
         }
 
@@ -708,7 +703,6 @@ fuzzer_main (test_config_t * config_p)
         }
 
         // When the mutated input is found
-        // TODO 
         if (new_branch == true) {
             if ( add_seed_file(config.seed_dir, storage, &num_of_seed_files, input, input_len) == -1) { 
                 perror("Cannot add the seed input in the directory!\n"); 
@@ -739,7 +733,7 @@ fuzzer_main (test_config_t * config_p)
     }
 #endif 
 
-    // fuzzer_summary(results) ;
+    fuzzer_summary(results) ;
 #ifdef FILE_REMOVE 
     // remove the output and error files
     remove_files_and_dir(&files_info); 
