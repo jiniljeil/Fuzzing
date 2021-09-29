@@ -49,6 +49,7 @@ config_init(test_config_t * config_p)
     config_p->num_of_source_files = 0 ;
     for(int i = 0 ; i < MAX_NUM_SOURCES ; i++) config_p->source_file[i] = NULL;
     strcpy(config_p->working_dir, "./") ; 
+    config_p->seed_dir[0] = '\0'; 
 
     config_p->input_method = STDIN_INPUT ;
     config_p->num_of_cl_arguments = 0 ;
@@ -99,9 +100,16 @@ config_copy(test_config_t * config_p)
     config.f_char_range = config_p->f_char_range ;
     
     config.mutation_trial = config_p->mutation_trial; 
-    strncpy(config.seed_dir, config_p->seed_dir, PATH_MAX) ;
-    strncpy(config.working_dir, config_p->working_dir, PATH_MAX) ; 
 
+    if ( strlen(config_p->seed_dir) == 0 ) { 
+        config.input_generator = RANDOM ; 
+    } else {
+        strncpy(config.seed_dir, config_p->seed_dir, PATH_MAX) ;
+        config.input_generator = MUTATION ; 
+    }
+    
+    strncpy(config.working_dir, config_p->working_dir, PATH_MAX) ; 
+    
     // SOURCE FILE -> Coverage compile 
     config.num_of_source_files = config_p->num_of_source_files ;
     
@@ -222,12 +230,7 @@ fuzzer_init (test_config_t * config_p)
         fprintf(stderr, "Fuzzer init: Please set the number of mutation trial more than 0.!\n"); 
         exit(1); 
     }
-
-    if (strlen(config.seed_dir) == 0) { 
-        fprintf(stderr, "Fuzzer init : Please enter the seed directory name!\n"); 
-        exit(1); 
-    }
-
+    
     if (config.input_method != STDIN_INPUT && config.input_method != CL_ARGUMENTS) {
         fprintf(stderr, "Fuzzer init: it has the input methods are STDIN_INPUT and CL_ARGUMENTS.\n"); 
         exit(1); 
@@ -290,6 +293,17 @@ fuzzer_init (test_config_t * config_p)
         perror("Fuzzer init: entered the path is incorrect!\n"); 
         exit(1); 
     }
+}
+
+int create_input(char * input) { 
+    int length = rand() % (config.f_max_len - config.f_min_len + 1) + config.f_min_len ;
+    
+    for (int i = 0; i < length; i++) {
+        input[i] = rand() % (config.f_char_range + 1) + config.f_char_start ;
+    }
+    input[length] = 0x0 ;
+
+    return length ;
 }
 
 /*
@@ -521,7 +535,8 @@ get_error(char * error, int len, int trial)
 }
 
 void
-print_each_of_trial_coverage(coverset_t * coverage_sets) {
+print_each_of_trial_coverage(coverset_t * coverage_sets) 
+{
     printf("---------------Covearge Dataset---------------\n"); 
     for(int i = 0; i < config.trial ; i++) {
         printf("Trial[%d] (%d): ", i + 1, coverage_sets->coverage_set[i]); 
@@ -550,10 +565,11 @@ print_coveage_result(coverset_t * coverage_sets, int num_of_source_lines, int nu
         }
     }
 
-    printf("\nThe number of max coverage of specific line : %d / %d\n", coverage_sets->num_of_max_coverage, num_of_lines); 
-    printf("The number of total covered lines : %d / %d\n", coverage_sets->num_of_total_coverage, num_of_lines); 
-    printf("The number of total covered branches : %d / %d\n", coverage_sets->num_of_total_branch_coverage, num_of_branch_lines); 
+    printf("\nThe number of max coverage of specific line : %d / %d (%.2f %%)\n", coverage_sets->num_of_max_coverage, num_of_lines, (float)coverage_sets->num_of_max_coverage * 100/ num_of_lines); 
+    printf("The number of total covered lines : %d / %d (%.2f %%)\n", coverage_sets->num_of_total_coverage, num_of_lines, (float)coverage_sets->num_of_total_coverage * 100 / num_of_lines); 
+    printf("The number of total covered branches : %d / %d (%.2f %%)\n", coverage_sets->num_of_total_branch_coverage, num_of_branch_lines, (float)coverage_sets->num_of_total_branch_coverage * 100 / num_of_branch_lines); 
     printf("--------------------------------------------\n"); 
+
 #endif 
 
 #ifdef PRINT_COVERAGE_CASE2
@@ -577,6 +593,71 @@ print_coveage_result(coverset_t * coverage_sets, int num_of_source_lines, int nu
 #endif
 }
 
+void 
+fuzzer_summary(result_t * results) 
+{ 
+    double total_execute_time = 0.0f; 
+    int num_of_pass = config.trial, num_of_fail = 0, num_of_unresolved = 0 ; 
+    
+    for (int i = 0 ; i < config.trial ;i++) {
+        total_execute_time += results[i].exec_time ; 
+        if ( !strcmp(results[i].test_result, "FAILED") ) {
+            num_of_fail++; 
+        } else if ( !strcmp(results[i].test_result, "UNRESOLVED")) {
+            num_of_unresolved++; 
+        }
+    }
+    num_of_pass = config.trial - num_of_fail - num_of_unresolved ; 
+    printf("--------------Test Result--------------\n"); 
+    printf("Trial: %10d \n", config.trial); 
+    printf("Execute Time: %.6f \n", total_execute_time); 
+    printf("PASS: %11d (%6.2f %%)\n", num_of_pass, (double) num_of_pass * 100 / config.trial); 
+    printf("FAILED: %9d (%6.2f %%)\n", num_of_fail, (double) num_of_fail * 100 / config.trial) ; 
+    printf("UNSOLVED: %7d (%6.2f %%)\n", num_of_unresolved, (double) num_of_unresolved * 100 / config.trial) ;
+    printf("---------------------------------------\n");
+}
+
+void 
+write_data_in_csv(coverset_t * coverset, int * num_of_source_lines, int num_of_source_files, int trial) 
+{ 
+    int fd = open("TestResult.csv", O_CREAT | O_WRONLY | O_APPEND, 0644) ;  
+
+    if ( fd == -1 ) { 
+        fprintf(stderr, "Error: cannot write the data on the TestResult file!\n"); 
+        return ;
+    }
+
+    unsigned int num_of_coverages = 0 ; 
+
+    for (int i = 0 ; i < num_of_source_files ; i++) {
+        if ( config.source_file[i] != NULL) {
+            for (int j = 0 ; j < num_of_source_lines[i] ; j++) {
+                if ( coverset->union_coverage_set[j] == '1')  {
+                    num_of_coverages++; 
+                }
+            }
+        }
+    }
+    
+    char * buf = "Trial, LineCoverage\n"; 
+    char result[32] ; 
+    sprintf(result, "%d, %d\n", trial + 1, num_of_coverages); 
+    if (trial == 0) { 
+        write(fd, buf, strlen(buf)); 
+    }  
+    write(fd, result, strlen(result)); 
+    
+    close(fd); 
+}
+
+void remove_test_result() {
+    if( access("TestResult.csv", _DELETE_OK) != -1 ) {
+        if (remove("TestResult.csv") != 0) { 
+            perror("Error: file remove failed!\n"); 
+            return ;
+        }
+    }
+}   
 
 void 
 fuzzer_main (test_config_t * config_p)
@@ -591,6 +672,7 @@ fuzzer_main (test_config_t * config_p)
 
     fuzzer_init(config_p) ; 
     create_temp_dir(&files_info) ;
+    remove_test_result(); 
     srand(time(0)); 
 
     char * storage[4096]; 
@@ -647,6 +729,7 @@ fuzzer_main (test_config_t * config_p)
     
     // Get the number of total source code lines, uncovered lines, and uncovered branch.
     char * input = (char *)malloc(sizeof(char) * (BUFF_SIZE)); 
+    int input_len = 0 ; 
     seed_t * seed_set = (seed_t *)malloc(sizeof(seed_t) * SEED_MAX) ; 
     
     if ( load_seed_inputs(seed_set, storage, num_of_seed_files) == -1) { 
@@ -659,12 +742,17 @@ fuzzer_main (test_config_t * config_p)
     energy_set->seed_energy_set = (int *)malloc(sizeof(int) * SEED_MAX); 
     energy_set->normal_energy_set = (double *)malloc(sizeof(double) * SEED_MAX); 
     energy_set->num_of_seeds = num_of_seed_files ; 
-
+    
     for (int i = 0; i < config.trial; i++) {
         new_branch = false; 
         start = clock(); 
         
-        int input_len = mutate_input(input, seed_set, energy_set, config.mutation_trial); 
+        if ( config.input_generator == RANDOM ) {
+            input_len = create_input(input) ; 
+        } else if ( config.input_generator == MUTATION ) {
+            input_len = mutate_input(input, seed_set, energy_set, config.mutation_trial); 
+        }
+
         create_input_file(&files_info, input, input_len, i + 1);
 
         // Copy the input
@@ -686,11 +774,11 @@ fuzzer_main (test_config_t * config_p)
                     sprintf(gcov_file, "%s.gcov", c_file[n]); 
                     int cov_num_of_lines = read_gcov_coverage(gcov_file, &coverage_sets[n], i, &new_branch) ;     
                     coverage_sets[n].num_of_max_coverage = (coverage_sets[n].num_of_max_coverage < cov_num_of_lines) ? cov_num_of_lines : coverage_sets[n].num_of_max_coverage ;
+
+                    write_data_in_csv(coverage_sets, num_of_source_lines, config.num_of_source_files, i) ; 
                 }
             }
         }
-        // print_result(&files_info, &results[i], i);  
-        // 마지막에 free 를 해주는 logic 이 있으므로 마지막은 제외 
 
         end = clock(); 
 

@@ -1,4 +1,5 @@
-#ifndef MUTATION 
+#ifndef MUTATION_F 
+#define MUTATION_F
 #include <stdlib.h>
 #include "schedule.h"
 #define INTERESTING_8 \

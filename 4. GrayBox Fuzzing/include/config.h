@@ -9,10 +9,12 @@
 #define STDIN_INPUT 0 
 #define CL_ARGUMENTS 1
 #define MAX_NUM_SOURCES 32
-
+#define RANDOM 0
+#define MUTATION 1
 typedef struct test_config {
     int trial ;
-
+    int input_generator ;
+    
     int f_min_len ;
     int f_max_len ;
     int f_char_start ; 

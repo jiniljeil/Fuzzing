@@ -269,7 +269,7 @@ int load_seed_inputs(seed_t * seed_set, char * seed_file_storage[] , int num_of_
     int fd = -1; 
     
     for (int n = 0 ; n < num_of_seeds ; n++) {
-        if (access(seed_file_storage[n], R_OK) != -1 ) {
+        if (access(seed_file_storage[n], F_OK) != -1 ) {
             fd = open(seed_file_storage[n], O_RDONLY);
         }else{
             fprintf(stderr, "file does not exist!\n"); 
