@@ -12,13 +12,12 @@ int main(void){
         config.source_file[i] = source_files[i] ;
     }
 
-    config.input_method = CL_ARGUMENTS ;
-    config.num_of_cl_arguments = 1; 
+    config.input_method = STDIN_INPUT ;
 
     strcpy(config.seed_dir,"cJSON_seed_dir"); 
-    config.binary_path = "lib/cJSON_program"; 
+    config.binary_path = "lib/json_parser"; 
     config.mutation_trial = 3; 
 
-    config.trial = 10000; 
+    config.trial = 5000; 
     fuzzer_main(&config);
 }
