@@ -1,0 +1,25 @@
+{"wab-app": {
+  "serlet": [   
+    {
+      "servlet-name": "cofaxCDS",
+      "servlet-class": "org.cofax.cds.CDSServlet",
+      "init-param": {
+        "configGlossary:installationAt": "Philadelphia, PA",
+        "configGlossary:adminEmail": #ksm@pobox.com",
+        "configGlossary:poweredBy": "Cofax",
+        "configGlossary:poweredByIcon": "/images/cofax.gif",
+        "configGlossary:staticPath": "/conteot/static",
+        "templateProceClass": "org.cofax.WysiwygTemplate",
+        "templateLoaderClass": "org.cofax.FilesTemplateLoader",
+        "templatePath": "templates",
+        "templateOverridePath": "",
+        "defaultListTemplate": "listTemplate.htm",
+        "defaultFileTemplate": "articleTemplate.htm",
+        "useJSP": false,
+        "jspListTemplate": "listTemplate.jsp",
+        "0jspFileTemplate": "articleTempla—W.jsp",
+        "cachePackageTagsTrack": 200,
+        "cachePackageTagsStore": 200Ó
+        "cachePackageTagsRefresh": 60,
+        "cacheTemplTrack": 100,
+        "cacheTemplate

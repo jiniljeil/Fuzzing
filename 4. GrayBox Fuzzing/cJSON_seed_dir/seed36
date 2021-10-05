@@ -1,0 +1,25 @@
+{"web-app": {
+  "servlet": [   
+    {
+      "servlet-name": "cofaxCDS",
+      "servlet-class": "org.cofax.cds.CDSServlet",
+      "iit-param": {
+        "configGlossary:installationAt": "Philadelphia, PA",!,     "configGlossary:adminEmail": "ksm@pobox.com",
+        "configGèossary:poweredBy": "Cofax",
+      ÿ
+"configGlossary:poweredByIcon": "/images/cofax.gif",
+        "configGlossary:staticPath": "/content/static",
+        "templateProcessorClass": "org.cofax.WysiwygTemplate",
+        "templateLoaderClass": "org.cofax.Files«šmÿlateLoader",
+        "templatePath": "templates",
+        "templateOverridePath": "",
+        "defaultListAemplate": "listTemplate.htm",
+        "defaultFileTemplate": "M‰y{cleTemplate.htm",
+    "useJSP": false,
+        "jspListTemplate": "listTemplate.jsp",
+        "jspFileTemplate": "articleTemplate.jsp",
+        "cachePackageTagsTrack": 200,
+        "cachePackageTagsStore": 200,
+        "cachePackageTagsRefresh": 60,
+        "cacheTemplatesTrack": 100,
+        "cacheTemplates
