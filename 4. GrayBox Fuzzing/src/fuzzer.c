@@ -618,7 +618,7 @@ fuzzer_summary(result_t * results)
 }
 
 void 
-write_data_in_csv(coverset_t * coverset, int * num_of_source_lines, int num_of_source_files, int trial) 
+write_data_in_csv(coverset_t * coverset, int num_of_source_lines) 
 { 
     int fd = open("TestResult.csv", O_CREAT | O_WRONLY | O_APPEND, 0644) ;  
 
@@ -627,31 +627,23 @@ write_data_in_csv(coverset_t * coverset, int * num_of_source_lines, int num_of_s
         return ;
     }
 
-    unsigned int num_of_coverages = 0 ; 
+    unsigned int num_of_branch_coverages = 0 ; 
 
-    for (int i = 0 ; i < num_of_source_files ; i++) {
-        if ( config.source_file[i] != NULL) {
-            for (int j = 0 ; j < num_of_source_lines[i] ; j++) {
-                if ( coverset->union_coverage_set[j] == '1')  {
-                    num_of_coverages++; 
-                }
-            }
+    for (int i = 0 ; i < num_of_source_lines ; i++) {
+        if ( coverset->union_branch_coverage_set[i] == '1')  {
+            num_of_branch_coverages++; 
         }
     }
     
-    char * buf = "Trial, LineCoverage\n"; 
     char result[32] ; 
-    sprintf(result, "%d, %d\n", trial + 1, num_of_coverages); 
-    if (trial == 0) { 
-        write(fd, buf, strlen(buf)); 
-    }  
+    sprintf(result, "%d,", num_of_branch_coverages); 
     write(fd, result, strlen(result)); 
     
     close(fd); 
 }
 
 void remove_test_result() {
-    if( access("TestResult.csv", _DELETE_OK) != -1 ) {
+    if( access("TestResult.csv", F_OK) != -1 ) {
         if (remove("TestResult.csv") != 0) { 
             perror("Error: file remove failed!\n"); 
             return ;
@@ -775,7 +767,7 @@ fuzzer_main (test_config_t * config_p)
                     int cov_num_of_lines = read_gcov_coverage(gcov_file, &coverage_sets[n], i, &new_branch) ;     
                     coverage_sets[n].num_of_max_coverage = (coverage_sets[n].num_of_max_coverage < cov_num_of_lines) ? cov_num_of_lines : coverage_sets[n].num_of_max_coverage ;
 
-                    write_data_in_csv(coverage_sets, num_of_source_lines, config.num_of_source_files, i) ; 
+                    write_data_in_csv(coverage_sets, num_of_source_lines[n]) ; 
                 }
             }
         }

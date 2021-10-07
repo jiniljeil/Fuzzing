@@ -12,9 +12,9 @@ int main(void){
         config.source_file[i] = source_files[i] ;
     }
 
-    config.input_method = STDIN_INPUT ;
+    config.input_method = STDIN_INPUT ; 
 
-    strcpy(config.seed_dir,"cJSON_seed_dir"); 
+    strcpy(config.seed_dir,"seed_cjson"); 
     config.binary_path = "lib/json_parser"; 
     config.mutation_trial = 3; 
 
