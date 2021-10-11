@@ -664,7 +664,7 @@ fuzzer_main (test_config_t * config_p)
 
     fuzzer_init(config_p) ; 
     create_temp_dir(&files_info) ;
-    remove_test_result(); 
+    // remove_test_result(); 
     srand(time(0)); 
 
     char * storage[4096]; 
@@ -738,11 +738,17 @@ fuzzer_main (test_config_t * config_p)
     for (int i = 0; i < config.trial; i++) {
         new_branch = false; 
         start = clock(); 
-        
-        if ( config.input_generator == RANDOM ) {
+
+        if ( i > num_of_seed_files ) {
+            if ( config.input_generator == RANDOM ) {
             input_len = create_input(input) ; 
-        } else if ( config.input_generator == MUTATION ) {
-            input_len = mutate_input(input, seed_set, energy_set, config.mutation_trial); 
+            } else if ( config.input_generator == MUTATION ) {
+                input_len = mutate_input(input, seed_set, energy_set, config.mutation_trial); 
+            }
+        }else { 
+            input_len = strlen(storage[i]); 
+            strncpy(input, storage[i], input_len); 
+            input[input_len] = 0x0 ;
         }
 
         create_input_file(&files_info, input, input_len, i + 1);
@@ -814,6 +820,14 @@ fuzzer_main (test_config_t * config_p)
 #endif 
 
     fuzzer_summary(results) ;
+
+    int fd = open("TestResult.csv", O_CREAT | O_WRONLY | O_APPEND, 0644) ;  
+
+    if ( fd == -1 ) { 
+        fprintf(stderr, "Error: cannot write the data on the TestResult file!\n"); 
+        return ;
+    }
+    write(fd, "\n", 1); 
 #ifdef FILE_REMOVE 
     // remove the output and error files
     remove_files_and_dir(&files_info); 
@@ -822,7 +836,7 @@ fuzzer_main (test_config_t * config_p)
         if (c_file[i] != NULL) free(c_file[i]); 
         if (coverage_sets[i].coverage_set != NULL) free(coverage_sets[i].coverage_set);
     }
-   
+    
     if (results != NULL) free(results);
     for(int i = 0 ; i < num_of_seed_files ; i++) free(storage[i]);  
     energy_set_free(energy_set) ;
