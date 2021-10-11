@@ -18,6 +18,6 @@ int main(void){
     config.binary_path = "lib/json_parser"; 
     config.mutation_trial = 1; 
 
-    config.trial = 5000; 
+    config.trial = 100; 
     fuzzer_main(&config);
 }
