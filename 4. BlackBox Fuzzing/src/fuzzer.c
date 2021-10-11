@@ -739,7 +739,7 @@ fuzzer_main (test_config_t * config_p)
         new_branch = false; 
         start = clock(); 
 
-        if ( i > num_of_seed_files ) {
+        if ( i >= num_of_seed_files ) {
             if ( config.input_generator == RANDOM ) {
             input_len = create_input(input) ; 
             } else if ( config.input_generator == MUTATION ) {
