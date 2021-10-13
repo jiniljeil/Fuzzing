@@ -746,9 +746,9 @@ fuzzer_main (test_config_t * config_p)
                 input_len = mutate_input(input, seed_set, energy_set, config.mutation_trial); 
             }
         }else { 
-            input_len = strlen(storage[i]); 
-            strncpy(input, storage[i], input_len); 
-            input[input_len] = 0x0 ;
+            strncpy(input, seed_set[i].seed_input, seed_set[i].length); 
+            input[seed_set[i].length] = 0x0 ;
+            input_len = seed_set[i].length ; 
         }
 
         create_input_file(&files_info, input, input_len, i + 1);
