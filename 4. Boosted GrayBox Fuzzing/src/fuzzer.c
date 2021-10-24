@@ -636,7 +636,7 @@ write_data_in_csv(coverset_t * coverset, int num_of_source_lines)
     }
     
     char result[32] ; 
-    sprintf(result, "%d,", num_of_branch_coverages); 
+    sprintf(result, "%d\n", num_of_branch_coverages); 
     write(fd, result, strlen(result)); 
     
     close(fd); 
