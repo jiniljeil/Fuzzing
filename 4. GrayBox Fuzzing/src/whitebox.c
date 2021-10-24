@@ -121,7 +121,7 @@ int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial, i
     // int prog_length = strlen(program); 
 
     char * token; 
-
+    char * branch_token; 
     FILE * fp = fopen(gcov_filename, "rb"); 
 
     if ( fp == NULL ) {
@@ -138,11 +138,17 @@ int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial, i
             if((s = getline(&buf, &size, fp)) > 0) {
                 // buf[s] = 0x0 ; 
                 if (!strncmp("branch", buf, 6)) {
-                    if (strstr(buf, "take") != NULL) {
-                        num_of_branch_cover++; // undo 
-                        if (coverset->union_branch_coverage_set[line_number] != '1') {
-                            if ( *new_branch == 0 ) *new_branch = 1; 
-                            coverset->union_branch_coverage_set[line_number] = '1'; 
+                    if (strstr(buf, "taken") != NULL) {
+                        branch_token = strtok(buf, " "); 
+                        for (int k = 0 ; k < 3; k++) branch_token = strtok(NULL, " ");
+                        int branch_num = 0 ; 
+                        if (branch_token != NULL) branch_num = atoi(branch_token); 
+
+                        if ( branch_num > 0 ) {
+                            num_of_branch_cover++; 
+                            if (coverset->union_branch_coverage_set[line_number] != '1') {
+                                coverset->union_branch_coverage_set[line_number] = '1'; 
+                            }
                         }
                     }
                     line_number++;
