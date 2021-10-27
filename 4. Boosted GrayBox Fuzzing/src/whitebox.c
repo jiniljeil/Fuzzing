@@ -129,8 +129,8 @@ int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial, u
     int num_of_lines = 0; 
     int ext_point = 0; 
     // int prog_length = strlen(program); 
-    char tmp_line_coverage_set[10000] ; 
-    memset(tmp_line_coverage_set, '0', sizeof(tmp_line_coverage_set)); 
+    char tmp_branch_coverage_set[10000] ; 
+    memset(tmp_branch_coverage_set, '0', sizeof(tmp_branch_coverage_set)); 
     
     char * token; 
     char * branch_token; 
@@ -143,8 +143,7 @@ int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial, u
         char * buf = NULL; 
         ssize_t s ; 
         size_t size = 0; 
-        int line_number = 1 ; 
-        int num_of_branch_cover = 0 ; 
+        int num_of_branch_cover = 1 ; 
 
         while(!feof(fp)){
             if((s = getline(&buf, &size, fp)) > 0) {
@@ -157,13 +156,13 @@ int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial, u
                         if (branch_token != NULL) branch_num = atoi(branch_token); 
 
                         if ( branch_num > 0 ) {
-                            num_of_branch_cover++; 
-                            if (coverset->union_branch_coverage_set[line_number] != '1') {
-                                coverset->union_branch_coverage_set[line_number] = '1'; 
+                            tmp_branch_coverage_set[num_of_branch_cover] = '1'; 
+                            if (coverset->union_branch_coverage_set[num_of_branch_cover] != '1') {
+                                coverset->union_branch_coverage_set[num_of_branch_cover] = '1'; 
                             }
                         }
                     }
-                    line_number++;
+                    num_of_branch_cover++;
                 }else{
                     token = strtok(buf, ":") ;
                     
@@ -174,7 +173,7 @@ int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial, u
                         int executed_statment;
                         if (token != NULL) executed_statment = atoi(token); 
                         // coverage
-                        tmp_line_coverage_set[executed_statment] = '1'; 
+                        
                         if (coverset->union_coverage_set[executed_statment] != '1'){
                             coverset->union_coverage_set[executed_statment] = '1'; 
                         }
@@ -186,7 +185,7 @@ int read_gcov_coverage(char * gcov_filename, coverset_t * coverset, int trial, u
         free(buf) ;
         fclose(fp); 
         
-        *path_id = sdbm_hashing(tmp_line_coverage_set);  
+        *path_id = sdbm_hashing(tmp_branch_coverage_set);  
     }
     // coverage
     
