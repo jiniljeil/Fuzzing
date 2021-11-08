@@ -8,6 +8,8 @@ typedef struct coverset {
     int num_of_total_branch_coverage; 
     char union_coverage_set[10000] ;
     char union_branch_coverage_set[10000]; 
+
+    char hash_table[65537] ; 
 } coverset_t; 
 
 unsigned short sdbm_hashing(char *str); 
