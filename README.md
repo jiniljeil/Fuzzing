@@ -2,7 +2,7 @@
 > Tools and Techniques for Generating Software Tests
 
 ## Fuzzer Architecture 
-<img src="./images/Fuzzer\ Architecture.png" alt="Fuzzer\ Architecture">
+<img src="./images/Fuzzer Architecture.png" alt="Fuzzer\ Architecture">
 
 ### Link 
 > ### <a href="https://www.fuzzingbook.org/html/Tours.html">Tours through the Book</a>
