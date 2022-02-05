@@ -4,7 +4,7 @@
 ## Fuzzer Architecture 
 <img src="./images/Fuzzer Architecture.png" alt="Fuzzer\ Architecture">
 
-### Workflow (Boosted GrayBox Fuzzing)
+## Workflow (Boosted GrayBox Fuzzing)
 1. Configuration by user 
     - target program path 
     - trial, test oracle, mutation
