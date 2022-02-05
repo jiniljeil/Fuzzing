@@ -111,12 +111,13 @@ config_copy(test_config_t * config_p)
     if ( config.num_of_source_files > 0){  
         for(int i = 0 ; i < config.num_of_source_files ; i++) {
             if (config_p->source_file[i] != NULL) {
-                    config.source_file[i] = (char *)malloc(sizeof(char) * PATH_MAX) ; 
+                config.source_file[i] = (char *)malloc(sizeof(char) * PATH_MAX) ; 
                 // realpath 
+                
                 if ( realpath(config_p->source_file[i], config.source_file[i]) == 0x0 ) {
                     perror("Error: realpath returns NULL!\n") ; 
                     exit(1); 
-                }   
+                }  
                 source_file_length[i] = strlen(config.source_file[i]); 
             }
         }
