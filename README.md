@@ -17,6 +17,8 @@
     - byte_simple_arithmatic
     - known_integer
 4. Normalize seed choice proportion & Choose the seed probabilistically
+    - seed choice proportion is decided by whether the seed increases branch coverage or not.
+    - In the other words, the case is when the seed finds a new path. 
 4. Execute target program & gcov
 5. Get the execution result as pipe and conduct a test oracle & Read the gcov file to get coverage information
 6. Repitition 3~5 steps
