@@ -20,7 +20,9 @@
     - seed choice proportion is decided by whether the seed increases branch coverage or not.
     - In the other words, the case is when the seed finds a new path. 
 4. Execute target program & gcov
+    - After executing the target program, give selected seed as input.  
 5. Get the execution result as pipe and conduct a test oracle & Read the gcov file to get coverage information
+    - As the coverage increases, add the seed that was given as input. 
 6. Repitition 3~5 steps
 7. Summary
 
