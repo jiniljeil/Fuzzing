@@ -67,7 +67,7 @@ You can check the code coverage which includes line coverage, branch coverage, e
 
 Thus, we can know whether the program has the bugs or not through fuzzing framework and get the seed which occurs the bug in the directory named seed_dir, and stacked the result on the TestResult.csv file.
 
-<img src="./images/test_result.png" alt="Test Result">
+<img src="./images/test_result.png" width="400px" alt="Test Result">
 
 
 
