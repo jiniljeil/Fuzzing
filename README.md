@@ -26,6 +26,51 @@
 6. Repitition 3~5 steps
 7. Summary
 
+### Test 
+
+#### 1. Example Code
+```c
+#include "fuzzer.h"
+#include <string.h>
+
+int main(void){
+    test_config_t config ; 
+    config_init(&config) ;
+
+    // char * source_file = "lib/cgi_decode.c"; 
+    char * source_files[1] = {"../lib/crashme.c"}; 
+    config.num_of_source_files = 1; 
+    for(int i = 0 ; i < config.num_of_source_files; i++) {
+        config.source_file[i] = source_files[i] ;
+    }
+
+    config.input_method = STDIN_INPUT ;
+
+    strcpy(config.seed_dir,"../seed_dir/crashme_seed_dir"); 
+    config.binary_path = "../lib/crashme"; 
+    config.mutation_trial = 3; 
+
+    config.trial = 1000; 
+    fuzzer_main(&config);
+}
+```
+
+#### 2. Execution 
+```bash
+$ cd 6. Boosted GrayBox Fuzzing/test 
+$ make 
+$ ./crashme_test_driver
+```
+#### 3. Result
+
+You can check the code coverage which includes line coverage, branch coverage, etc. In addition, it shows if the test case is passed or not. 
+
+The number of failed or unsolved the result equals to the number of bugs in the program.
+
+Thus, we can know whether the program has the bugs or not through fuzzing framework.
+
+<img src="./images/test_result.png" alt="Test Result">
+
 ### Link 
 > ### <a href="https://www.fuzzingbook.org/html/Tours.html">Tours through the Book</a>
 
