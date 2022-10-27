@@ -11,3 +11,6 @@ my_sqrt_test
 information_leaks
 bugs_fuzzers_find
 invoking_external_programs
+sedd_dir/
+*.swp
+*.csv
