@@ -63,13 +63,14 @@ $ ./crashme_test_driver
 ```
 #### 3. Result
 
-You can check the code coverage which includes line coverage, branch coverage, etc. In addition, it shows if the test case is passed or not. 
+You can check the code coverage which includes line coverage, branch coverage, etc. In addition, it shows if the test case is passed or not. The number of failed or unsolved the result equals to the number of bugs in the program.
 
-The number of failed or unsolved the result equals to the number of bugs in the program.
-
-Thus, we can know whether the program has the bugs or not through fuzzing framework.
+Thus, we can know whether the program has the bugs or not through fuzzing framework and get the seed which occurs the bug in the directory named seed_dir, and stacked the result on the TestResult.csv file.
 
 <img src="./images/test_result.png" alt="Test Result">
+
+
+
 
 ### Link 
 > ### <a href="https://www.fuzzingbook.org/html/Tours.html">Tours through the Book</a>
